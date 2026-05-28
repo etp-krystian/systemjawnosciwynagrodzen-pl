@@ -19,7 +19,7 @@
 {% set isServices = page.url and page.url.indexOf("/services/") == 0 %}
 {% set isBlog = false %}
 {% set isBlogIndex = false %}
-{% set isLegal = page.url == "/privacy-policy/" or page.url == "/cookie-policy/" or page.url == "/pl/polityka-prywatnosci/" or page.url == "/pl/polityka-cookies/" %}
+{% set isLegal = page.url == "/privacy-policy/" or page.url == "/cookie-policy/" or page.url == "/pl/polityka-prywatnosci/" or page.url == "/pl/polityka-cookies/" or page.url == "/polityka-prywatnosci/" %}
 {% set isStart = page.url == "/start-with-ai/" or page.url == "/implementation-process/" or page.url == "/business-ai-faq/" %}
 {% set isContact = page.url == "/contact-us/" or page.url == "/pl/kontakt/" %}
 {% set isWhyUs = page.url == "/why-us/" %}
@@ -35,8 +35,8 @@
 {% set breadcrumbHomeUrl = homeUrl %}
 {% set breadcrumbHomeLabel = homeLabel %}
 {% set languageSwitchUrl = '' %}
-{% set loginUrl = '/login' %}
-{% set signupUrl = '/register' %}
+{% set loginUrl = 'https://konto.systemjawnosciwynagrodzen.pl/login' %}
+{% set signupUrl = 'https://konto.systemjawnosciwynagrodzen.pl/register' %}
 <html lang="{{ pageLocale }}">
   <head>
     <meta charset="utf-8" />
@@ -101,10 +101,7 @@
       {% endif %}
     {% endif %}
     <meta name="twitter:card" content="{% if effectiveImage %}summary_large_image{% else %}summary{% endif %}" />
-    <link rel="icon" type="image/png" href="/images/favicon.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
     {% if site and site.url and site.url.length %}
     <script type="application/ld+json">
     {
@@ -252,16 +249,16 @@
         --app-stage-bg-rgb: 248, 250, 252;
         --cc-border: #E5E7EB;
         --brand-navy: #00296b;
-        --brand-blue-deep: #003f88;
-        --brand-blue: #00509d;
+        --brand-blue-deep: #0E7441;
+        --brand-blue: #118C4F;
         --brand-gold: #fdc500;
         --brand-gold-bright: #ffd500;
         --brand-navy-rgb: 0, 41, 107;
-        --brand-blue-rgb: 0, 80, 157;
+        --brand-blue-rgb: 17, 140, 79;
         --brand-gold-rgb: 253, 197, 0;
         --brand-gold-bright-rgb: 255, 213, 0;
         --cc-primary: var(--brand-blue);
-        --cc-primary-hover: #003f88;
+        --cc-primary-hover: #0E7441;
         --cc-success: var(--brand-gold-bright);
         --cc-warning: #D97706;
         --cc-error: #DC2626;
@@ -276,7 +273,7 @@
         --brand-green: var(--brand-blue);
         --brand-green-soft: var(--brand-blue-deep);
         --brand-green-dark: var(--brand-navy);
-        --brand-green-rgb: 0, 80, 157;
+        --brand-green-rgb: 17, 140, 79;
 
         --bg: var(--cc-bg);
         --surface: var(--cc-surface);
@@ -302,6 +299,8 @@
         --radius-full: 999px;
         --btn-radius: 999px;
         --btn-height: 42px;
+        --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+          "Segoe UI Symbol", "Noto Color Emoji";
         --container: 1120px;
         --header-height: 76px;
         --space-2xs: 8px;
@@ -330,8 +329,7 @@
       }
 
       body {
-        font-family: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-          "Segoe UI", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+        font-family: var(--font-sans), sans-serif;
         background: var(--bg);
         color: var(--text);
         -webkit-font-smoothing: antialiased;
@@ -670,18 +668,19 @@
       .brand {
         display: flex;
         align-items: center;
+        gap: 10px;
         color: inherit;
       }
 
       .brand-wordmark {
         display: inline-block;
-        font-size: clamp(18px, 1.35vw, 22px);
-        font-weight: 900;
-        line-height: 0.95;
-        letter-spacing: -0.055em;
+        font-size: clamp(14px, 1.05vw, 17px);
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -0.015em;
         color: #0f172a;
         text-wrap: balance;
-        max-width: 12ch;
+        max-width: 16ch;
       }
 
       .brand:hover {
@@ -689,15 +688,17 @@
       }
 
       .brand-logo {
-        height: 32px;
+        width: 34px;
+        height: 34px;
         display: flex;
         align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
       }
 
       .brand-logo img {
         height: 100%;
-        width: auto;
-        max-width: 220px;
+        width: 100%;
         display: block;
       }
 
@@ -1104,13 +1105,13 @@
         align-items: center;
         justify-content: center;
         gap: 8px;
-        min-height: 44px;
-        padding: 0 24px;
-        border-radius: var(--btn-radius);
-        border: 2px solid transparent;
-        font-size: 15px;
-        font-weight: 700;
-        letter-spacing: -0.02em;
+        min-height: 56px;
+        padding: 0 32px;
+        border-radius: 12px;
+        border: 1.5px solid transparent;
+        font-size: 17px;
+        font-weight: 500;
+        letter-spacing: -0.01em;
         white-space: nowrap;
         text-decoration: none;
         transition:
@@ -1131,29 +1132,37 @@
       }
 
       .btn-primary {
-        background: var(--brand-blue);
-        color: #ffffff;
-        border-color: var(--brand-blue);
+        background: var(--primary);
+        color: oklch(0.982 0.018 155.826);
+        border-color: var(--primary);
         box-shadow: none;
+        min-height: auto;
+        padding: 8px 16px;
+        font-size: 14px;
+        font-weight: 500;
       }
 
       .btn-primary:hover {
-        background: var(--brand-blue-deep);
-        border-color: var(--brand-blue-deep);
+        background: var(--cc-primary-hover);
+        border-color: var(--cc-primary-hover);
         transform: translateY(-0.5px);
         box-shadow: none;
       }
 
       .btn-ghost {
-        border-color: var(--brand-blue);
-        background: rgba(255, 255, 255, 0.96);
-        color: var(--brand-blue);
+        border-color: #ddd8d2;
+        background: #ffffff;
+        color: #111111;
+        min-height: auto;
+        padding: 8px 16px;
+        font-size: 14px;
+        font-weight: 500;
       }
 
       .btn-ghost:hover {
-        background: rgba(0, 80, 157, 0.04);
-        border-color: var(--brand-blue-deep);
-        color: var(--brand-blue-deep);
+        background: #faf9f7;
+        border-color: #cfc8bf;
+        color: #111111;
         transform: translateY(-0.5px);
       }
 
@@ -1518,6 +1527,10 @@
         max-width: 36ch;
       }
 
+      .feature-panel--copy-only .feature-panel-copy {
+        max-width: 52ch;
+      }
+
       .feature-eyebrow {
         margin: 0 0 8px;
         font-size: 13px;
@@ -1577,6 +1590,33 @@
         line-height: 1.5;
       }
 
+      .issue-copy {
+        max-width: 72ch;
+        display: grid;
+        gap: 18px;
+        margin-top: 24px;
+      }
+
+      .issue-item {
+        display: grid;
+        gap: 6px;
+      }
+
+      .issue-item-title {
+        margin: 0;
+        font-size: 18px;
+        line-height: 1.35;
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      .issue-item-text {
+        margin: 0;
+        font-size: 15px;
+        line-height: 1.65;
+        color: var(--muted);
+      }
+
       .service-meta {
         margin-top: auto;
         display: inline-flex;
@@ -1591,106 +1631,163 @@
         font-size: 16px;
       }
 
-      .pricing-grid {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr);
-        gap: 20px;
+      .pricing-table-wrap {
+        overflow-x: auto;
       }
 
-      .pricing-card {
-        display: flex;
-        flex-direction: column;
-        gap: 18px;
-        padding: 28px;
-        border-radius: 12px;
-        border: 1px solid rgba(226, 232, 240, 0.95);
+      .pricing-table {
+        width: 100%;
+        min-width: 920px;
+        table-layout: fixed;
+        border-collapse: collapse;
+        background: rgba(255, 255, 255, 0.98);
+        border: 1px solid rgba(203, 213, 225, 0.9);
+      }
+
+      .pricing-table th,
+      .pricing-table td {
+        padding: 12px 16px;
+        border-right: 1px solid rgba(203, 213, 225, 0.9);
+        border-bottom: 1px solid rgba(226, 232, 240, 0.92);
+        vertical-align: top;
+        text-align: left;
+      }
+
+      .pricing-table th:last-child,
+      .pricing-table td:last-child {
+        border-right: 0;
+      }
+
+      .pricing-table tr:last-child th,
+      .pricing-table tr:last-child td {
+        border-bottom: 0;
+      }
+
+      .pricing-table thead th {
+        background: #ffffff;
+      }
+
+      .pricing-table thead th:nth-child(3) {
+        position: relative;
+      }
+
+      .pricing-table tbody tr:nth-child(odd) th,
+      .pricing-table tbody tr:nth-child(odd) td {
+        background-color: rgba(248, 250, 252, 0.7);
+      }
+
+      .pricing-row-label {
+        width: 280px;
+        font-size: 12px;
+        line-height: 1.35;
+        font-weight: 500;
+        color: var(--text);
         background: rgba(255, 255, 255, 0.98);
       }
 
-      .pricing-card--featured {
-        border-color: rgba(var(--highlight-rgb), 0.72);
-        box-shadow: 0 18px 40px rgba(2, 6, 23, 0.08);
-        background:
-          radial-gradient(circle at top right, rgba(var(--highlight-rgb), 0.18), transparent 34%),
-          linear-gradient(180deg, rgba(255, 255, 255, 0.99) 0%, rgba(248, 250, 252, 0.99) 100%);
+      .pricing-table th:not(.pricing-row-label),
+      .pricing-table td {
+        width: calc((100% - 280px) / 4);
       }
 
-      .pricing-top {
+      .pricing-plan-head {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 6px;
+        min-height: 132px;
+        padding-top: 36px;
+        position: relative;
       }
 
-      .pricing-kicker {
+      .pricing-plan-head--recommended {
         margin: 0;
-        font-size: 12px;
-        font-weight: 800;
-        text-transform: uppercase;
-        letter-spacing: 0.12em;
-        color: var(--text);
+      }
+
+      .pricing-badge-bar {
+        display: flex;
+        position: absolute;
+        top: -18px;
+        left: -16px;
+        right: -16px;
+        margin: 0 0 10px;
+        min-height: 38px;
+        padding: 8px 16px;
+        background: #0084D1;
+        color: #ffffff;
+        font-size: 11px;
+        font-weight: 700;
+        line-height: 1;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        box-sizing: border-box;
+      }
+
+      .pricing-badge {
+        display: none;
+      }
+
+      .pricing-section-header {
+        text-align: center;
+        align-items: center;
+        margin-bottom: 32px;
+      }
+
+      .pricing-section-header .section-lead {
+        margin-left: auto;
+        margin-right: auto;
       }
 
       .pricing-title {
         margin: 0;
-        font-size: 28px;
-        line-height: 1;
-        letter-spacing: -0.04em;
+        font-size: 15px;
+        line-height: 1.3;
+        font-weight: 600;
+        letter-spacing: 0;
         color: var(--text);
       }
 
       .pricing-price {
-        margin: 0;
-        font-size: clamp(30px, 3vw, 42px);
-        line-height: 1;
-        letter-spacing: -0.05em;
+        margin: 6px 0 0;
+        font-size: 24px;
+        line-height: 1.05;
+        font-weight: 600;
+        letter-spacing: -0.02em;
         color: var(--text);
       }
 
       .pricing-period {
-        font-size: 15px;
+        display: block;
+        margin-top: 2px;
+        font-size: 11px;
         color: var(--muted);
+        font-weight: 500;
+        letter-spacing: 0;
+        text-transform: none;
+      }
+
+      .pricing-cap {
+        margin: 0;
+        font-size: 13px;
+        line-height: 1.45;
+        font-weight: 500;
+        color: var(--text);
+        opacity: 0.88;
+      }
+
+      .pricing-check {
+        margin: 0;
+        font-size: 16px;
+        line-height: 1;
         font-weight: 600;
-      }
-
-      .pricing-note {
-        margin: 0;
-        color: var(--muted);
-        font-size: 14px;
-        line-height: 1.6;
-      }
-
-      .pricing-list {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        display: grid;
-        gap: 10px;
         color: var(--text);
       }
 
-      .pricing-list li {
-        position: relative;
-        padding-left: 18px;
-        line-height: 1.55;
-      }
-
-      .pricing-list li::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0.7em;
-        width: 7px;
-        height: 7px;
-        border-radius: 999px;
-        background: rgba(var(--highlight-rgb), 0.95);
-        transform: translateY(-50%);
-      }
-
-      .pricing-actions {
-        margin-top: auto;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
+      .pricing-footnote {
+        margin: 12px 0 0;
+        font-size: 12px;
+        line-height: 1.5;
+        color: var(--muted);
       }
 
       .page-header {
@@ -3045,7 +3142,7 @@
         justify-content: center;
         padding: var(--space-md);
         border-radius: var(--radius);
-        border: 1px dashed rgba(var(--brand-blue-rgb), 0.3);
+        border: 1px dashed rgba(var(--primary-rgb), 0.3);
         background:
           radial-gradient(circle at top right, rgba(var(--highlight-rgb), 0.12), transparent 34%),
           linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(241, 245, 249, 0.96) 100%);
@@ -3078,6 +3175,210 @@
       .visual-placeholder--feature,
       .visual-placeholder--hero {
         border-radius: 12px;
+      }
+
+      .feature-mock {
+        min-height: 420px;
+        display: grid;
+        align-items: stretch;
+        padding: 18px;
+        border-radius: 12px;
+        border: 1px solid rgba(226, 232, 240, 0.95);
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.96) 100%);
+        overflow: hidden;
+      }
+
+      .feature-mock-shell {
+        display: grid;
+        gap: 14px;
+        padding: 16px;
+        border-radius: 12px;
+        border: 1px solid rgba(226, 232, 240, 0.95);
+        background: rgba(255, 255, 255, 0.96);
+        box-shadow: 0 18px 36px rgba(2, 6, 23, 0.06);
+      }
+
+      .feature-mock-topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .feature-mock-dots {
+        display: inline-flex;
+        gap: 6px;
+      }
+
+      .feature-mock-dots span {
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: rgba(148, 163, 184, 0.8);
+      }
+
+      .feature-mock-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(226, 232, 240, 0.95);
+        background: rgba(248, 250, 252, 0.88);
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 600;
+      }
+
+      .feature-sheet {
+        display: grid;
+        gap: 10px;
+      }
+
+      .feature-sheet-row {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 0.9fr;
+        gap: 10px;
+      }
+
+      .feature-sheet-cell {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        padding: 0 12px;
+        border-radius: 10px;
+        border: 1px solid rgba(226, 232, 240, 0.95);
+        background: rgba(248, 250, 252, 0.9);
+        color: var(--text);
+        font-size: 12px;
+        line-height: 1.3;
+      }
+
+      .feature-sheet-cell--muted {
+        color: var(--muted);
+      }
+
+      .feature-sheet-cell--warn {
+        border-color: rgba(248, 113, 113, 0.32);
+        background: rgba(254, 242, 242, 0.92);
+        color: #991b1b;
+      }
+
+      .feature-sheet-cell--ok {
+        border-color: rgba(var(--primary-rgb), 0.24);
+        background: rgba(var(--primary-rgb), 0.08);
+        color: #0f172a;
+      }
+
+      .feature-sheet-footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: 4px;
+      }
+
+      .feature-sheet-stat {
+        flex: 1 1 0;
+        padding: 12px;
+        border-radius: 10px;
+        border: 1px solid rgba(226, 232, 240, 0.95);
+        background: rgba(255, 255, 255, 0.96);
+      }
+
+      .feature-sheet-label {
+        display: block;
+        margin-bottom: 6px;
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 600;
+      }
+
+      .feature-sheet-value {
+        display: block;
+        color: var(--text);
+        font-size: 16px;
+        font-weight: 700;
+      }
+
+      .criteria-board {
+        display: grid;
+        gap: 12px;
+      }
+
+      .criteria-row {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 12px;
+      }
+
+      .criteria-card {
+        padding: 14px;
+        border-radius: 12px;
+        border: 1px solid rgba(226, 232, 240, 0.95);
+        background: rgba(248, 250, 252, 0.9);
+      }
+
+      .criteria-card strong {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 13px;
+        line-height: 1.35;
+        color: var(--text);
+      }
+
+      .criteria-list {
+        display: grid;
+        gap: 8px;
+      }
+
+      .criteria-pill {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 8px 10px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.96);
+        border: 1px solid rgba(226, 232, 240, 0.95);
+        color: var(--text);
+        font-size: 12px;
+      }
+
+      .criteria-pill em {
+        color: var(--primary);
+        font-style: normal;
+        font-weight: 700;
+      }
+
+      .criteria-summary {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .criteria-summary-box {
+        padding: 12px;
+        border-radius: 10px;
+        border: 1px solid rgba(226, 232, 240, 0.95);
+        background: rgba(255, 255, 255, 0.96);
+      }
+
+      .criteria-summary-box span {
+        display: block;
+      }
+
+      .criteria-summary-box span:first-child {
+        margin-bottom: 6px;
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 600;
+      }
+
+      .criteria-summary-box span:last-child {
+        color: var(--text);
+        font-size: 15px;
+        font-weight: 700;
       }
 
       .home-hero h1 {
@@ -3516,7 +3817,7 @@
         position: absolute;
         inset: 0;
         background:
-          radial-gradient(circle at 12% 24%, rgba(217, 255, 0, 0.12), transparent 28%),
+          radial-gradient(circle at 12% 24%, rgba(var(--primary-rgb), 0.12), transparent 28%),
           radial-gradient(circle at 88% 78%, rgba(238, 242, 255, 0.95), transparent 26%);
         pointer-events: none;
       }
@@ -3546,23 +3847,7 @@
       }
 
       .value-panel::before {
-        content: "";
-        position: absolute;
-        inset: 0 auto 0 0;
-        width: 6px;
-        background: #e2e8f0;
-      }
-
-      .value-panel:nth-child(1)::before {
-        background: #c7d2fe;
-      }
-
-      .value-panel:nth-child(2)::before {
-        background: #d9ff00;
-      }
-
-      .value-panel:nth-child(3)::before {
-        background: #fda4af;
+        content: none;
       }
 
       .value-panel:nth-child(even) .value-panel-copy {
@@ -4132,7 +4417,7 @@
 
       @media (min-width: 920px) {
         .home-hero-grid {
-          grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+          grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
           gap: var(--space-xl);
           align-items: center;
         }
@@ -4175,6 +4460,9 @@
       <header class="site-header{% if isHome %} site-header--overlay{% endif %}" aria-label="Primary navigation">
         <div class="container header-inner">
           <a href="{{ homeUrl }}" class="brand" aria-label="System Jawności Wynagrodzeń">
+            <span class="brand-logo" aria-hidden="true">
+              <img src="/images/logo.svg" alt="" width="34" height="34" />
+            </span>
             <span class="brand-wordmark">System Jawności Wynagrodzeń</span>
           </a>
 
@@ -4241,248 +4529,19 @@
                     <span>zanim transparentność płac obnaży chaos</span>
                   </h1>
                   <p class="home-lead">
-                    System Jawności Wynagrodzeń pomaga uporządkować stanowiska, widełki i zasady płac. Dzięki temu HR i zarząd mogą łatwiej wyjaśnić, skąd biorą się różnice w wynagrodzeniach.
+                    System pomaga stworzyć kryteria wartościowania wynagrodzeń oraz uporządkować widełki i zasady płac zgodnie z dyrektywą 2023/970 o równości wynagrodzeń.
                   </p>
                   <div class="home-cta home-cta--hero">
                     <a class="btn btn-primary" href="{{ signupUrl }}"><span>Załóż konto</span></a>
                   </div>
-                  <div class="home-note">Dla firm, które chcą uporządkować wynagrodzenia, zanim transparentność płac zacznie tworzyć problemy.</div>
                 </div>
                 <div class="home-hero-visual">
-                  <div class="visual-placeholder visual-placeholder--hero">
-                    Podgląd ekranu głównego
-                    <br />
-                    dane -> poziomy -> widełki -> uzasadnienie
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section class="section compact" aria-label="Stan obecny">
-            <div class="container">
-              <div class="section-header">
-                <h2 class="section-title">Co dzieje się dziś bez systemu</h2>
-                <p class="section-lead">Najczęściej dziś dane są rozproszone, decyzje są uznaniowe, a zasady wynagrodzeń nie są jasno opisane.</p>
-              </div>
-              <div class="feature-stack">
-                <div class="feature-panel">
-                  <div class="feature-panel-copy">
-                    <p class="feature-eyebrow">01</p>
-                    <h3 class="feature-title">Wynagrodzenia żyją w Excelach i wyjątkach</h3>
-                    <p class="feature-desc">HR, managerowie i zarząd pracują na różnych wersjach danych. W praktyce nikt nie ma jednego, aktualnego obrazu stanowisk i płac.</p>
-                  </div>
-                  <div class="visual-placeholder visual-placeholder--feature">Podgląd: dane rozproszone między arkuszami</div>
-                </div>
-                <div class="feature-panel">
-                  <div class="feature-panel-copy">
-                    <p class="feature-eyebrow">02</p>
-                    <h3 class="feature-title">Brakuje obiektywnych kryteriów</h3>
-                    <p class="feature-desc">Firma nie ma wspólnej struktury stanowisk, poziomów ani prostych zasad, które tłumaczą różnice w wynagrodzeniach.</p>
-                  </div>
-                  <div class="visual-placeholder visual-placeholder--feature">Podgląd: poziomy i zasady przypisania</div>
-                </div>
-                <div class="feature-panel">
-                  <div class="feature-panel-copy">
-                    <p class="feature-eyebrow">03</p>
-                    <h3 class="feature-title">Presja regulacyjna rośnie szybciej niż gotowość firmy</h3>
-                    <p class="feature-desc">Im dłużej firma czeka, tym więcej ręcznej pracy, poprawek i trudnych rozmów o tym, skąd biorą się różnice w płacach.</p>
-                  </div>
-                  <div class="visual-placeholder visual-placeholder--feature">Podgląd: gotowość do transparentności wynagrodzeń</div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section class="section compact home-why" aria-label="Dlaczego ten system">
-            <div class="container">
-              <div class="section-header">
-                <h2 class="section-title">Co daje System Jawności Wynagrodzeń</h2>
-                <p class="section-lead">To nie jest jednorazowe porządkowanie danych. To prosty sposób na uporządkowanie decyzji płacowych w całej firmie.</p>
-              </div>
-              <div class="value-stack">
-                <div class="value-panel">
-                  <div class="value-panel-copy">
-                    <p class="value-kicker">Najważniejsze 01</p>
-                    <h3 class="value-title">Jedno źródło prawdy o stanowiskach i płacach</h3>
-                    <p class="value-body">Stanowiska, poziomy i widełki są w jednym miejscu, a nie w arkuszach, dokumentach i pojedynczych decyzjach managerów.</p>
-                  </div>
-                  <div class="value-panel-visual">
-                    <div class="visual-placeholder">Podgląd: uporządkowana struktura stanowisk</div>
-                  </div>
-                </div>
-                <div class="value-panel">
-                  <div class="value-panel-copy">
-                    <p class="value-kicker">Najważniejsze 02</p>
-                    <h3 class="value-title">Obiektywne widełki i gotowe uzasadnienia</h3>
-                    <p class="value-body">System pomaga ustalić poziomy, widełki i proste uzasadnienia różnic płacowych dla całej firmy.</p>
-                  </div>
-                  <div class="value-panel-visual">
-                    <div class="visual-placeholder">Podgląd: widełki i uzasadnienie różnic</div>
-                  </div>
-                </div>
-                <div class="value-panel">
-                  <div class="value-panel-copy">
-                    <p class="value-kicker">Najważniejsze 03</p>
-                    <h3 class="value-title">Mniej ryzyka, mniej ręcznej pracy, większa kontrola</h3>
-                    <p class="value-body">HR odzyskuje porządek, a zarząd i finanse lepiej kontrolują ryzyko, koszty wynagrodzeń i liczbę wyjątków.</p>
-                  </div>
-                  <div class="value-panel-visual">
-                    <div class="visual-placeholder">Podgląd: kontrola i gotowość organizacji</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section class="section compact">
-            <div class="container">
-              <div class="section-header">
-                <h2 class="section-title">Jak wygląda pierwszy efekt</h2>
-                <p class="section-lead">Najważniejsze jest szybkie zobaczenie efektu: porządku, widełek i uzasadnień, bez długiego wdrożenia.</p>
-              </div>
-              <div class="feature-stack">
-                <div class="feature-panel">
-                  <div class="feature-panel-copy">
-                    <p class="feature-eyebrow">Etap 01</p>
-                    <h3 class="feature-title">Import danych</h3>
-                    <p class="feature-desc">Na start wystarczą podstawowe dane o stanowiskach i wynagrodzeniach. Nie trzeba budować wszystkiego od zera.</p>
-                  </div>
-                  <div class="visual-placeholder visual-placeholder--feature">Podgląd: wczytanie danych o stanowiskach i płacach</div>
-                </div>
-                <div class="feature-panel">
-                  <div class="feature-panel-copy">
-                    <p class="feature-eyebrow">Etap 02</p>
-                    <h3 class="feature-title">Wartościowanie i poziomy</h3>
-                    <p class="feature-desc">System porządkuje role, poziomy i zasady przypisania, żeby decyzje płacowe nie opierały się na wyjątkach i uznaniowości.</p>
-                  </div>
-                  <div class="visual-placeholder visual-placeholder--feature">Podgląd: uporządkowanie poziomów i ról</div>
-                </div>
-                <div class="feature-panel">
-                  <div class="feature-panel-copy">
-                    <p class="feature-eyebrow">Etap 03</p>
-                    <h3 class="feature-title">Widełki i uzasadnienie różnic</h3>
-                    <p class="feature-desc">Na końcu dostajesz wynik, który pomaga wyjaśnić politykę płacową i przygotować firmę na pytania o wynagrodzenia.</p>
-                  </div>
-                  <div class="visual-placeholder visual-placeholder--feature">Podgląd: wynik i uzasadnienie różnic</div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section class="section compact" aria-label="Dla kogo i obiekcje">
-            <div class="container">
-              <div class="section-header">
-                <h2 class="section-title">Kto skorzysta na tym najbardziej</h2>
-                <p class="section-lead">Największą wartość zobaczą firmy, które dziś działają na Excelu i chcą uporządkować płace zanim temat wynagrodzeń zacznie komplikować codzienną pracę.</p>
-              </div>
-              <div class="value-stack">
-                <div class="value-panel">
-                  <div class="value-panel-copy">
-                    <p class="value-kicker">Dla HR</p>
-                    <h3 class="value-title">Kiedy trzeba szybko uporządkować płace i odzyskać kontrolę</h3>
-                    <p class="value-body">To rozwiązanie dla osób w HR, które dziś składają dane ręcznie, widzą niespójności w wynagrodzeniach i potrzebują jasnych zasad oraz widełek.</p>
-                  </div>
-                  <div class="value-panel-visual">
-                    <div class="visual-placeholder">Podgląd: uporządkowana praca zespołu HR</div>
-                  </div>
-                </div>
-                <div class="value-panel">
-                  <div class="value-panel-copy">
-                    <p class="value-kicker">Dla zarządu i finansów</p>
-                    <h3 class="value-title">Gdy temat płac wymaga decyzji, a nie kolejnego arkusza</h3>
-                    <p class="value-body">To dobre rozwiązanie dla zarządu i finansów, które chcą lepiej kontrolować ryzyko, koszty wynagrodzeń i sposób tłumaczenia różnic płacowych.</p>
-                  </div>
-                  <div class="value-panel-visual">
-                    <div class="visual-placeholder">Podgląd: kontrola po stronie zarządu i finansów</div>
-                  </div>
-                </div>
-                <div class="value-panel">
-                  <div class="value-panel-copy">
-                    <p class="value-kicker">Obiekcje</p>
-                    <h3 class="value-title">To nie jest kolejny arkusz ani jednorazowy projekt</h3>
-                    <p class="value-body">Jeśli firma chce tylko poprawić Excela na chwilę, to nie jest właściwe rozwiązanie. Ten produkt porządkuje zasady pracy na stanowiskach, widełkach i różnicach płacowych.</p>
-                  </div>
-                  <div class="value-panel-visual">
-                    <div class="visual-placeholder">Podgląd: system zamiast kolejnych wyjątków</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section class="section compact" aria-label="Cennik">
-            <div class="container">
-              <div class="section-header">
-                <h2 class="section-title">Cennik dopasowany do skali organizacji</h2>
-                <p class="section-lead">Wybierz plan odpowiedni do wielkości firmy. Zaczynasz od prostszego wariantu, a zakres rośnie razem z organizacją.</p>
-              </div>
-              <div class="pricing-grid">
-                <div class="pricing-card">
-                  <div class="pricing-top">
-                    <p class="pricing-kicker">Plan podstawowy</p>
-                    <h3 class="pricing-title">Na dobry początek</h3>
-                    <p class="pricing-price">od 2 000 zł <span class="pricing-period">rocznie</span></p>
-                    <p class="pricing-note">Dla małych firm do 10 pracowników, które chcą zacząć od podstawowego uporządkowania stanowisk i wynagrodzeń.</p>
-                  </div>
-                  <ul class="pricing-list">
-                    <li>do 10 pracowników</li>
-                    <li>podstawowa struktura stanowisk i poziomów</li>
-                    <li>widełki wynagrodzeń w jednym systemie</li>
-                    <li>start bez ciężkiej integracji</li>
-                  </ul>
-                  <div class="pricing-actions">
-                    <a class="btn btn-ghost" href="{{ signupUrl }}"><span>Wybierz plan</span>{% ms "arrow_forward" %}</a>
-                  </div>
-                </div>
-                <div class="pricing-card pricing-card--featured">
-                  <div class="pricing-top">
-                    <p class="pricing-kicker">Najczęściej wybierany</p>
-                    <h3 class="pricing-title">Plan rozwój</h3>
-                    <p class="pricing-price">od 6 000 zł <span class="pricing-period">rocznie</span></p>
-                    <p class="pricing-note">Dla firm od 11 do 50 pracowników, które chcą uporządkować zasady wynagrodzeń i przygotować się na nowe wymagania.</p>
-                  </div>
-                  <ul class="pricing-list">
-                    <li>od 11 do 50 pracowników</li>
-                    <li>więcej użytkowników i większy zakres stanowisk</li>
-                    <li>szersze uzasadnienia różnic płacowych</li>
-                    <li>lepsza kontrola i większa spójność między działami</li>
-                  </ul>
-                  <div class="pricing-actions">
-                    <a class="btn btn-primary" href="{{ signupUrl }}"><span>Wybierz plan</span></a>
-                  </div>
-                </div>
-                <div class="pricing-card">
-                  <div class="pricing-top">
-                    <p class="pricing-kicker">Plan rozszerzony</p>
-                    <h3 class="pricing-title">Dla większej organizacji</h3>
-                    <p class="pricing-price">od 12 000 zł <span class="pricing-period">rocznie</span></p>
-                    <p class="pricing-note">Dla firm od 51 do 250 pracowników, które chcą uporządkować więcej ról, działów i zasad w jednym systemie.</p>
-                  </div>
-                  <ul class="pricing-list">
-                    <li>od 51 do 250 pracowników</li>
-                    <li>szerszy zakres organizacyjny</li>
-                    <li>więcej kontroli i uporządkowania procesu</li>
-                    <li>lepszy punkt wyjścia do pracy na większej skali</li>
-                  </ul>
-                  <div class="pricing-actions">
-                    <a class="btn btn-ghost" href="{{ signupUrl }}"><span>Wybierz plan</span>{% ms "arrow_forward" %}</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section class="section compact" aria-label="System Jawności Wynagrodzeń next step call to action">
-            <div class="container">
-              <div class="partner lead-plan-panel">
-                <div>
-                  <p class="partner-kicker">Następny krok</p>
-                  <h2 class="partner-title">Załóż konto i zacznij porządkować płace w jednym systemie</h2>
-                  <p class="partner-body">Zacznij od danych o stanowiskach i wynagrodzeniach, a potem przejdź do poziomów, widełek i uzasadnień różnic. Pierwszy efekt powinien być widoczny szybko.</p>
-                  <div class="home-cta">
-                    <a class="btn btn-primary" href="{{ signupUrl }}"><span>Rejestracja</span></a>
-                  </div>
+                  <img
+                    src="/images/kryteria-wartosciowania.jpg"
+                    alt="Widok modułu kryteriów wartościowania w systemie"
+                    loading="eager"
+                    decoding="async"
+                  />
                 </div>
               </div>
             </div>
@@ -4505,24 +4564,153 @@
             </section>
           {% endif %}
 
+          <section class="section compact" aria-label="Cennik">
+            <div class="container">
+              <div class="section-header pricing-section-header">
+                <h2 class="section-title">Cennik</h2>
+                <p class="section-lead">Narzędzie do wartościowania stanowisk w każdym pakiecie.</p>
+              </div>
+              <div class="pricing-table-wrap">
+                <table class="pricing-table">
+                  <thead>
+                    <tr>
+                      <th class="pricing-row-label"></th>
+                      <th>
+                        <div class="pricing-plan-head">
+                          <h3 class="pricing-title">Start</h3>
+                          <p class="pricing-price">99 PLN</p>
+                          <span class="pricing-period">/miesięcznie</span>
+                        </div>
+                      </th>
+                      <th>
+                        <div class="pricing-plan-head pricing-plan-head--recommended">
+                          <span class="pricing-badge-bar">Najczęściej wybierany</span>
+                          <h3 class="pricing-title">Standard</h3>
+                          <p class="pricing-price">299 PLN</p>
+                          <span class="pricing-period">/miesięcznie</span>
+                        </div>
+                      </th>
+                      <th>
+                        <div class="pricing-plan-head">
+                          <h3 class="pricing-title">Growth</h3>
+                          <p class="pricing-price">1 199 PLN</p>
+                          <span class="pricing-period">/miesięcznie</span>
+                        </div>
+                      </th>
+                      <th>
+                        <div class="pricing-plan-head">
+                          <h3 class="pricing-title">Scale</h3>
+                          <p class="pricing-price">2 499 PLN</p>
+                          <span class="pricing-period">/miesięcznie</span>
+                        </div>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th class="pricing-row-label" scope="row">Liczba pracowników</th>
+                      <td></td>
+                      <td><p class="pricing-cap">Do 25 pracowników</p></td>
+                      <td><p class="pricing-cap">Do 100 pracowników</p></td>
+                      <td><p class="pricing-cap">Do 250 pracowników</p></td>
+                    </tr>
+                    <tr>
+                      <th class="pricing-row-label" scope="row">Struktura Organizacji</th>
+                      <td><p class="pricing-check">✓</p></td>
+                      <td><p class="pricing-check">✓</p></td>
+                      <td><p class="pricing-check">✓</p></td>
+                      <td><p class="pricing-check">✓</p></td>
+                    </tr>
+                    <tr>
+                      <th class="pricing-row-label" scope="row">Stanowiska</th>
+                      <td><p class="pricing-check">✓</p></td>
+                      <td><p class="pricing-check">✓</p></td>
+                      <td><p class="pricing-check">✓</p></td>
+                      <td><p class="pricing-check">✓</p></td>
+                    </tr>
+                    <tr>
+                      <th class="pricing-row-label" scope="row">Kryteria Wartościowania</th>
+                      <td><p class="pricing-check">✓</p></td>
+                      <td><p class="pricing-check">✓</p></td>
+                      <td><p class="pricing-check">✓</p></td>
+                      <td><p class="pricing-check">✓</p></td>
+                    </tr>
+                    <tr>
+                      <th class="pricing-row-label" scope="row">Wartościowanie Stanowisk</th>
+                      <td><p class="pricing-check">✓</p></td>
+                      <td><p class="pricing-check">✓</p></td>
+                      <td><p class="pricing-check">✓</p></td>
+                      <td><p class="pricing-check">✓</p></td>
+                    </tr>
+                    <tr>
+                      <th class="pricing-row-label" scope="row">Siatka Poziomów</th>
+                      <td></td>
+                      <td><p class="pricing-check">✓</p></td>
+                      <td><p class="pricing-check">✓</p></td>
+                      <td><p class="pricing-check">✓</p></td>
+                    </tr>
+                    <tr>
+                      <th class="pricing-row-label" scope="row">Struktura Wynagrodzeń</th>
+                      <td></td>
+                      <td><p class="pricing-check">✓</p></td>
+                      <td><p class="pricing-check">✓</p></td>
+                      <td><p class="pricing-check">✓</p></td>
+                    </tr>
+                    <tr>
+                      <th class="pricing-row-label" scope="row">Pracownicy</th>
+                      <td></td>
+                      <td><p class="pricing-check">✓</p></td>
+                      <td><p class="pricing-check">✓</p></td>
+                      <td><p class="pricing-check">✓</p></td>
+                    </tr>
+                    <tr>
+                      <th class="pricing-row-label" scope="row">Raport Kategorii Pracy</th>
+                      <td></td>
+                      <td><p class="pricing-check">✓</p></td>
+                      <td><p class="pricing-check">✓</p></td>
+                      <td><p class="pricing-check">✓</p></td>
+                    </tr>
+                    <tr>
+                      <th class="pricing-row-label" scope="row">Raport Próg 5%</th>
+                      <td></td>
+                      <td><p class="pricing-check">✓</p></td>
+                      <td><p class="pricing-check">✓</p></td>
+                      <td><p class="pricing-check">✓</p></td>
+                    </tr>
+                    <tr>
+                      <th class="pricing-row-label" scope="row">Raport Wynagrodzeń, Realne vs Modelowe</th>
+                      <td></td>
+                      <td><p class="pricing-check">✓</p></td>
+                      <td><p class="pricing-check">✓</p></td>
+                      <td><p class="pricing-check">✓</p></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="pricing-footnote">* Podane kwoty są kwotami netto za jeden miesiąc.</p>
+            </div>
+          </section>
+
         {% else %}
           {% if renderPageHeader is defined and renderPageHeader == false %}
             {{ content | safe }}
           {% else %}
             <section class="page-hero">
               <div class="container">
-                <nav class="page-breadcrumbs" aria-label="Breadcrumb">
-                  <a href="{{ homeUrl }}">{{ homeLabel }}</a>
-                  <span class="crumb-sep" aria-hidden="true">/</span>
-                  {% if isServices and not isServicesIndex %}
-                    <a href="/services/">{{ servicesLabel }}</a>
+                {% if page.url != '/polityka-prywatnosci/' %}
+                  <nav class="page-breadcrumbs" aria-label="Breadcrumb">
+                    <a href="{{ homeUrl }}">{{ homeLabel }}</a>
                     <span class="crumb-sep" aria-hidden="true">/</span>
-                  {% elif isStart and page.url != '/start-with-ai/' %}
-                    <a href="/start-with-ai/">{% if isPolish %}Start{% else %}Start with a Pilot{% endif %}</a>
-                    <span class="crumb-sep" aria-hidden="true">/</span>
-                  {% endif %}
-                  <span aria-current="page">{{ pageHeading | escape }}</span>
-                </nav>
+                    {% if isServices and not isServicesIndex %}
+                      <a href="/services/">{{ servicesLabel }}</a>
+                      <span class="crumb-sep" aria-hidden="true">/</span>
+                    {% elif isStart and page.url != '/start-with-ai/' %}
+                      <a href="/start-with-ai/">{% if isPolish %}Start{% else %}Start with a Pilot{% endif %}</a>
+                      <span class="crumb-sep" aria-hidden="true">/</span>
+                    {% endif %}
+                    <span aria-current="page">{{ pageHeading | escape }}</span>
+                  </nav>
+                {% endif %}
 
                 <div class="page-hero-inner">
                   <div class="page-header">
@@ -4561,15 +4749,10 @@
       <footer class="site-footer">
         <div class="container footer-grid">
           <div>
-            <div>© 2026, System Jawności Wynagrodzeń.</div>
-            <div class="footer-build">
-              Updated:
-              <time datetime="{{ build.iso }}">{{ build.display }}</time>
-            </div>
+            <div>© 2026, Easy Tech Partners Sp z o.o.</div>
           </div>
           <div class="footer-links" aria-label="Footer links">
-            <a href="{% if isPolish %}/pl/polityka-prywatnosci/{% else %}/privacy-policy/{% endif %}">{% if isPolish %}Polityka prywatności{% else %}Privacy policy{% endif %}</a>
-            <a href="{% if isPolish %}/pl/polityka-cookies/{% else %}/cookie-policy/{% endif %}">{% if isPolish %}Cookies{% else %}Cookies{% endif %}</a>
+            <a href="{% if isPolish %}/polityka-prywatnosci/{% else %}/privacy-policy/{% endif %}">{% if isPolish %}Polityka prywatności{% else %}Privacy policy{% endif %}</a>
           </div>
         </div>
       </footer>

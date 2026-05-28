@@ -13,6 +13,8 @@ faqSchema:
     answer: "Najczęściej temat prowadzi HR Manager lub Head of HR, a decyzję domyka CEO, CFO albo COO, bo chodzi jednocześnie o zgodność, koszty wynagrodzeń i ryzyko błędów."
   - question: "Dla jakich firm to ma największy sens?"
     answer: "Największy sens ma tam, gdzie dziś płace są rozproszone między arkuszami, wyjątkami i decyzjami managerów, a firma chce uporządkować zasady zanim transparentność wynagrodzeń stanie się realnym problemem."
+  - question: "Jak liczeni są pracownicy do planu?"
+    answer: "Do limitu w planie liczą się tylko aktywni pracownicy, którzy obecnie pracują w firmie. Osoby, które pracowały wcześniej, ale nie są już zatrudnione, nie wliczają się do planu."
 ---
 
 <!-- Homepage content is rendered in `src/_includes/base.njk`. -->
