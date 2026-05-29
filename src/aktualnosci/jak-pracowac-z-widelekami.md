@@ -13,12 +13,13 @@ publishLabel: 12 marca 2026
 ---
 
 <div class="post-header">
-  <figure class="post-figure">
-    <img src="/images/aktualnosci/jawnosc-plac-szkolenie-cover.jpg" alt="Szkolenie zespołu w sali konferencyjnej" loading="eager" decoding="async" />
-  </figure>
   <p class="post-meta">
     <span>12 marca 2026</span>
   </p>
+  <figure class="post-figure">
+    <img src="/images/aktualnosci/jawnosc-plac-szkolenie-cover.jpg" alt="Szkolenie zespołu w sali konferencyjnej" loading="eager" decoding="async" />
+  </figure>
+  <h1 class="post-title">Co czeka firmy w związku z nowymi zasadami jawności płac</h1>
 </div>
 
 Największym wyzwaniem związanym z dyrektywą 2023/970 nie będzie samo przeczytanie nowych przepisów. Trudniejsze okaże się uporządkowanie tego, jak firma naprawdę ustala wynagrodzenia i czy potrafi ten sposób pracy jasno wyjaśnić.

@@ -13,12 +13,13 @@ publishLabel: 18 lutego 2026
 ---
 
 <div class="post-header">
-  <figure class="post-figure">
-    <img src="/images/aktualnosci/dyrektywa-2023-970-cover.png" alt="Symboliczna ilustracja równej pracy i równej płacy" loading="eager" decoding="async" />
-  </figure>
   <p class="post-meta">
     <span>18 lutego 2026</span>
   </p>
+  <figure class="post-figure">
+    <img src="/images/aktualnosci/dyrektywa-2023-970-cover.png" alt="Symboliczna ilustracja równej pracy i równej płacy" loading="eager" decoding="async" />
+  </figure>
+  <h1 class="post-title">Dyrektywa 2023/970 w praktyce</h1>
 </div>
 
 Dyrektywa 2023/970 to unijna regulacja o przejrzystości wynagrodzeń i równości płac kobiet i mężczyzn za taką samą pracę albo pracę o takiej samej wartości. Jej cel jest prosty: firmy mają lepiej rozumieć, jak ustalają wynagrodzenia, a pracownicy mają dostać większą przejrzystość zasad.

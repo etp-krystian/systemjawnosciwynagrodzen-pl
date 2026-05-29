@@ -1918,6 +1918,7 @@
 
       .is-blog .page-hero {
         background: #ffffff;
+        padding: 18px 0 10px;
       }
 
       .is-blog .page-hero::before {
@@ -1926,6 +1927,10 @@
 
       .is-blog:not(.is-content) .page-lead {
         display: none;
+      }
+
+      .is-blog.is-content .section {
+        padding-top: 21px;
       }
 
       .page-hero-inner {
@@ -1942,17 +1947,18 @@
         align-items: center;
         gap: 8px;
         margin: 0 0 var(--space-sm);
-        color: rgba(71, 85, 105, 0.85);
-        font-size: 12px;
-        font-weight: 700;
+        color: var(--text-subtle);
+        font-size: 13px;
+        font-weight: var(--font-weight-regular);
+        line-height: 1.5;
       }
 
       .page-breadcrumbs a {
-        color: rgba(71, 85, 105, 0.95);
+        color: var(--text-body);
       }
 
       .page-breadcrumbs .crumb-sep {
-        color: rgba(148, 163, 184, 0.9);
+        color: var(--text-subtle);
       }
 
       
@@ -4509,15 +4515,8 @@
 
       .post-header {
         display: grid;
-        gap: 10px;
+        gap: 5px;
         margin-bottom: var(--space-sm);
-        max-width: 80ch;
-      }
-
-      .post-page-header {
-        display: grid;
-        gap: 12px;
-        margin: 0 0 var(--space-sm);
         max-width: 80ch;
       }
 
@@ -4529,6 +4528,10 @@
         flex-wrap: wrap;
         gap: 10px;
         align-items: center;
+      }
+
+      .post-header .post-meta {
+        margin-bottom: 0;
       }
 
       .post-meta-link {
@@ -4558,7 +4561,7 @@
       }
 
       .post-figure {
-        margin: var(--space-sm) 0 0;
+        margin: 0;
         border-radius: var(--radius);
         overflow: hidden;
         border: none;
@@ -4831,10 +4834,10 @@
           </a>
 
           <div class="header-actions">
-            <a href="{{ signupUrl }}" class="btn btn-ghost">
+            <a href="{{ signupUrl }}" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">
               <span>{{ signupLabel }}</span>
             </a>
-            <a href="{{ loginUrl }}" class="btn btn-primary">
+            <a href="{{ loginUrl }}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
               <span class="btn-icon btn-icon--portal" aria-hidden="true">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                   <g fill="none" stroke="currentColor" stroke-dasharray="20" stroke-dashoffset="20" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
@@ -4863,7 +4866,7 @@
               <span>{{ menuLabel }}</span>
             </summary>
             <div class="mobile-nav-panel" role="dialog" aria-label="Mobile navigation">
-              <a class="mobile-nav-cta" href="{{ signupUrl }}">
+              <a class="mobile-nav-cta" href="{{ signupUrl }}" target="_blank" rel="noopener noreferrer">
                 <span>{{ signupLabel }}</span>
               </a>
             </div>
@@ -5222,11 +5225,6 @@
             <section class="section">
               <div class="container">
                 <article class="prose">
-                  {% if isBlog and not isBlogIndex %}
-                    <div class="post-page-header">
-                      <h1 class="post-title">{{ pageHeading | escape }}</h1>
-                    </div>
-                  {% endif %}
                   {{ content | safe }}
                 </article>
                 {% if isServices and not isServicesIndex %}
@@ -5237,7 +5235,7 @@
                     <h2>{{ ctaTitle }}</h2>
                     <p>{{ ctaBody }}</p>
                     <div class="home-cta">
-                      <a class="btn btn-primary" href="{{ signupUrl }}"><span>{{ ctaButton }}</span></a>
+                      <a class="btn btn-primary" href="{{ signupUrl }}" target="_blank" rel="noopener noreferrer"><span>{{ ctaButton }}</span></a>
                     </div>
                   </section>
                 {% endif %}

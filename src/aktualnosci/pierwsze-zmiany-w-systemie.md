@@ -13,12 +13,13 @@ publishLabel: 9 kwietnia 2026
 ---
 
 <div class="post-header">
-  <figure class="post-figure">
-    <img src="/images/aktualnosci/kategorie-pracownikow-cover.jpg" alt="Pracownicy przy pracy technicznej w hali warsztatowej" loading="eager" decoding="async" />
-  </figure>
   <p class="post-meta">
     <span>9 kwietnia 2026</span>
   </p>
+  <figure class="post-figure">
+    <img src="/images/aktualnosci/kategorie-pracownikow-cover.jpg" alt="Pracownicy przy pracy technicznej w hali warsztatowej" loading="eager" decoding="async" />
+  </figure>
+  <h1 class="post-title">Jak rozumieć kategorie pracowników w dyrektywie</h1>
 </div>
 
 Jednym z mniej oczywistych pojęć w dyrektywie o jawności płac są kategorie pracowników. To ważne, bo właśnie na tych kategoriach mają opierać się porównania, analizy i część obowiązków informacyjnych.
