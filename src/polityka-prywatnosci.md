@@ -154,15 +154,3 @@ Administrator stosuje odpowiednie środki techniczne i organizacyjne mające na 
 ## 15. Zmiany polityki prywatności
 
 Polityka prywatności może być aktualizowana, jeżeli będzie to potrzebne z uwagi na zmiany w przepisach prawa, rozwój serwisu, zmianę sposobu świadczenia usług albo zmianę stosowanych narzędzi technicznych. Aktualna wersja polityki jest publikowana w serwisie.
-
-## 16. Dodatkowe zastrzeżenia
-
-Niniejsza Polityka prywatności ma charakter informacyjny i służy realizacji obowiązków wynikających z przepisów o ochronie danych osobowych. Nie ogranicza ona praw osób, których dane dotyczą, wynikających z bezwzględnie obowiązujących przepisów prawa, ani nie wyłącza obowiązków Administratora, które wynikają z tych przepisów.
-
-W zakresie danych osobowych wprowadzanych do systemu przez klienta, klient odpowiada za zgodność z prawem ich pozyskania, zakres wprowadzonych danych, prawidłowość podstaw przetwarzania oraz realizację obowiązków informacyjnych wobec swoich pracowników, współpracowników, kandydatów lub innych osób, których dane umieszcza w systemie.
-
-Administrator nie ponosi odpowiedzialności za treść, zakres ani poprawność danych osobowych wprowadzonych do systemu przez klienta, jeżeli zostały one przekazane lub uzupełnione przez klienta samodzielnie albo przez osoby działające w jego imieniu.
-
-Korzystanie z serwisu i systemu może wymagać podania określonych danych oraz korzystania z usług podmiotów trzecich wspierających utrzymanie infrastruktury, komunikację, analitykę, rozliczenia lub bezpieczeństwo. W przypadkach wymaganych przez prawo szczegółowe zasady współpracy, powierzenia przetwarzania danych oraz odpowiedzialności stron mogą być dodatkowo określone w odrębnych umowach, regulaminach lub dokumentacji usługowej.
-
-W przypadku rozbieżności pomiędzy niniejszą Polityką prywatności a bezwzględnie obowiązującymi przepisami prawa, zastosowanie mają odpowiednie przepisy prawa. W przypadku danych przetwarzanych przez Administratora na zlecenie klienta, pierwszeństwo mają również postanowienia umów zawartych z klientem, o ile pozostają zgodne z obowiązującymi przepisami.
