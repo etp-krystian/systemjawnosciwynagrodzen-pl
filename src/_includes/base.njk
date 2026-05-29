@@ -17,8 +17,8 @@
 {% set isHome = page.url == "/" %}
 {% set isServicesIndex = page.url == "/services/" %}
 {% set isServices = page.url and page.url.indexOf("/services/") == 0 %}
-{% set isBlog = false %}
-{% set isBlogIndex = false %}
+{% set isBlog = page.url and page.url.indexOf("/aktualnosci/") == 0 %}
+{% set isBlogIndex = page.url == "/aktualnosci/" %}
 {% set isLegal = page.url == "/privacy-policy/" or page.url == "/cookie-policy/" or page.url == "/terms/" or page.url == "/pl/polityka-prywatnosci/" or page.url == "/pl/polityka-cookies/" or page.url == "/polityka-prywatnosci/" or page.url == "/regulamin/" %}
 {% set isStart = page.url == "/start-with-ai/" or page.url == "/implementation-process/" or page.url == "/business-ai-faq/" %}
 {% set isContact = page.url == "/contact-us/" or page.url == "/pl/kontakt/" %}
@@ -282,6 +282,9 @@
         --text: var(--cc-text);
         --muted: var(--cc-text-secondary);
         --muted-soft: var(--cc-muted);
+        --text-strong: #0f172a;
+        --text-body: #334155;
+        --text-subtle: #64748b;
         --primary: var(--cc-primary);
         --primary-soft: var(--brand-green-soft);
         --primary-dark: var(--cc-primary);
@@ -301,6 +304,10 @@
         --btn-height: 42px;
         --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
           "Segoe UI Symbol", "Noto Color Emoji";
+        --font-weight-regular: 400;
+        --font-weight-medium: 500;
+        --font-weight-semibold: 600;
+        --font-weight-bold: 700;
         --container: 1120px;
         --header-height: 76px;
         --space-2xs: 8px;
@@ -331,13 +338,16 @@
       body {
         font-family: var(--font-sans), sans-serif;
         background: var(--bg);
-        color: var(--text);
+        color: var(--text-strong);
+        font-size: 16px;
+        line-height: 1.6;
+        letter-spacing: -0.011em;
         -webkit-font-smoothing: antialiased;
         text-rendering: optimizeLegibility;
       }
 
       a {
-        color: var(--accent-tech-dark);
+        color: var(--text-strong);
         text-decoration: none;
       }
 
@@ -1550,16 +1560,19 @@
 
       .section-title {
         margin: 0;
-        font-size: 22px;
-        letter-spacing: -0.02em;
+        font-size: clamp(24px, 2vw, 30px);
+        line-height: 1.14;
+        letter-spacing: -0.03em;
+        font-weight: var(--font-weight-semibold);
+        color: var(--text-strong);
       }
 
       .section-lead {
         margin: 0;
-        color: var(--muted);
+        color: var(--text-body);
         max-width: 56ch;
-        font-size: 13px;
-        line-height: 1.55;
+        font-size: 15px;
+        line-height: 1.7;
       }
 
       .services-grid {
@@ -1799,14 +1812,14 @@
       }
 
       .pricing-section-header {
-        text-align: center;
-        align-items: center;
+        text-align: left;
+        align-items: start;
         margin-bottom: 32px;
       }
 
       .pricing-section-header .section-lead {
-        margin-left: auto;
-        margin-right: auto;
+        margin-left: 0;
+        margin-right: 0;
       }
 
       .pricing-title {
@@ -1868,17 +1881,19 @@
 
       .page-header h1 {
         margin: 0 0 var(--space-2xs);
-        font-size: clamp(28px, 2.6vw, 44px);
-        line-height: 1.06;
-        letter-spacing: -0.05em;
+        font-size: clamp(32px, 3vw, 46px);
+        line-height: 1.08;
+        letter-spacing: -0.04em;
+        font-weight: var(--font-weight-medium);
+        color: var(--text-strong);
       }
 
       .page-lead {
         margin: 0;
-        color: rgba(15, 23, 42, 0.76);
-        max-width: 72ch;
-        font-size: 15px;
-        line-height: 1.8;
+        color: var(--text-body);
+        max-width: 68ch;
+        font-size: 16px;
+        line-height: 1.72;
       }
 
       .page-hero {
@@ -1899,6 +1914,18 @@
           radial-gradient(circle at 62% 52%, rgba(2, 6, 23, 0.08), transparent 58%),
           radial-gradient(circle at 84% 18%, rgba(var(--accent-tech-rgb), 0.10), transparent 52%);
         pointer-events: none;
+      }
+
+      .is-blog .page-hero {
+        background: #ffffff;
+      }
+
+      .is-blog .page-hero::before {
+        content: none;
+      }
+
+      .is-blog:not(.is-content) .page-lead {
+        display: none;
       }
 
       .page-hero-inner {
@@ -1932,25 +1959,28 @@
 
       .prose {
         max-width: 76ch;
-        color: var(--muted);
-        font-size: 15px;
-        line-height: 1.8;
+        color: var(--text-body);
+        font-size: 16px;
+        line-height: 1.78;
       }
 
       .prose h2,
       .prose h3 {
-        color: var(--text);
-        letter-spacing: -0.015em;
+        color: var(--text-strong);
+        letter-spacing: -0.028em;
+        font-weight: var(--font-weight-semibold);
       }
 
       .prose h2 {
         margin: var(--space-md) 0 var(--space-2xs);
-        font-size: 18px;
+        font-size: clamp(24px, 2vw, 28px);
+        line-height: 1.18;
       }
 
       .prose h3 {
         margin: var(--space-sm) 0 var(--space-2xs);
-        font-size: 16px;
+        font-size: 20px;
+        line-height: 1.28;
       }
 
       .prose p {
@@ -2695,14 +2725,14 @@
         max-width: 68ch;
         font-size: 16px;
         line-height: 1.72;
-        color: rgba(15, 23, 42, 0.78);
+        color: var(--text-body);
       }
 
       .is-services .prose {
         max-width: 82ch;
         font-size: 16px;
         line-height: 1.78;
-        color: rgba(51, 65, 85, 0.98);
+        color: var(--text-body);
       }
 
       .is-services .prose h2 {
@@ -2710,12 +2740,14 @@
         font-size: clamp(21px, 2vw, 25px);
         line-height: 1.24;
         letter-spacing: -0.022em;
+        font-weight: var(--font-weight-semibold);
       }
 
       .is-services .prose h3 {
         margin: var(--space-md) 0 10px;
         font-size: 18px;
         line-height: 1.32;
+        font-weight: var(--font-weight-semibold);
       }
 
       .is-services .prose p {
@@ -3473,9 +3505,10 @@
 
       .home-hero h1 {
         margin: 0 0 var(--space-md);
-        font-size: clamp(38px, 4.2vw, 52px);
-        line-height: 1.18;
+        font-size: clamp(40px, 4.6vw, 60px);
+        line-height: 1.08;
         letter-spacing: -0.04em;
+        font-weight: var(--font-weight-bold);
         color: #f8fafc;
         text-shadow: 0 10px 28px rgba(15, 23, 42, 0.26);
       }
@@ -3490,8 +3523,8 @@
         margin: 0 0 var(--space-md);
         max-width: 46ch;
         color: rgba(241, 245, 249, 0.9);
-        font-size: 15px;
-        line-height: 1.55;
+        font-size: 16px;
+        line-height: 1.68;
         text-align: left;
         text-shadow: 0 8px 24px rgba(15, 23, 42, 0.24);
       }
@@ -3661,6 +3694,7 @@
       .feature-switcher-list {
         display: grid;
         gap: 0;
+        align-content: start;
       }
 
       .feature-switcher-item {
@@ -3700,10 +3734,10 @@
 
       .feature-switcher-item-title {
         margin: 0;
-        color: var(--text);
+        color: var(--text-strong);
         font-size: 18px;
         line-height: 1.25;
-        font-weight: 600;
+        font-weight: var(--font-weight-semibold);
       }
 
       .feature-switcher-item-arrow {
@@ -3735,7 +3769,7 @@
       .feature-switcher-item-copy {
         display: grid;
         grid-template-rows: 0fr;
-        transition: grid-template-rows 420ms cubic-bezier(0.22, 1, 0.36, 1);
+        transition: none;
       }
 
       .feature-switcher-item.is-active .feature-switcher-item-copy {
@@ -3750,14 +3784,14 @@
       .feature-switcher-item p {
         margin: 0;
         padding: 0 22px 14px;
-        color: var(--muted);
-        font-size: 15px;
-        line-height: 1.65;
+        color: var(--text-body);
+        font-size: 16px;
+        line-height: 1.68;
         opacity: 0;
-        transform: translateY(-4px);
+        transform: translateY(-2px);
         transition:
-          opacity 280ms ease,
-          transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+          opacity 180ms ease,
+          transform 180ms ease;
       }
 
       .feature-switcher-item.is-active p {
@@ -4257,16 +4291,19 @@
 
       .blog-title {
         margin: 0;
-        font-size: 28px;
-        letter-spacing: -0.03em;
+        font-size: clamp(32px, 3vw, 42px);
+        line-height: 1.1;
+        letter-spacing: -0.04em;
+        font-weight: var(--font-weight-medium);
+        color: var(--text-strong);
       }
 
       .blog-lead {
         margin: 0;
-        color: var(--muted);
+        color: var(--text-body);
         max-width: 78ch;
-        font-size: 14px;
-        line-height: 1.75;
+        font-size: 16px;
+        line-height: 1.72;
       }
 
       .blog-search {
@@ -4315,7 +4352,7 @@
       .blog-grid {
         margin-top: var(--space-sm);
         display: grid;
-        gap: 12px;
+        gap: 24px;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         align-items: stretch;
       }
@@ -4335,9 +4372,10 @@
         height: 100%;
         padding: 16px;
         border-radius: var(--radius);
-        border: 1px solid rgba(226, 232, 240, 0.95);
+        border: none;
         background: rgba(255, 255, 255, 0.9);
-        box-shadow: 0 8px 24px rgba(2, 6, 23, 0.06);
+        box-shadow: none;
+        overflow: hidden;
       }
 
       .post-card--compact {
@@ -4345,12 +4383,15 @@
       }
 
       .post-card-thumb {
-        width: 100%;
+        width: calc(100% + 32px);
         height: 140px;
-        border-radius: 14px;
+        margin: -16px -16px 12px;
+        border-radius: 0;
         overflow: hidden;
-        border: 1px solid rgba(226, 232, 240, 0.95);
+        border: none;
         background: rgba(241, 245, 249, 0.9);
+        position: relative;
+        transition: transform 220ms ease;
       }
 
       .post-card-thumb img {
@@ -4360,25 +4401,59 @@
         display: block;
       }
 
+      .post-card-thumb--placeholder,
+      .post-figure--placeholder {
+        background:
+          linear-gradient(180deg, rgba(226, 232, 240, 0.96) 0%, rgba(203, 213, 225, 0.96) 100%);
+      }
+
+      .post-card-thumb::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(15, 23, 42, 0);
+        transition: background 220ms ease;
+        pointer-events: none;
+      }
+
+      .post-card-thumb--placeholder {
+        height: auto;
+        aspect-ratio: 1200 / 630;
+      }
+
+      .post-card:hover .post-card-thumb,
+      .post-card:focus-within .post-card-thumb {
+        transform: translateY(-1px);
+      }
+
+      .post-card:hover .post-card-thumb::after,
+      .post-card:focus-within .post-card-thumb::after {
+        background: rgba(15, 23, 42, 0.08);
+      }
+
       .post-card-content {
         min-width: 0;
         display: flex;
         flex-direction: column;
         gap: 8px;
         flex: 1 1 auto;
+        padding: 4px 8px 10px;
       }
 
       .post-card-meta {
         margin: 0;
-        color: var(--muted-soft);
-        font-size: 12px;
+        color: var(--text-subtle);
+        font-size: 13px;
         min-height: 1lh;
       }
 
       .post-card-title {
         margin: 0;
-        font-size: 16px;
-        letter-spacing: -0.02em;
+        font-size: 18px;
+        line-height: 1.24;
+        letter-spacing: -0.025em;
+        font-weight: var(--font-weight-semibold);
+        color: var(--text-strong);
       }
 
       .post-card-title a {
@@ -4392,9 +4467,9 @@
 
       .post-card-desc {
         margin: 0;
-        color: var(--muted);
-        font-size: 13px;
-        line-height: 1.7;
+        color: var(--text-body);
+        font-size: 16px;
+        line-height: 1.72;
         max-width: 78ch;
       }
 
@@ -4413,9 +4488,22 @@
         text-decoration: underline;
       }
 
+      .section-header--split {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-top: 12px;
+        margin-bottom: 9px;
+      }
+
+      .section-header-link {
+        white-space: nowrap;
+      }
+
       .blog-empty {
         margin-top: var(--space-xs);
-        color: var(--muted);
+        color: var(--text-subtle);
         font-size: 13px;
       }
 
@@ -4426,10 +4514,17 @@
         max-width: 80ch;
       }
 
+      .post-page-header {
+        display: grid;
+        gap: 12px;
+        margin: 0 0 var(--space-sm);
+        max-width: 80ch;
+      }
+
       .post-meta {
         margin: 0;
-        color: var(--muted-soft);
-        font-size: 12px;
+        color: var(--text-subtle);
+        font-size: 13px;
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
@@ -4448,25 +4543,31 @@
 
       .post-title {
         margin: 0;
-        font-size: clamp(28px, 3.6vw, 40px);
+        font-size: clamp(32px, 4vw, 46px);
         line-height: 1.1;
-        letter-spacing: -0.045em;
+        letter-spacing: -0.04em;
+        font-weight: var(--font-weight-medium);
+        color: var(--text-strong);
       }
 
       .post-lead {
         margin: 0;
-        color: var(--muted);
-        font-size: 14px;
-        line-height: 1.75;
+        color: var(--text-body);
+        font-size: 16px;
+        line-height: 1.72;
       }
 
       .post-figure {
         margin: var(--space-sm) 0 0;
         border-radius: var(--radius);
         overflow: hidden;
-        border: 1px solid rgba(226, 232, 240, 0.95);
-        box-shadow: 0 10px 30px rgba(2, 6, 23, 0.06);
+        border: none;
+        box-shadow: none;
         background: rgba(255, 255, 255, 0.9);
+      }
+
+      .post-figure--placeholder {
+        aspect-ratio: 16 / 9;
       }
 
       .post-figure img {
@@ -4788,11 +4889,11 @@
               <div class="home-hero-grid home-hero-grid--solo">
                 <div>
                   <h1>
-                    Platforma do wdrożenia dyrektywy 2023/970
-                    <span>i transparentności płac</span>
+                    System do zarządzania wynagrodzeniami,
+                    <span>widełkami i stanowiskami</span>
                   </h1>
                   <p class="home-lead">
-                    Porządkuje widełki i zasady płac oraz pomaga zarządzać zmianami wynagrodzeń i ocenami pracowników.
+                    Porządkuje kryteria wartościowania, widełki płac i zasady wynagradzania.
                   </p>
                 </div>
               </div>
@@ -4928,17 +5029,45 @@
             </div>
           </section>
 
-          {% if faqSchema and faqSchema.length %}
-            <section class="section compact" aria-label="FAQ">
+          {% if collections.aktualnosci and collections.aktualnosci.length %}
+            <section class="section compact" aria-labelledby="homepage-aktualnosci-heading">
               <div class="container">
-                <div class="section-header">
-                  <h2 class="section-title">{% if isPolish %}FAQ{% else %}FAQ{% endif %}</h2>
-                  <p class="section-lead">{% if isPolish %}Najczęstsze pytania o dopasowanie, dane wejściowe, koszt i sposób startu z Systemem Jawności Wynagrodzeń.{% else %}Common questions about fit, input data, cost, and how to start with System Jawności Wynagrodzeń.{% endif %}</p>
+                <div class="section-header pricing-section-header">
+                  <div class="section-header section-header--split">
+                    <h2 id="homepage-aktualnosci-heading" class="section-title">Aktualności</h2>
+                    <a class="btn btn-ghost section-header-link" href="/aktualnosci/">
+                      <span>Więcej aktualności</span>
+                      <span class="btn-icon" aria-hidden="true">
+                        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M3.5 8H12.5" stroke-width="1.8" stroke-linecap="round" />
+                          <path d="M8.8 4.3L12.5 8L8.8 11.7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                    </a>
+                  </div>
                 </div>
-                <div class="prose">
-                  {% for item in faqSchema %}
-                    <h3>{{ item.question }}</h3>
-                    <p>{{ item.answer }}</p>
+                <div class="blog-grid">
+                  {% for post in collections.aktualnosci | reverse %}
+                    {% if loop.index0 < 3 %}
+                      <article class="blog-item">
+                        <div class="post-card">
+                          {% if post.data.coverImage %}
+                            <a class="post-card-thumb" href="{{ post.url }}" aria-label="{{ post.data.title }}">
+                              <img src="{{ post.data.coverImage }}" alt="" loading="lazy" decoding="async" />
+                            </a>
+                          {% else %}
+                            <a class="post-card-thumb post-card-thumb--placeholder" href="{{ post.url }}" aria-label="{{ post.data.title }}"></a>
+                          {% endif %}
+                          <div class="post-card-content">
+                            <p class="post-card-meta">{{ post.data.publishLabel or "Aktualność" }}</p>
+                            <h3 class="post-card-title">
+                              <a href="{{ post.url }}">{{ post.data.title }}</a>
+                            </h3>
+                            <p class="post-card-desc">{{ post.data.excerpt or post.data.description }}</p>
+                          </div>
+                        </div>
+                      </article>
+                    {% endif %}
                   {% endfor %}
                 </div>
               </div>
@@ -5066,6 +5195,9 @@
                     {% if isServices and not isServicesIndex %}
                       <a href="/services/">{{ servicesLabel }}</a>
                       <span class="crumb-sep" aria-hidden="true">/</span>
+                    {% elif isBlog and not isBlogIndex %}
+                      <a href="/aktualnosci/">Aktualności</a>
+                      <span class="crumb-sep" aria-hidden="true">/</span>
                     {% elif isStart and page.url != '/start-with-ai/' %}
                       <a href="/start-with-ai/">{% if isPolish %}Start{% else %}Start with a Pilot{% endif %}</a>
                       <span class="crumb-sep" aria-hidden="true">/</span>
@@ -5074,20 +5206,27 @@
                   </nav>
                 {% endif %}
 
-                <div class="page-hero-inner">
-                  <div class="page-header">
-                    <h1>{{ pageHeading | escape }}</h1>
-                    {% if description %}
-                      <p class="page-lead">{{ description | escape }}</p>
-                    {% endif %}
+                {% if not (isBlog and not isBlogIndex) %}
+                  <div class="page-hero-inner">
+                    <div class="page-header">
+                      <h1>{{ pageHeading | escape }}</h1>
+                      {% if description %}
+                        <p class="page-lead">{{ description | escape }}</p>
+                      {% endif %}
+                    </div>
                   </div>
-                </div>
+                {% endif %}
               </div>
             </section>
 
             <section class="section">
               <div class="container">
                 <article class="prose">
+                  {% if isBlog and not isBlogIndex %}
+                    <div class="post-page-header">
+                      <h1 class="post-title">{{ pageHeading | escape }}</h1>
+                    </div>
+                  {% endif %}
                   {{ content | safe }}
                 </article>
                 {% if isServices and not isServicesIndex %}

@@ -5,6 +5,7 @@
   const prefersReducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
   const items = Array.from(root.querySelectorAll(".feature-switcher-item"));
   const image = root.querySelector("#feature-switcher-image");
+  const list = root.querySelector(".feature-switcher-list");
 
   if (!items.length) return;
 
@@ -38,6 +39,21 @@
     });
   };
 
+  const measureStableHeight = () => {
+    if (!list) return;
+
+    const previousActiveIndex = activeIndex;
+    let maxHeight = 0;
+
+    items.forEach((_, itemIndex) => {
+      setActive(itemIndex);
+      maxHeight = Math.max(maxHeight, list.getBoundingClientRect().height);
+    });
+
+    setActive(previousActiveIndex);
+    list.style.minHeight = `${Math.ceil(maxHeight)}px`;
+  };
+
   const startAutoRotation = () => {
     if (prefersReducedMotion || timer) return;
     timer = window.setInterval(() => {
@@ -58,5 +74,8 @@
   });
 
   setActive(0);
+  measureStableHeight();
   startAutoRotation();
+
+  window.addEventListener("resize", measureStableHeight);
 })();
