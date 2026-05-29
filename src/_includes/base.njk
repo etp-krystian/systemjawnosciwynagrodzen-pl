@@ -1710,8 +1710,8 @@
         display: flex;
         flex-direction: column;
         gap: 6px;
-        min-height: 132px;
-        padding-top: 36px;
+        min-height: 104px;
+        padding-top: 12px;
         position: relative;
       }
 
@@ -3124,6 +3124,13 @@
         z-index: 3;
       }
 
+      .home-hero-grid--solo {
+        max-width: 760px;
+        margin: 0 auto;
+        justify-items: center;
+        text-align: center;
+      }
+
       .home-hero-grid {
         display: grid;
         grid-template-columns: minmax(0, 1fr);
@@ -3140,9 +3147,6 @@
         height: auto;
         border-radius: 12px;
         border: 1px solid #ccc;
-        box-shadow:
-          rgba(22, 31, 39, 0.42) 0px 60px 123px -25px,
-          rgba(19, 26, 32, 0.08) 0px 35px 75px -35px;
         border-radius: 10px;
         border: 1px solid;
         border-color:
@@ -3399,24 +3403,27 @@
       }
 
       .home-hero h1 {
-        margin: 0 0 var(--space-xs);
-        font-size: clamp(28px, 3vw, 40px);
-        line-height: 1.03;
-        letter-spacing: -0.05em;
+        margin: 0 0 var(--space-md);
+        font-size: clamp(38px, 4.2vw, 52px);
+        line-height: 1.18;
+        letter-spacing: -0.04em;
         color: var(--text);
         text-shadow: none;
       }
 
       .home-hero h1 span {
         color: var(--text);
+        display: block;
+        margin-top: 10px;
       }
 
       .home-lead {
-        margin: 0 0 var(--space-md);
+        margin: 0 auto var(--space-md);
         max-width: 46ch;
         color: var(--muted);
         font-size: 15px;
         line-height: 1.55;
+        text-align: center;
         text-shadow: none;
       }
 
@@ -3430,6 +3437,7 @@
 
       .home-cta--hero {
         gap: 18px;
+        justify-content: center;
       }
 
       .cta-inline-link {
@@ -3548,6 +3556,158 @@
 
       .home-hero .btn-see-services:hover {
         background: rgba(2, 6, 23, 0.32);
+      }
+
+      .feature-switcher {
+        position: relative;
+        padding: var(--space-section-compact) 0;
+        background: #fff;
+        border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+        overflow: hidden;
+      }
+
+      .feature-switcher::before {
+        content: none;
+      }
+
+      .feature-switcher .container {
+        position: relative;
+        z-index: 1;
+      }
+
+      .feature-switcher-grid {
+        display: grid;
+        gap: 24px;
+        align-items: stretch;
+      }
+
+      .feature-switcher-list {
+        display: grid;
+        gap: 0;
+      }
+
+      .feature-switcher-item {
+        width: 100%;
+        text-align: left;
+        padding: 0;
+        border-radius: 0;
+        border: 0;
+        background: rgba(255, 255, 255, 0.82);
+        border-bottom: 1px solid rgba(226, 232, 240, 0.95);
+        transition:
+          background 320ms cubic-bezier(0.22, 1, 0.36, 1),
+          transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+        cursor: pointer;
+      }
+
+      .feature-switcher-item:hover {
+        transform: translateY(-0.5px);
+      }
+
+      .feature-switcher-item:focus-visible {
+        outline: 3px solid rgba(var(--primary-rgb), 0.22);
+        outline-offset: 3px;
+      }
+
+      .feature-switcher-item.is-active {
+        background: rgba(255, 255, 255, 0.82);
+      }
+
+      .feature-switcher-item-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 16px 22px 7px;
+      }
+
+      .feature-switcher-item-title {
+        margin: 0;
+        color: var(--text);
+        font-size: 18px;
+        line-height: 1.25;
+        font-weight: 600;
+      }
+
+      .feature-switcher-item-arrow {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 34px;
+        height: 34px;
+        color: var(--muted);
+        flex: 0 0 auto;
+        transition:
+          transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+          color 320ms cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      .feature-switcher-item-arrow svg {
+        width: 16px;
+        height: 16px;
+        stroke: currentColor;
+        stroke-width: 2;
+        fill: none;
+      }
+
+      .feature-switcher-item.is-active .feature-switcher-item-arrow {
+        color: var(--text);
+        transform: rotate(180deg);
+      }
+
+      .feature-switcher-item-copy {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 420ms cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      .feature-switcher-item.is-active .feature-switcher-item-copy {
+        grid-template-rows: 1fr;
+      }
+
+      .feature-switcher-item-copy-inner {
+        min-height: 0;
+        overflow: hidden;
+      }
+
+      .feature-switcher-item p {
+        margin: 0;
+        padding: 0 22px 14px;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.65;
+        opacity: 0;
+        transform: translateY(-4px);
+        transition:
+          opacity 280ms ease,
+          transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      .feature-switcher-item.is-active p {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .feature-switcher-visual {
+        position: relative;
+        min-height: 100%;
+      }
+
+      .feature-switcher-placeholder {
+        aspect-ratio: 16 / 9;
+        height: auto;
+        min-height: 0;
+        background: rgba(255, 255, 255, 0.98);
+        position: relative;
+      }
+
+      .feature-switcher-placeholder img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
+        object-position: center;
+        background: #fff;
       }
 
       .ai-loop {
@@ -4439,6 +4599,10 @@
           align-items: center;
         }
 
+        .home-hero-grid--solo {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
         .feature-panel {
           grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
           align-items: center;
@@ -4466,6 +4630,11 @@
         .ai-loop-visual {
           display: flex;
           align-self: center;
+        }
+
+        .feature-switcher-grid {
+          grid-template-columns: minmax(280px, 0.7fr) minmax(0, 1.7fr);
+          gap: 34px;
         }
       }
 
@@ -4539,26 +4708,144 @@
               height="1024"
             />
             <div class="container">
-              <div class="home-hero-grid">
+              <div class="home-hero-grid home-hero-grid--solo">
                 <div>
                   <h1>
-                    Uporządkuj wynagrodzenia,
-                    <span>zanim transparentność płac obnaży chaos</span>
+                    Platforma do wdrożenia dyrektywy 2023/970
+                    <span>i transparentności płac</span>
                   </h1>
                   <p class="home-lead">
-                    System pomaga stworzyć kryteria wartościowania wynagrodzeń oraz uporządkować widełki i zasady płac zgodnie z dyrektywą 2023/970 o równości wynagrodzeń.
+                    Porządkuje widełki i zasady płac oraz pomaga zarządzać zmianami wynagrodzeń i ocenami pracowników.
                   </p>
                   <div class="home-cta home-cta--hero">
                     <a class="btn btn-primary" href="{{ signupUrl }}"><span>Załóż konto</span></a>
                   </div>
                 </div>
-                <div class="home-hero-visual">
-                  <img
-                    src="/images/kryteria-wartosciowania.jpg"
-                    alt="Widok modułu kryteriów wartościowania w systemie"
-                    loading="eager"
-                    decoding="async"
-                  />
+              </div>
+            </div>
+          </section>
+
+          <section class="feature-switcher" aria-labelledby="feature-switcher-title">
+            <div class="container">
+                <div class="feature-switcher-grid" id="feature-switcher">
+                  <div class="feature-switcher-list" role="tablist" aria-labelledby="feature-switcher-title">
+                  <button
+                    class="feature-switcher-item is-active"
+                    type="button"
+                    role="tab"
+                    aria-selected="true"
+                    aria-expanded="true"
+                    aria-controls="feature-switcher-panel"
+                    data-feature-index="0"
+                    data-feature-image="/images/organizacja.jpg"
+                    data-feature-image-alt="Widok modułu organizacji i struktury organizacyjnej w systemie"
+                  >
+                    <span class="feature-switcher-item-top">
+                      <span class="feature-switcher-item-title">Organizacja</span>
+                      <span class="feature-switcher-item-arrow" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                          <path d="M6 9l6 6 6-6"></path>
+                        </svg>
+                      </span>
+                    </span>
+                    <span class="feature-switcher-item-copy">
+                      <span class="feature-switcher-item-copy-inner">
+                        <p>Zawiera informacje o organizacji, strukturę organizacji oraz stanowiska.</p>
+                      </span>
+                    </span>
+                  </button>
+                  <button
+                    class="feature-switcher-item"
+                    type="button"
+                    role="tab"
+                    aria-selected="false"
+                    aria-expanded="false"
+                    aria-controls="feature-switcher-panel"
+                    data-feature-index="1"
+                    data-feature-image="/images/kryteria-wartosciowania.jpg"
+                    data-feature-image-alt="Widok modułu kryteriów wartościowania w systemie"
+                  >
+                    <span class="feature-switcher-item-top">
+                      <span class="feature-switcher-item-title">Wartościowanie</span>
+                      <span class="feature-switcher-item-arrow" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                          <path d="M6 9l6 6 6-6"></path>
+                        </svg>
+                      </span>
+                    </span>
+                    <span class="feature-switcher-item-copy">
+                      <span class="feature-switcher-item-copy-inner">
+                        <p>Moduł zawiera narzędzia niezbędne do wartościowania stanowisk oraz bieżącej ewaluacji płac zgodnie z dyrektywą.</p>
+                      </span>
+                    </span>
+                  </button>
+                  <button
+                    class="feature-switcher-item"
+                    type="button"
+                    role="tab"
+                    aria-selected="false"
+                    aria-expanded="false"
+                    aria-controls="feature-switcher-panel"
+                    data-feature-index="2"
+                    data-feature-image="/images/pracownicy.jpg"
+                    data-feature-image-alt="Widok modułu pracowników i danych pracownika w systemie"
+                  >
+                    <span class="feature-switcher-item-top">
+                      <span class="feature-switcher-item-title">Pracownicy</span>
+                      <span class="feature-switcher-item-arrow" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                          <path d="M6 9l6 6 6-6"></path>
+                        </svg>
+                      </span>
+                    </span>
+                    <span class="feature-switcher-item-copy">
+                      <span class="feature-switcher-item-copy-inner">
+                        <p>Moduł zawiera informacje o pracownikach, ich płace vs płace wynikające z poziomów, oceny pracownika oraz jego historię.</p>
+                      </span>
+                    </span>
+                  </button>
+                  <button
+                    class="feature-switcher-item"
+                    type="button"
+                    role="tab"
+                    aria-selected="false"
+                    aria-expanded="false"
+                    aria-controls="feature-switcher-panel"
+                    data-feature-index="3"
+                    data-feature-image="/images/raporty.jpg"
+                    data-feature-image-alt="Widok modułu raportów i porównania wynagrodzeń realnych vs modelowych"
+                  >
+                    <span class="feature-switcher-item-top">
+                      <span class="feature-switcher-item-title">Raporty</span>
+                      <span class="feature-switcher-item-arrow" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                          <path d="M6 9l6 6 6-6"></path>
+                        </svg>
+                      </span>
+                    </span>
+                    <span class="feature-switcher-item-copy">
+                      <span class="feature-switcher-item-copy-inner">
+                        <p>Raporty pozwalają generować zestawienia wymagane przez dyrektywę oraz łatwo przekazywać informacje o wynagrodzeniach i sposobie ich liczenia.</p>
+                      </span>
+                    </span>
+                  </button>
+                </div>
+                <div
+                  class="feature-switcher-visual"
+                  role="tabpanel"
+                  id="feature-switcher-panel"
+                  aria-labelledby="feature-switcher-title"
+                >
+                  <div class="feature-switcher-placeholder" id="feature-switcher-title" aria-label="Obraz dla aktywnego modułu">
+                    <img
+                      id="feature-switcher-image"
+                      src=""
+                      alt=""
+                      hidden
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -4594,7 +4881,6 @@
                       <th class="pricing-row-label"></th>
                       <th>
                         <div class="pricing-plan-head pricing-plan-head--recommended">
-                          <span class="pricing-badge-bar">Najczęściej wybierany</span>
                           <h3 class="pricing-title">Standard</h3>
                           <p class="pricing-price">299 PLN</p>
                           <span class="pricing-period">/miesięcznie</span>
@@ -4817,6 +5103,7 @@
     </div>
   {% if isHome %}
     <script src="/js/ai-loop.js" defer></script>
+    <script src="/js/feature-switcher.js" defer></script>
   {% endif %}
   {% if isServices and not isServicesIndex %}
     <script src="/js/faq-accordion.js" defer></script>
