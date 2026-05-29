@@ -3635,6 +3635,13 @@
         overflow: hidden;
       }
 
+      .feature-switcher .section-title {
+        font-size: clamp(28px, 3vw, 38px);
+        line-height: 1.12;
+        letter-spacing: -0.03em;
+        margin-bottom: clamp(20px, 3vw, 32px);
+      }
+
       .feature-switcher::before {
         content: none;
       }
@@ -4791,10 +4798,13 @@
             </div>
           </section>
 
-          <section class="feature-switcher" aria-labelledby="feature-switcher-title">
+          <section class="feature-switcher" aria-labelledby="feature-switcher-heading">
             <div class="container">
+                <div class="section-header">
+                  <h2 id="feature-switcher-heading" class="section-title">Główne moduły</h2>
+                </div>
                 <div class="feature-switcher-grid" id="feature-switcher">
-                  <div class="feature-switcher-list" role="tablist" aria-labelledby="feature-switcher-title">
+                  <div class="feature-switcher-list" role="tablist" aria-labelledby="feature-switcher-heading">
                   <button
                     class="feature-switcher-item is-active"
                     type="button"
@@ -4900,9 +4910,9 @@
                   class="feature-switcher-visual"
                   role="tabpanel"
                   id="feature-switcher-panel"
-                  aria-labelledby="feature-switcher-title"
+                  aria-labelledby="feature-switcher-heading"
                 >
-                  <div class="feature-switcher-placeholder" id="feature-switcher-title" aria-label="Obraz dla aktywnego modułu">
+                  <div class="feature-switcher-placeholder" aria-label="Obraz dla aktywnego modułu">
                     <img
                       id="feature-switcher-image"
                       src=""
