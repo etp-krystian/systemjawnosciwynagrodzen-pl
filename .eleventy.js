@@ -47,7 +47,14 @@ module.exports = function (eleventyConfig) {
     "src/images": "images",
     "src/js": "js",
     "src/_redirects": "_redirects",
-    "src/_headers": "_headers"
+    "src/_headers": "_headers",
+    "src/favicon.svg": "favicon.svg",
+    "src/favicon.png": "favicon.png",
+    "src/favicon-32x32.png": "favicon-32x32.png",
+    "src/apple-touch-icon.png": "apple-touch-icon.png",
+    "src/android-chrome-192x192.png": "android-chrome-192x192.png",
+    "src/android-chrome-512x512.png": "android-chrome-512x512.png",
+    "src/site.webmanifest": "site.webmanifest"
   });
 
   // Draft support:
