@@ -2,8 +2,6 @@
 {% set pageLocale = locale or site.locale or 'pl' %}
 {% set isPolish = pageLocale == 'pl' %}
 {% set homeUrl = '/' %}
-{% set consultingUrl = '/pl/wdrozenia-ai-dla-firm/' if isPolish else '/services/ai-solutions-development/' %}
-{% set roadmapUrl = '/pl/wdrozenia-ai-dla-firm/' if isPolish else '/services/ai-solutions-development/' %}
 {% set homeLabel = 'Strona główna' if isPolish else 'Home' %}
 {% set loginLabel = 'Logowanie' if isPolish else 'Log in' %}
 {% set signupLabel = 'Rejestracja' if isPolish else 'Sign up' %}
@@ -19,11 +17,11 @@
 {% set isServices = page.url and page.url.indexOf("/services/") == 0 %}
 {% set isBlog = page.url and page.url.indexOf("/aktualnosci/") == 0 %}
 {% set isBlogIndex = page.url == "/aktualnosci/" %}
-{% set isLegal = page.url == "/privacy-policy/" or page.url == "/cookie-policy/" or page.url == "/terms/" or page.url == "/pl/polityka-prywatnosci/" or page.url == "/pl/polityka-cookies/" or page.url == "/polityka-prywatnosci/" or page.url == "/regulamin/" %}
-{% set isStart = page.url == "/start-with-ai/" or page.url == "/implementation-process/" or page.url == "/business-ai-faq/" %}
-{% set isContact = page.url == "/contact-us/" or page.url == "/pl/kontakt/" %}
-{% set isWhyUs = page.url == "/why-us/" %}
-{% set isLeadPlan = page.url == "/services/ai-solutions-development/" %}
+{% set isLegal = page.url == "/privacy-policy/" or page.url == "/cookie-policy/" or page.url == "/pl/polityka-prywatnosci/" or page.url == "/pl/polityka-cookies/" or page.url == "/polityka-prywatnosci/" or page.url == "/regulamin/" %}
+{% set isStart = false %}
+{% set isContact = page.url == "/pl/kontakt/" %}
+{% set isWhyUs = false %}
+{% set isLeadPlan = false %}
 {% set isContent = not isHome %}
 {% set alternates = {} %}
 {% set canonicalPath = canonicalPath or page.url %}
@@ -31,7 +29,7 @@
 {% set organization = site.organization or {} %}
 {% set organizationId = (site.url + '#organization') if site and site.url else '#organization' %}
 {% set organizationLogo = (site.url + organization.logo) if site and site.url and organization.logo else organization.logo %}
-{% set isPrimaryServicePage = page.url == '/' or page.url == '/services/ai-solutions-development/' %}
+{% set isPrimaryServicePage = page.url == '/' %}
 {% set breadcrumbHomeUrl = homeUrl %}
 {% set breadcrumbHomeLabel = homeLabel %}
 {% set languageSwitchUrl = '' %}
@@ -214,27 +212,12 @@
           "name": {{ breadcrumbHomeLabel | json | safe }},
           "item": {{ (site.url + breadcrumbHomeUrl) | json | safe }}
         }
-        {% if isServices and not isServicesIndex %}
-        ,{
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Product",
-          "item": {{ (site.url + '/services/') | json | safe }}
-        }
-        ,{
-          "@type": "ListItem",
-          "position": 3,
-          "name": {{ pageHeading | json | safe }},
-          "item": {{ canonicalUrl | json | safe }}
-        }
-        {% else %}
         ,{
           "@type": "ListItem",
           "position": 2,
           "name": {{ pageHeading | json | safe }},
           "item": {{ canonicalUrl | json | safe }}
         }
-        {% endif %}
       ]
     }
     </script>
@@ -5195,14 +5178,8 @@
                   <nav class="page-breadcrumbs" aria-label="Breadcrumb">
                     <a href="{{ homeUrl }}">{{ homeLabel }}</a>
                     <span class="crumb-sep" aria-hidden="true">/</span>
-                    {% if isServices and not isServicesIndex %}
-                      <a href="/services/">{{ servicesLabel }}</a>
-                      <span class="crumb-sep" aria-hidden="true">/</span>
-                    {% elif isBlog and not isBlogIndex %}
+                    {% if isBlog and not isBlogIndex %}
                       <a href="/aktualnosci/">Aktualności</a>
-                      <span class="crumb-sep" aria-hidden="true">/</span>
-                    {% elif isStart and page.url != '/start-with-ai/' %}
-                      <a href="/start-with-ai/">{% if isPolish %}Start{% else %}Start with a Pilot{% endif %}</a>
                       <span class="crumb-sep" aria-hidden="true">/</span>
                     {% endif %}
                     <span aria-current="page">{{ pageHeading | escape }}</span>
@@ -5252,7 +5229,9 @@
           </div>
           <div class="footer-links" aria-label="Footer links">
             <a href="{% if isPolish %}/polityka-prywatnosci/{% else %}/privacy-policy/{% endif %}">{% if isPolish %}Polityka prywatności{% else %}Privacy policy{% endif %}</a>
-            <a href="{% if isPolish %}/regulamin/{% else %}/terms/{% endif %}">{% if isPolish %}Regulamin{% else %}Terms of use{% endif %}</a>
+            {% if isPolish %}
+              <a href="/regulamin/">Regulamin</a>
+            {% endif %}
           </div>
         </div>
       </footer>
