@@ -54,7 +54,8 @@ module.exports = function (eleventyConfig) {
     "src/apple-touch-icon.png": "apple-touch-icon.png",
     "src/android-chrome-192x192.png": "android-chrome-192x192.png",
     "src/android-chrome-512x512.png": "android-chrome-512x512.png",
-    "src/site.webmanifest": "site.webmanifest"
+    "src/site.webmanifest": "site.webmanifest",
+    "src/d859d2f35fbe4132bc0a858c5f832aff.txt": "d859d2f35fbe4132bc0a858c5f832aff.txt"
   });
 
   // Draft support:
