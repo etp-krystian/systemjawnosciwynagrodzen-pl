@@ -6,7 +6,6 @@ heading: Polityka prywatności
 description: Informacje o przetwarzaniu danych osobowych i prywatności na tej stronie.
 permalink: /polityka-prywatnosci/
 alternateLangs:
-  en: /privacy-policy/
   pl: /polityka-prywatnosci/
 ---
 

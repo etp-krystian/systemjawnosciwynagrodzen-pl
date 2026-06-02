@@ -17,7 +17,7 @@
 {% set isServices = page.url and page.url.indexOf("/services/") == 0 %}
 {% set isBlog = page.url and page.url.indexOf("/aktualnosci/") == 0 %}
 {% set isBlogIndex = page.url == "/aktualnosci/" %}
-{% set isLegal = page.url == "/privacy-policy/" or page.url == "/cookie-policy/" or page.url == "/pl/polityka-prywatnosci/" or page.url == "/pl/polityka-cookies/" or page.url == "/polityka-prywatnosci/" or page.url == "/regulamin/" %}
+{% set isLegal = page.url == "/polityka-prywatnosci/" or page.url == "/regulamin/" %}
 {% set isStart = false %}
 {% set isContact = page.url == "/pl/kontakt/" %}
 {% set isWhyUs = false %}
@@ -5233,7 +5233,7 @@
             <div>© 2026, Easy Tech Partners Sp z o.o.</div>
           </div>
           <div class="footer-links" aria-label="Footer links">
-            <a href="{% if isPolish %}/polityka-prywatnosci/{% else %}/privacy-policy/{% endif %}">{% if isPolish %}Polityka prywatności{% else %}Privacy policy{% endif %}</a>
+            <a href="/polityka-prywatnosci/">{% if isPolish %}Polityka prywatności{% else %}Privacy policy{% endif %}</a>
             {% if isPolish %}
               <a href="/regulamin/">Regulamin</a>
             {% endif %}
@@ -5270,7 +5270,7 @@
                 You can change your choice any time in Cookie settings.
               {% endif %}
             </p>
-            <a class="cookie-link" href="{% if isPolish %}/pl/polityka-cookies/{% else %}/cookie-policy/{% endif %}">{% if isPolish %}Przeczytaj politykę cookies{% else %}Read our cookie policy{% endif %}</a>
+            <a class="cookie-link" href="/polityka-prywatnosci/">{% if isPolish %}Przeczytaj politykę prywatności{% else %}Read our privacy policy{% endif %}</a>
             <div class="cookie-settings" id="cookie-settings" hidden>
               <div class="cookie-setting">
                 <div>

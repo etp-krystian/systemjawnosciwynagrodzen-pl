@@ -2,8 +2,8 @@
 layout: base
 permalink: /
 locale: pl
-title: "System Jawności Wynagrodzeń | Uporządkuj płace i przygotuj firmę na transparentność"
-description: "System Jawności Wynagrodzeń pomaga uporządkować płace, zbudować obiektywne widełki i przygotować firmę na wymogi transparentności wynagrodzeń."
+title: "System Jawności Wynagrodzeń"
+description: "Uporządkuj płace, zbuduj obiektywne widełki i przygotuj firmę na wymogi transparentności wynagrodzeń."
 ---
 
 <!-- Homepage content is rendered in `src/_includes/base.njk`. -->
