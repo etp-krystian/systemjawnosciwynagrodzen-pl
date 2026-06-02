@@ -3145,9 +3145,9 @@
 
       .footer-grid {
         display: grid;
-        grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
         gap: 18px;
-        align-items: start;
+        align-items: center;
       }
 
       .footer-title {
@@ -3171,6 +3171,64 @@
       .footer-links a:hover {
         color: var(--text);
         text-decoration: underline;
+      }
+
+      .footer-side {
+        display: grid;
+        gap: 14px;
+        justify-items: end;
+      }
+
+      .footer-payments {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 10px 14px;
+      }
+
+      .footer-payment-logo {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 86px;
+      }
+
+      .footer-payment-logo img,
+      .footer-payment-logo svg {
+        display: block;
+        height: 20px;
+        width: auto;
+      }
+
+      .footer-payment-logo--payu img {
+        height: 19px;
+      }
+
+      .footer-payment-logo--visa svg {
+        height: 16px;
+      }
+
+      .footer-payment-logo--visa {
+        color: #1434cb;
+      }
+
+      .footer-payment-logo--mc svg {
+        height: 20px;
+      }
+
+      .footer-payment-logo--mc .mc-left {
+        fill: #eb001b;
+        opacity: 1;
+      }
+
+      .footer-payment-logo--mc .mc-right {
+        fill: #f79e1b;
+        opacity: 1;
+      }
+
+      .footer-payment-logo--mc text {
+        fill: #111827;
       }
 
       .home-hero {
@@ -4674,6 +4732,14 @@
         .blog-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
+
+        .footer-side {
+          justify-items: start;
+        }
+
+        .footer-payments {
+          justify-content: flex-start;
+        }
       }
 
       @media (max-width: 760px) {
@@ -5244,11 +5310,30 @@
           <div>
             <div>© 2026, Easy Tech Partners Sp z o.o.</div>
           </div>
-          <div class="footer-links" aria-label="Footer links">
-            <a href="/polityka-prywatnosci/">{% if isPolish %}Polityka prywatności{% else %}Privacy policy{% endif %}</a>
-            {% if isPolish %}
-              <a href="/regulamin/">Regulamin</a>
-            {% endif %}
+          <div class="footer-payments" aria-label="Metody płatności">
+            <span class="footer-payment-logo footer-payment-logo--payu" aria-label="PayU">
+              <img src="/images/payu.svg" alt="PayU" loading="lazy" decoding="async" />
+            </span>
+            <span class="footer-payment-logo footer-payment-logo--visa" aria-label="Visa">
+              <svg viewBox="0 0 120 40" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                <text x="0" y="29" fill="currentColor" font-size="30" font-weight="700" font-style="italic" letter-spacing="1">VISA</text>
+              </svg>
+            </span>
+            <span class="footer-payment-logo footer-payment-logo--mc" aria-label="Mastercard">
+              <svg viewBox="0 0 150 40" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                <circle class="mc-left" cx="24" cy="20" r="14"/>
+                <circle class="mc-right" cx="40" cy="20" r="14"/>
+                <text x="62" y="25" font-size="16" font-weight="600">mastercard</text>
+              </svg>
+            </span>
+          </div>
+          <div class="footer-side">
+            <div class="footer-links" aria-label="Footer links">
+              <a href="/polityka-prywatnosci/">{% if isPolish %}Polityka prywatności{% else %}Privacy policy{% endif %}</a>
+              {% if isPolish %}
+                <a href="/regulamin/">Regulamin</a>
+              {% endif %}
+            </div>
           </div>
         </div>
       </footer>
