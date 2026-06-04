@@ -12,6 +12,8 @@
 {% set langSwitchLabel = 'EN' if isPolish else 'PL' %}
 {% set langSwitchText = 'English' if isPolish else 'Polski' %}
 {% set langSwitchHint = 'Wersja językowa' if isPolish else 'Language' %}
+{% set featuresLabel = 'Funkcje' if isPolish else 'Features' %}
+{% set pricingLabel = 'Cennik' if isPolish else 'Pricing' %}
 {% set isHome = page.url == "/" %}
 {% set isServicesIndex = page.url == "/services/" %}
 {% set isServices = page.url and page.url.indexOf("/services/") == 0 %}
@@ -682,13 +684,14 @@
 
       .site-header--overlay:not(.is-scrolled) .nav-link:hover {
         color: #ffffff;
-        background: rgba(255, 255, 255, 0.14);
+        background: transparent;
       }
 
       .site-header--overlay:not(.is-scrolled) .nav-link.is-active,
       .site-header--overlay:not(.is-scrolled) .nav-item--mega .nav-link.is-active {
-        background: rgba(255, 255, 255, 0.18);
         color: #ffffff;
+        text-decoration: underline;
+        text-underline-offset: 0.22em;
       }
 
       .site-header--overlay:not(.is-scrolled) .btn-ghost {
@@ -757,7 +760,8 @@
       .nav {
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 28px;
+        margin-left: auto;
       }
 
       .nav-item {
@@ -770,11 +774,13 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        padding: 9px 12px;
-        border-radius: var(--radius-full);
-        font-size: 13px;
-        font-weight: 650;
-        color: var(--muted);
+        padding: 6px 0;
+        border-radius: 0;
+        font-size: 14px;
+        line-height: 1.2;
+        font-weight: 500;
+        letter-spacing: -0.01em;
+        color: var(--text-strong);
         text-decoration: none;
       }
 
@@ -812,14 +818,15 @@
       }
 
       .nav-link:hover {
-        color: var(--text);
-        background: rgba(226, 232, 240, 0.65);
+        color: var(--text-strong);
+        background: transparent;
         text-decoration: none;
       }
 
       .nav-link.is-active {
-        background: rgba(var(--accent-tech-rgb), 0.14);
-        color: var(--accent-tech-dark);
+        color: var(--text-strong);
+        text-decoration: underline;
+        text-underline-offset: 0.22em;
       }
 
       .nav-item--mega .nav-link.is-active {
@@ -1107,7 +1114,7 @@
         display: inline-flex;
         align-items: center;
         gap: 10px;
-        margin-left: auto;
+        margin-left: 8px;
       }
 
       .header-actions .btn {
@@ -4944,6 +4951,15 @@
             <span class="brand-wordmark">System Jawności Wynagrodzeń</span>
           </a>
 
+          <nav class="nav" aria-label="Primary">
+            <span class="nav-item">
+              <a href="/funkcje/" class="nav-link{% if page.url == '/funkcje/' %} is-active{% endif %}">{{ featuresLabel }}</a>
+            </span>
+            <span class="nav-item">
+              <a href="/cennik/" class="nav-link{% if page.url == '/cennik/' %} is-active{% endif %}">{{ pricingLabel }}</a>
+            </span>
+          </nav>
+
           <div class="header-actions">
             <a href="{{ signupUrl }}" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">
               <span>{{ signupLabel }}</span>
@@ -4977,6 +4993,12 @@
               <span>{{ menuLabel }}</span>
             </summary>
             <div class="mobile-nav-panel" role="dialog" aria-label="Mobile navigation">
+              <a href="/funkcje/">
+                <span>{{ featuresLabel }}</span>
+              </a>
+              <a href="/cennik/">
+                <span>{{ pricingLabel }}</span>
+              </a>
               <a class="mobile-nav-cta" href="{{ signupUrl }}" target="_blank" rel="noopener noreferrer">
                 <span>{{ signupLabel }}</span>
               </a>
