@@ -1885,23 +1885,7 @@
       }
 
       .page-hero {
-        position: relative;
         padding: var(--space-section-compact) 0 var(--space-lg);
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%);
-        border-bottom: 1px solid rgba(226, 232, 240, 0.9);
-        overflow: hidden;
-      }
-
-      .page-hero::before {
-        content: "";
-        position: absolute;
-        inset: -40% -20% auto -20%;
-        height: 380px;
-        background:
-          radial-gradient(circle at 18% 28%, rgba(var(--accent-tech-rgb), 0.16), transparent 60%),
-          radial-gradient(circle at 62% 52%, rgba(2, 6, 23, 0.08), transparent 58%),
-          radial-gradient(circle at 84% 18%, rgba(var(--accent-tech-rgb), 0.10), transparent 52%);
-        pointer-events: none;
       }
 
       .is-blog .page-hero {
@@ -1909,8 +1893,8 @@
         padding: 18px 0 10px;
       }
 
-      .is-blog .page-hero::before {
-        content: none;
+      .page-hero--compact-bottom {
+        padding-bottom: 0;
       }
 
       .is-blog:not(.is-content) .page-lead {
@@ -1922,31 +1906,9 @@
       }
 
       .page-hero-inner {
-        position: relative;
         display: flex;
         flex-direction: column;
         gap: var(--space-2xs);
-      }
-
-      .page-breadcrumbs {
-        position: relative;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 8px;
-        margin: 0 0 var(--space-sm);
-        color: var(--text-subtle);
-        font-size: 13px;
-        font-weight: var(--font-weight-regular);
-        line-height: 1.5;
-      }
-
-      .page-breadcrumbs a {
-        color: var(--text-body);
-      }
-
-      .page-breadcrumbs .crumb-sep {
-        color: var(--text-subtle);
       }
 
       
@@ -2693,20 +2655,6 @@
 
       .is-services .page-hero {
         padding: clamp(28px, 3.8vw, 44px) 0 clamp(24px, 3.2vw, 34px);
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.95) 100%);
-      }
-
-      .is-services .page-hero::before {
-        inset: 0;
-        height: auto;
-        background:
-          radial-gradient(circle at 14% 24%, rgba(148, 163, 184, 0.12), transparent 52%),
-          radial-gradient(circle at 78% 28%, rgba(148, 163, 184, 0.08), transparent 50%);
-      }
-
-      .is-services .page-breadcrumbs {
-        margin-bottom: var(--space-xs);
-        font-weight: 650;
       }
 
       .is-services .page-header h1 {
@@ -3132,6 +3080,63 @@
         font-size: 12px;
       }
 
+      .footer-upper {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 18px;
+        min-height: 112px;
+        margin-bottom: var(--space-lg);
+        padding-bottom: var(--space-lg);
+        border-bottom: 1px solid rgba(226, 232, 240, 0.7);
+      }
+
+      .footer-upper-column {
+        min-height: 100%;
+      }
+
+      .footer-upper-column--brand {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+      }
+
+      .footer-upper-logo {
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .footer-upper-logo img {
+        display: block;
+        width: 34px;
+        height: auto;
+      }
+
+      .footer-upper-menu {
+        display: grid;
+        gap: 10px;
+        align-content: start;
+      }
+
+      .footer-upper-title {
+        margin: 0;
+        color: var(--text);
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .footer-upper-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 8px;
+      }
+
+      .footer-upper-list li {
+        font-size: 13px;
+        line-height: 1.4;
+      }
+
       .footer-build {
         margin-top: 6px;
         font-size: 11px;
@@ -3191,7 +3196,7 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        width: 86px;
+        width: auto;
       }
 
       .footer-payment-logo img,
@@ -4409,6 +4414,33 @@
         align-items: stretch;
       }
 
+      .feature-columns {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .feature-column {
+        min-width: 0;
+      }
+
+      .feature-column h2 {
+        margin: 0 0 12px;
+        font-size: 20px;
+        line-height: 1.2;
+        letter-spacing: -0.025em;
+        color: var(--text-strong);
+      }
+
+      .feature-column ul {
+        margin: 0;
+        padding-left: 18px;
+      }
+
+      .feature-column li + li {
+        margin-top: 8px;
+      }
+
       .blog-item {
         height: 100%;
       }
@@ -4704,6 +4736,11 @@
           grid-template-columns: minmax(0, 1fr);
         }
 
+        .footer-upper {
+          grid-template-columns: minmax(0, 1fr);
+          min-height: 0;
+        }
+
         .footer-links {
           justify-content: flex-start;
         }
@@ -4730,6 +4767,10 @@
         }
 
         .blog-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .feature-columns {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
@@ -4823,6 +4864,10 @@
         }
 
         .blog-grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        .feature-columns {
           grid-template-columns: minmax(0, 1fr);
         }
 
@@ -5143,132 +5188,12 @@
             </section>
           {% endif %}
 
-          <section class="section compact" aria-label="Cennik">
-            <div class="container">
-              <div class="section-header pricing-section-header">
-                <h2 class="section-title">Cennik</h2>
-                <p class="section-lead">Narzędzie do wartościowania stanowisk w każdym pakiecie.</p>
-              </div>
-              <div class="pricing-table-wrap">
-                <table class="pricing-table">
-                  <thead>
-                    <tr>
-                      <th class="pricing-row-label"></th>
-                      <th>
-                        <div class="pricing-plan-head pricing-plan-head--recommended">
-                          <h3 class="pricing-title">Standard</h3>
-                          <p class="pricing-price">299 PLN</p>
-                          <span class="pricing-period">/miesięcznie</span>
-                        </div>
-                      </th>
-                      <th>
-                        <div class="pricing-plan-head">
-                          <h3 class="pricing-title">Growth</h3>
-                          <p class="pricing-price">1 199 PLN</p>
-                          <span class="pricing-period">/miesięcznie</span>
-                        </div>
-                      </th>
-                      <th>
-                        <div class="pricing-plan-head">
-                          <h3 class="pricing-title">Scale</h3>
-                          <p class="pricing-price">2 499 PLN</p>
-                          <span class="pricing-period">/miesięcznie</span>
-                        </div>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th class="pricing-row-label" scope="row">Liczba pracowników</th>
-                      <td><p class="pricing-cap">Do 25 pracowników</p></td>
-                      <td><p class="pricing-cap">Do 100 pracowników</p></td>
-                      <td><p class="pricing-cap">Do 250 pracowników</p></td>
-                    </tr>
-                    <tr>
-                      <th class="pricing-row-label" scope="row">Struktura Organizacji</th>
-                      <td><p class="pricing-check">✓</p></td>
-                      <td><p class="pricing-check">✓</p></td>
-                      <td><p class="pricing-check">✓</p></td>
-                    </tr>
-                    <tr>
-                      <th class="pricing-row-label" scope="row">Stanowiska</th>
-                      <td><p class="pricing-check">✓</p></td>
-                      <td><p class="pricing-check">✓</p></td>
-                      <td><p class="pricing-check">✓</p></td>
-                    </tr>
-                    <tr>
-                      <th class="pricing-row-label" scope="row">Kryteria Wartościowania</th>
-                      <td><p class="pricing-check">✓</p></td>
-                      <td><p class="pricing-check">✓</p></td>
-                      <td><p class="pricing-check">✓</p></td>
-                    </tr>
-                    <tr>
-                      <th class="pricing-row-label" scope="row">Wartościowanie Stanowisk</th>
-                      <td><p class="pricing-check">✓</p></td>
-                      <td><p class="pricing-check">✓</p></td>
-                      <td><p class="pricing-check">✓</p></td>
-                    </tr>
-                    <tr>
-                      <th class="pricing-row-label" scope="row">Siatka Poziomów</th>
-                      <td><p class="pricing-check">✓</p></td>
-                      <td><p class="pricing-check">✓</p></td>
-                      <td><p class="pricing-check">✓</p></td>
-                    </tr>
-                    <tr>
-                      <th class="pricing-row-label" scope="row">Struktura Wynagrodzeń</th>
-                      <td><p class="pricing-check">✓</p></td>
-                      <td><p class="pricing-check">✓</p></td>
-                      <td><p class="pricing-check">✓</p></td>
-                    </tr>
-                    <tr>
-                      <th class="pricing-row-label" scope="row">Pracownicy</th>
-                      <td><p class="pricing-check">✓</p></td>
-                      <td><p class="pricing-check">✓</p></td>
-                      <td><p class="pricing-check">✓</p></td>
-                    </tr>
-                    <tr>
-                      <th class="pricing-row-label" scope="row">Raport Kategorii Pracy</th>
-                      <td><p class="pricing-check">✓</p></td>
-                      <td><p class="pricing-check">✓</p></td>
-                      <td><p class="pricing-check">✓</p></td>
-                    </tr>
-                    <tr>
-                      <th class="pricing-row-label" scope="row">Raport Próg 5%</th>
-                      <td><p class="pricing-check">✓</p></td>
-                      <td><p class="pricing-check">✓</p></td>
-                      <td><p class="pricing-check">✓</p></td>
-                    </tr>
-                    <tr>
-                      <th class="pricing-row-label" scope="row">Raport Wynagrodzeń, Realne vs Modelowe</th>
-                      <td><p class="pricing-check">✓</p></td>
-                      <td><p class="pricing-check">✓</p></td>
-                      <td><p class="pricing-check">✓</p></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <p class="pricing-footnote">* Podane kwoty są kwotami netto za jeden miesiąc.</p>
-            </div>
-          </section>
-
         {% else %}
           {% if renderPageHeader is defined and renderPageHeader == false %}
             {{ content | safe }}
           {% else %}
             <section class="page-hero">
               <div class="container">
-                {% if not isLegal %}
-                  <nav class="page-breadcrumbs" aria-label="Breadcrumb">
-                    <a href="{{ homeUrl }}">{{ homeLabel }}</a>
-                    <span class="crumb-sep" aria-hidden="true">/</span>
-                    {% if isBlog and not isBlogIndex %}
-                      <a href="/aktualnosci/">Aktualności</a>
-                      <span class="crumb-sep" aria-hidden="true">/</span>
-                    {% endif %}
-                    <span aria-current="page">{{ pageHeading | escape }}</span>
-                  </nav>
-                {% endif %}
-
                 {% if not (isBlog and not isBlogIndex) %}
                   <div class="page-hero-inner">
                     <div class="page-header">
@@ -5306,6 +5231,28 @@
       </main>
 
       <footer class="site-footer">
+        <div class="container footer-upper">
+          <div class="footer-upper-column footer-upper-column--brand">
+            <span class="footer-upper-logo">
+              <img src="/images/logo.svg" alt="" width="34" height="34" />
+            </span>
+          </div>
+          <div class="footer-upper-column footer-upper-menu">
+            <p class="footer-upper-title">Produkt</p>
+            <ul class="footer-upper-list">
+              <li><a href="/aktualizacje/">Co nowego</a></li>
+              <li><a href="/funkcje/">Funkcje</a></li>
+              <li><a href="/cennik/">Cennik</a></li>
+            </ul>
+          </div>
+          <div class="footer-upper-column footer-upper-menu">
+            <p class="footer-upper-title">Konto</p>
+            <ul class="footer-upper-list">
+              <li><a href="{{ loginUrl }}" target="_blank" rel="noopener noreferrer">Logowanie</a></li>
+              <li><a href="{{ signupUrl }}" target="_blank" rel="noopener noreferrer">Rejestracja</a></li>
+            </ul>
+          </div>
+        </div>
         <div class="container footer-grid">
           <div>
             <div>© 2026, Easy Tech Partners Sp z o.o.</div>

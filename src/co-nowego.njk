@@ -1,0 +1,68 @@
+---
+layout: base
+locale: pl
+title: Co nowego
+heading: Co nowego
+description: Aktualizacje i nowości.
+permalink: /aktualizacje/
+alternateLangs:
+  pl: /aktualizacje/
+renderPageHeader: false
+---
+
+<section class="page-hero page-hero--compact-bottom">
+  <div class="container">
+    <div class="page-hero-inner">
+      <div class="blog-header">
+        <h1 class="blog-title">Co nowego</h1>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    {% set releases = changelog.releases | reverse %}
+    {% if releases and releases.length %}
+      {% for release in releases %}
+        <article>
+          <h2>{{ release.version }}</h2>
+          <p><strong>Data:</strong> {{ release.releaseDate | readableDate('pl-PL') }}</p>
+
+          {% if release.newFeatures and release.newFeatures.length %}
+            <h3>Nowe funkcje</h3>
+            <ul>
+              {% for item in release.newFeatures %}
+                <li>{{ item }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+
+          {% if release.improvements and release.improvements.length %}
+            <h3>Ulepszenia</h3>
+            <ul>
+              {% for item in release.improvements %}
+                <li>{{ item }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+
+          {% if release.fixes and release.fixes.length %}
+            <h3>Poprawki</h3>
+            <ul>
+              {% for item in release.fixes %}
+                <li>{{ item }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </article>
+
+        {% if not loop.last %}
+          <hr />
+        {% endif %}
+      {% endfor %}
+    {% else %}
+      <p class="blog-empty">Brak aktualizacji do wyświetlenia.</p>
+    {% endif %}
+  </div>
+</section>
