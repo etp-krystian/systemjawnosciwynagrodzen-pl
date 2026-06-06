@@ -17,6 +17,11 @@
     ["fixes", "Poprawki"],
   ];
 
+  function getReleaseTimestamp(release) {
+    const timestamp = new Date(release && release.releaseDate ? release.releaseDate : "").getTime();
+    return Number.isNaN(timestamp) ? 0 : timestamp;
+  }
+
   function escapeHtml(value) {
     return String(value).replace(/[&<>"']/g, (char) => {
       switch (char) {
@@ -56,7 +61,7 @@
 
   function renderRelease(release) {
     const parts = [
-      "<article>",
+      '<article class="changelog-entry">',
       `<h2>${escapeHtml(release.version || "Aktualizacja")}</h2>`,
       `<p><strong>Data:</strong> ${formatDate(release.releaseDate)}</p>`,
     ];
@@ -88,13 +93,12 @@
       return;
     }
 
-    const markup = releases
+    const sortedReleases = releases
       .slice()
-      .reverse()
-      .map((release, index) => {
-        const article = renderRelease(release);
-        return index < releases.length - 1 ? `${article}<hr />` : article;
-      })
+      .sort((a, b) => getReleaseTimestamp(b) - getReleaseTimestamp(a));
+
+    const markup = sortedReleases
+      .map((release) => renderRelease(release))
       .join("");
 
     root.innerHTML = markup;
