@@ -1,0 +1,9 @@
+exclude:
+  - src
+  - node_modules
+  - scripts
+  - _site
+  - .eleventy.js
+  - package.json
+  - package-lock.json
+  - README.md
