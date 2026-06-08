@@ -1,0 +1,75 @@
+---
+layout: base
+locale: pl
+title: FAQ – Jawność Wynagrodzeń
+heading: FAQ – Jawność Wynagrodzeń
+lead: Odpowiedzi na najczęściej pojawiające się pytania dotyczące przygotowania organizacji do wymogów transparentności wynagrodzeń.
+description: "Najczęściej zadawane pytania dotyczące jawności wynagrodzeń, luki płacowej, wartościowania stanowisk, widełek płac oraz wymogów dyrektywy UE."
+permalink: /faq/
+alternateLangs:
+  pl: /faq/
+relatedLinks:
+  - title: Dyrektywa o jawności wynagrodzeń – co oznacza dla firm?
+    url: /dyrektywa-jawnosci-wynagrodzen/
+    description: Praktyczne omówienie obowiązków, zakresu zmian i wpływu dyrektywy na pracodawców.
+  - title: Wdrożenie jawności wynagrodzeń w firmie
+    url: /wdrozenie-jawnosci-wynagrodzen/
+    description: Jak przygotować dane, strukturę stanowisk i proces pracy z wynagrodzeniami.
+  - title: Wartościowanie stanowisk a jawność wynagrodzeń
+    url: /wartosciowanie-stanowisk/
+    description: Jak porządkować role i budować obiektywne podstawy porównań płacowych.
+  - title: Widełki wynagrodzeń w firmie
+    url: /widelki-wynagrodzen/
+    description: Jak łączyć poziomy, odpowiedzialność i przedziały płacowe.
+  - title: Raportowanie luki płacowej i różnic wynagrodzeń
+    url: /raportowanie-luki-placowej/
+    description: Jak przygotować dane do analizy różnic wynagrodzeń i pracy z progiem 5%.
+---
+
+<section aria-labelledby="faq-group-1">
+  <h2 id="faq-group-1">Dyrektywa i obowiązki pracodawcy</h2>
+  {% for item in faq.items %}
+    {% if loop.index <= 5 %}
+      <article>
+        <h3 id="{{ item.slug }}">{{ item.question }}</h3>
+        <p>{{ item.answer }}</p>
+      </article>
+    {% endif %}
+  {% endfor %}
+</section>
+
+<section aria-labelledby="faq-group-2">
+  <h2 id="faq-group-2">Luka płacowa i raportowanie</h2>
+  {% for item in faq.items %}
+    {% if loop.index >= 6 and loop.index <= 10 %}
+      <article>
+        <h3 id="{{ item.slug }}">{{ item.question }}</h3>
+        <p>{{ item.answer }}</p>
+      </article>
+    {% endif %}
+  {% endfor %}
+</section>
+
+<section aria-labelledby="faq-group-3">
+  <h2 id="faq-group-3">Stanowiska, poziomy i widełki płac</h2>
+  {% for item in faq.items %}
+    {% if loop.index >= 11 and loop.index <= 16 %}
+      <article>
+        <h3 id="{{ item.slug }}">{{ item.question }}</h3>
+        <p>{{ item.answer }}</p>
+      </article>
+    {% endif %}
+  {% endfor %}
+</section>
+
+<section aria-labelledby="faq-group-4">
+  <h2 id="faq-group-4">Przygotowanie organizacji i ryzyka</h2>
+  {% for item in faq.items %}
+    {% if loop.index >= 17 %}
+      <article>
+        <h3 id="{{ item.slug }}">{{ item.question }}</h3>
+        <p>{{ item.answer }}</p>
+      </article>
+    {% endif %}
+  {% endfor %}
+</section>

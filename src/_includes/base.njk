@@ -26,6 +26,7 @@
 {% set isWhyUs = false %}
 {% set isLeadPlan = false %}
 {% set isAssessment = page.url == "/ocena-gotowosci-organizacji/" %}
+{% set isFaqPage = page.url == "/faq/" %}
 {% set isContent = not isHome %}
 {% set alternates = {} %}
 {% set canonicalPath = canonicalPath or page.url %}
@@ -49,6 +50,7 @@
     {% set metaTitle = title or "System Jawności Wynagrodzeń" %}
     {% set pageHeading = heading or metaTitle %}
     {% set metaDescription = description or "System Jawności Wynagrodzeń pomaga firmom uporządkować płace i przygotować się na transparentność wynagrodzeń." %}
+    {% set pageLead = lead or description %}
     {% set defaultFeaturedImage = "/images/logo.svg" %}
     {% set effectiveImage = image %}
     {% set effectiveImageAlt = imageAlt %}
@@ -190,13 +192,14 @@
     }
     </script>
     {% endif %}
-    {% if faqSchema and faqSchema.length %}
+    {% set effectiveFaqSchema = faqSchema if faqSchema and faqSchema.length else (faq.items if isFaqPage and faq and faq.items and faq.items.length else []) %}
+    {% if effectiveFaqSchema and effectiveFaqSchema.length %}
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
-        {% for item in faqSchema %}
+        {% for item in effectiveFaqSchema %}
         {
           "@type": "Question",
           "name": {{ item.question | json | safe }},
@@ -2040,6 +2043,10 @@
         font-size: clamp(21px, 1.65vw, 24px);
         line-height: 1.22;
         text-wrap: balance;
+      }
+
+      .is-content .prose h3[id] {
+        scroll-margin-top: calc(var(--header-height) + 24px);
       }
 
       .prose p {
@@ -5663,6 +5670,41 @@
             </section>
           {% endif %}
 
+          {% if faq and faq.homepageItems and faq.homepageItems.length %}
+            <section class="section compact" aria-labelledby="homepage-faq-heading">
+              <div class="container">
+                <div class="section-header pricing-section-header">
+                  <div class="section-header section-header--split">
+                    <h2 id="homepage-faq-heading" class="section-title">Najczęściej zadawane pytania</h2>
+                    <a class="btn btn-ghost section-header-link" href="/faq/">
+                      <span>Zobacz wszystkie pytania</span>
+                      <span class="btn-icon" aria-hidden="true">
+                        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M3.5 8H12.5" stroke-width="1.8" stroke-linecap="round" />
+                          <path d="M8.8 4.3L12.5 8L8.8 11.7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                    </a>
+                  </div>
+                </div>
+                <div class="blog-grid">
+                  {% for item in faq.homepageItems %}
+                    <article class="blog-item">
+                      <div class="post-card">
+                        <div class="post-card-content">
+                          <h3 class="post-card-title">
+                            <a href="{{ item.href }}">{{ item.question }}</a>
+                          </h3>
+                          <p class="post-card-desc">{{ item.shortAnswer }}</p>
+                        </div>
+                      </div>
+                    </article>
+                  {% endfor %}
+                </div>
+              </div>
+            </section>
+          {% endif %}
+
         {% else %}
           {% if renderPageHeader is defined and renderPageHeader == false %}
             {{ content | safe }}
@@ -5673,8 +5715,8 @@
                   <div class="page-hero-inner">
                     <div class="page-header">
                       <h1>{{ pageHeading | escape }}</h1>
-                      {% if description %}
-                        <p class="page-lead">{{ description | escape }}</p>
+                      {% if pageLead %}
+                        <p class="page-lead">{{ pageLead | escape }}</p>
                       {% endif %}
                     </div>
                   </div>
@@ -5781,6 +5823,7 @@
           </div>
           <div class="footer-side">
             <div class="footer-links" aria-label="Footer links">
+              <a href="/faq/">FAQ</a>
               <a href="/polityka-prywatnosci/">{% if isPolish %}Polityka prywatności{% else %}Privacy policy{% endif %}</a>
               {% if isPolish %}
                 <a href="/regulamin/">Regulamin</a>
