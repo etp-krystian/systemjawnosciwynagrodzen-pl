@@ -1869,19 +1869,20 @@
 
       .page-header h1 {
         margin: 0 0 var(--space-2xs);
-        font-size: clamp(32px, 3vw, 46px);
-        line-height: 1.08;
+        font-size: clamp(36px, 4.4vw, 54px);
+        line-height: 1.04;
         letter-spacing: -0.04em;
         font-weight: var(--font-weight-medium);
         color: var(--text-strong);
+        text-wrap: balance;
       }
 
       .page-lead {
         margin: 0;
         color: var(--text-body);
-        max-width: 68ch;
-        font-size: 16px;
-        line-height: 1.72;
+        max-width: 62ch;
+        font-size: clamp(17px, 1.35vw, 19px);
+        line-height: 1.64;
       }
 
       .page-hero {
@@ -1893,8 +1894,99 @@
         padding: 18px 0 10px;
       }
 
+      .is-blog.is-content main {
+        background: #ffffff;
+      }
+
       .page-hero--compact-bottom {
         padding-bottom: 0;
+      }
+
+      .is-content:not(.is-blog):not(.is-services) .page-hero + .section {
+        padding-top: clamp(28px, 3.5vw, 40px);
+      }
+
+      .is-content:not(.is-blog):not(.is-services) .page-header,
+      .is-content:not(.is-blog):not(.is-services) .prose {
+        max-width: 68ch;
+      }
+
+      .is-content:not(.is-blog):not(.is-services) .page-header h1 {
+        margin-bottom: clamp(18px, 2.4vw, 24px);
+      }
+
+      .content-page-layout {
+        display: block;
+      }
+
+      .content-page-layout--with-aside {
+        display: grid;
+        grid-template-columns: minmax(0, 68ch) minmax(220px, 300px);
+        gap: clamp(28px, 4vw, 48px);
+        align-items: start;
+      }
+
+      .content-related {
+        position: sticky;
+        top: calc(var(--header-height) + 20px);
+        align-self: start;
+      }
+
+      .is-blog.is-content .content-related {
+        margin-top: clamp(72px, 8vw, 112px);
+      }
+
+      .content-related-header {
+        margin-top: 0;
+        margin-bottom: 18px;
+      }
+
+      .content-related-title {
+        margin: 0;
+        font-size: 18px;
+        line-height: 1.24;
+        letter-spacing: -0.025em;
+        color: var(--text-strong);
+        text-wrap: balance;
+      }
+
+      .content-related-list {
+        display: grid;
+        gap: 18px;
+      }
+
+      .content-related-item {
+        padding-top: 18px;
+        border-top: 1px solid rgba(226, 232, 240, 0.92);
+      }
+
+      .content-related-item:first-child {
+        padding-top: 0;
+        border-top: 0;
+      }
+
+      .content-related .post-card {
+        padding: 0;
+        background: transparent;
+        overflow: visible;
+      }
+
+      .content-related .post-card-content {
+        gap: 8px;
+        padding: 0;
+      }
+
+      .content-related .post-card-title {
+        font-size: 16px;
+        line-height: 1.32;
+        letter-spacing: -0.022em;
+        text-wrap: balance;
+      }
+
+      .content-related .post-card-desc {
+        font-size: 13px;
+        line-height: 1.62;
+        max-width: none;
       }
 
       .is-blog:not(.is-content) .page-lead {
@@ -1916,8 +2008,12 @@
       .prose {
         max-width: 76ch;
         color: var(--text-body);
-        font-size: 16px;
-        line-height: 1.78;
+        font-size: clamp(17px, 1.1vw, 18px);
+        line-height: 1.84;
+      }
+
+      .is-content:not(.is-blog):not(.is-services) .prose {
+        max-width: 68ch;
       }
 
       .prose h2,
@@ -1929,22 +2025,24 @@
 
       .prose h2 {
         margin: var(--space-md) 0 var(--space-2xs);
-        font-size: clamp(24px, 2vw, 28px);
-        line-height: 1.18;
+        font-size: clamp(27px, 2.3vw, 32px);
+        line-height: 1.14;
+        text-wrap: balance;
       }
 
       .prose h3 {
         margin: var(--space-sm) 0 var(--space-2xs);
-        font-size: 20px;
-        line-height: 1.28;
+        font-size: clamp(21px, 1.65vw, 24px);
+        line-height: 1.22;
+        text-wrap: balance;
       }
 
       .prose p {
-        margin: 0 0 var(--space-xs);
+        margin: 0 0 clamp(18px, 2vw, 24px);
       }
 
       .prose figure {
-        margin: var(--space-sm) 0;
+        margin: clamp(28px, 3.8vw, 40px) 0;
       }
 
       .prose img {
@@ -1993,28 +2091,29 @@
       .is-content .prose > ul,
       .is-content .prose > ol,
       .is-content .prose > blockquote {
-        max-width: 68ch;
+        max-width: 66ch;
       }
 
       .is-content .prose > p {
-        margin-bottom: var(--space-sm);
+        margin-bottom: clamp(20px, 2.1vw, 26px);
       }
 
       .is-content .prose h2 {
-        margin-top: clamp(42px, 6vw, 64px);
-        margin-bottom: var(--space-xs);
-        padding-top: 14px;
+        margin-top: clamp(50px, 6.5vw, 72px);
+        margin-bottom: clamp(14px, 1.8vw, 18px);
+        padding-top: 18px;
         border-top: 1px solid rgba(226, 232, 240, 0.9);
       }
 
       .is-content .prose h2:first-of-type {
-        margin-top: var(--space-sm);
+        margin-top: clamp(18px, 2vw, 24px);
         padding-top: 0;
         border-top: 0;
       }
 
       .is-content .prose h3 {
-        margin-top: var(--space-md);
+        margin-top: clamp(32px, 4vw, 42px);
+        margin-bottom: clamp(10px, 1.4vw, 14px);
       }
 
       .is-content .prose .content-page-cta {
@@ -2038,12 +2137,13 @@
       }
 
       .prose ul {
-        margin: 0 0 var(--space-sm);
-        padding-left: 18px;
+        margin: 0 0 clamp(20px, 2.1vw, 26px);
+        padding-left: 22px;
       }
 
       .prose li {
-        margin-bottom: 6px;
+        margin-bottom: 8px;
+        line-height: 1.72;
       }
 
       .prose pre {
@@ -2116,24 +2216,20 @@
         margin-top: var(--space-md);
         padding: var(--space-sm);
         border-radius: var(--radius-sm);
-        border: 1px solid rgba(var(--accent-tech-rgb), 0.28);
-        background:
-          radial-gradient(circle at 86% 10%, rgba(var(--accent-tech-rgb), 0.14), transparent 46%),
-          linear-gradient(160deg, rgba(var(--accent-tech-rgb), 0.1), rgba(255, 255, 255, 0.94) 56%),
-          rgba(255, 255, 255, 0.94);
-        box-shadow:
-          0 12px 28px rgba(2, 6, 23, 0.08),
-          0 1px 0 rgba(255, 255, 255, 0.75) inset;
+        border: 0;
+        background: transparent;
+        box-shadow: none;
       }
 
       .prose .content-page-cta h2 {
-        margin: 0 0 var(--space-2xs);
+        margin: 0 0 10px;
         font-size: 19px;
         letter-spacing: -0.02em;
+        line-height: 1.28;
       }
 
       .prose .content-page-cta p {
-        margin: 0 0 var(--space-sm);
+        margin: 0 0 18px;
         max-width: 64ch;
       }
 
@@ -4351,8 +4447,8 @@
 
       .blog-header {
         display: grid;
-        gap: var(--space-2xs);
-        margin-bottom: var(--space-sm);
+        gap: clamp(14px, 1.8vw, 20px);
+        margin-bottom: clamp(18px, 2.4vw, 28px);
       }
 
       .blog-header--compact {
@@ -4361,19 +4457,20 @@
 
       .blog-title {
         margin: 0;
-        font-size: clamp(32px, 3vw, 42px);
-        line-height: 1.1;
+        font-size: clamp(36px, 4vw, 52px);
+        line-height: 1.04;
         letter-spacing: -0.04em;
         font-weight: var(--font-weight-medium);
         color: var(--text-strong);
+        text-wrap: balance;
       }
 
       .blog-lead {
         margin: 0;
         color: var(--text-body);
-        max-width: 78ch;
-        font-size: 16px;
-        line-height: 1.72;
+        max-width: 62ch;
+        font-size: clamp(17px, 1.35vw, 19px);
+        line-height: 1.64;
       }
 
       .blog-search {
@@ -4420,9 +4517,9 @@
       }
 
       .blog-grid {
-        margin-top: var(--space-sm);
+        margin-top: clamp(20px, 2.8vw, 30px);
         display: grid;
-        gap: 24px;
+        gap: clamp(24px, 3.2vw, 34px);
         grid-template-columns: repeat(3, minmax(0, 1fr));
         align-items: stretch;
       }
@@ -4465,9 +4562,9 @@
       .post-card {
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: 10px;
         height: 100%;
-        padding: 16px;
+        padding: 18px;
         border-radius: var(--radius);
         border: none;
         background: rgba(255, 255, 255, 0.9);
@@ -4480,9 +4577,9 @@
       }
 
       .post-card-thumb {
-        width: calc(100% + 32px);
+        width: calc(100% + 36px);
         height: 140px;
-        margin: -16px -16px 12px;
+        margin: -18px -18px 14px;
         border-radius: 0;
         overflow: hidden;
         border: none;
@@ -4532,25 +4629,27 @@
         min-width: 0;
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: 10px;
         flex: 1 1 auto;
-        padding: 4px 8px 10px;
+        padding: 2px 8px 10px;
       }
 
       .post-card-meta {
         margin: 0;
         color: var(--text-subtle);
-        font-size: 13px;
+        font-size: 12px;
+        line-height: 1.5;
         min-height: 1lh;
       }
 
       .post-card-title {
         margin: 0;
-        font-size: 18px;
-        line-height: 1.24;
+        font-size: clamp(21px, 1.8vw, 24px);
+        line-height: 1.16;
         letter-spacing: -0.025em;
         font-weight: var(--font-weight-semibold);
         color: var(--text-strong);
+        text-wrap: balance;
       }
 
       .post-card-title a {
@@ -4565,9 +4664,9 @@
       .post-card-desc {
         margin: 0;
         color: var(--text-body);
-        font-size: 16px;
-        line-height: 1.72;
-        max-width: 78ch;
+        font-size: 15px;
+        line-height: 1.68;
+        max-width: 42ch;
       }
 
       .post-card-more {
@@ -4610,15 +4709,16 @@
 
       .post-header {
         display: grid;
-        gap: 5px;
-        margin-bottom: var(--space-sm);
-        max-width: 80ch;
+        gap: 18px;
+        margin-bottom: clamp(28px, 4vw, 40px);
+        max-width: 72ch;
       }
 
       .post-meta {
         margin: 0;
         color: var(--text-subtle);
-        font-size: 13px;
+        font-size: 12px;
+        line-height: 1.5;
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
@@ -4641,18 +4741,20 @@
 
       .post-title {
         margin: 0;
-        font-size: clamp(32px, 4vw, 46px);
-        line-height: 1.1;
+        font-size: clamp(36px, 4.4vw, 54px);
+        line-height: 1.04;
         letter-spacing: -0.04em;
         font-weight: var(--font-weight-medium);
         color: var(--text-strong);
+        text-wrap: balance;
       }
 
       .post-lead {
         margin: 0;
         color: var(--text-body);
-        font-size: 16px;
-        line-height: 1.72;
+        max-width: 62ch;
+        font-size: clamp(17px, 1.3vw, 19px);
+        line-height: 1.64;
       }
 
       .post-figure {
@@ -4675,7 +4777,7 @@
       }
 
       .post-figure figcaption {
-        padding: 10px 14px 12px;
+        padding: 12px 14px 14px;
         color: var(--muted-soft);
         font-size: 12px;
         line-height: 1.6;
@@ -4819,6 +4921,16 @@
 
         .mobile-nav {
           display: block;
+        }
+
+        .content-page-layout--with-aside {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        .content-related {
+          position: static;
+          top: auto;
+          margin-top: var(--space-md);
         }
       }
 
@@ -5237,9 +5349,34 @@
 
             <section class="section">
               <div class="container">
-                <article class="prose">
-                  {{ content | safe }}
-                </article>
+                <div class="content-page-layout{% if relatedLinks and relatedLinks.length %} content-page-layout--with-aside{% endif %}">
+                  <article class="prose">
+                    {{ content | safe }}
+                  </article>
+                  {% if relatedLinks and relatedLinks.length %}
+                    <aside class="content-related" aria-labelledby="content-related-heading">
+                      <div class="section-header content-related-header">
+                        <h2 id="content-related-heading" class="content-related-title">Powiązane tematy</h2>
+                      </div>
+                      <div class="content-related-list">
+                        {% for item in relatedLinks %}
+                          <article class="content-related-item">
+                            <div class="post-card post-card--compact">
+                              <div class="post-card-content">
+                                <h3 class="post-card-title">
+                                  <a href="{{ item.url }}">{{ item.title }}</a>
+                                </h3>
+                                {% if item.description %}
+                                  <p class="post-card-desc">{{ item.description }}</p>
+                                {% endif %}
+                              </div>
+                            </div>
+                          </article>
+                        {% endfor %}
+                      </div>
+                    </aside>
+                  {% endif %}
+                </div>
                 {% if isServices and not isServicesIndex %}
                   {% set ctaTitle = "Porozmawiajmy o tym, czy System Jawności Wynagrodzeń ma sens dla Twojej firmy" if isPolish else "Need help deciding whether System Jawności Wynagrodzeń fits your company?" %}
                   {% set ctaBody = "Powiedz nam, jak dziś wyglądają stanowiska, płace i sposób uzasadniania różnic, a pomożemy ocenić dopasowanie i sensowny pierwszy krok." if isPolish else "Tell us how compensation works today and we will help you evaluate fit and the right first step." %}

@@ -8,6 +8,19 @@ permalink: /aktualnosci/co-czeka-firmy-w-zwiazku-z-dyrektywa-2023-970/
 coverImage: /images/aktualnosci/jawnosc-plac-szkolenie-cover.jpg
 tags:
   - aktualnosci
+relatedLinks:
+  - title: Dyrektywa o jawności wynagrodzeń – co oznacza dla firm?
+    url: /dyrektywa-jawnosci-wynagrodzen/
+    label: Dyrektywa UE
+    description: Praktyczny przegląd obowiązków firm i obszarów, które trzeba uporządkować.
+  - title: Wdrożenie jawności wynagrodzeń w firmie
+    url: /wdrozenie-jawnosci-wynagrodzen/
+    label: Wdrożenie
+    description: Jak przełożyć wymagania dyrektywy na strukturę ról, poziomów i danych.
+  - title: Raportowanie luki płacowej i różnic wynagrodzeń
+    url: /raportowanie-luki-placowej/
+    label: Raportowanie
+    description: Jak przygotować organizację do analizy różnic wynagrodzeń i progu 5%.
 date: 2026-03-12
 publishLabel: 12 marca 2026
 ---

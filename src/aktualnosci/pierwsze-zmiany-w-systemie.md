@@ -8,6 +8,19 @@ permalink: /aktualnosci/jak-rozumiec-kategorie-pracownikow-w-dyrektywie/
 coverImage: /images/aktualnosci/kategorie-pracownikow-cover.jpg
 tags:
   - aktualnosci
+relatedLinks:
+  - title: Wartościowanie stanowisk a jawność wynagrodzeń
+    url: /wartosciowanie-stanowisk/
+    label: Kategorie pracy
+    description: Jak uporządkować role i grupy porównawcze potrzebne do pracy z dyrektywą.
+  - title: Wdrożenie jawności wynagrodzeń w firmie
+    url: /wdrozenie-jawnosci-wynagrodzen/
+    label: Wdrożenie
+    description: Jak przejść od struktury stanowisk do gotowego procesu pracy z danymi i płacami.
+  - title: Raportowanie luki płacowej i różnic wynagrodzeń
+    url: /raportowanie-luki-placowej/
+    label: Analiza danych
+    description: Jak wykorzystać kategorie pracowników do sensownego porównywania wynagrodzeń.
 date: 2026-04-09
 publishLabel: 9 kwietnia 2026
 ---

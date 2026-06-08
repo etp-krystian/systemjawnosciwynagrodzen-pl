@@ -8,6 +8,23 @@ permalink: /aktualnosci/drugi-projekt-ustawy-o-jawnosci-wynagrodzen-co-sie-zmien
 coverImage: /images/aktualnosci/drugi-projekt-jawnosc-wynagrodzen-sejm.jpg
 tags:
   - aktualnosci
+relatedLinks:
+  - title: Dyrektywa o jawności wynagrodzeń – co oznacza dla firm?
+    url: /dyrektywa-jawnosci-wynagrodzen/
+    label: Dyrektywa UE
+    description: Co oznaczają nowe obowiązki dla firm i jakie obszary trzeba przygotować wcześniej.
+  - title: Wartościowanie stanowisk a jawność wynagrodzeń
+    url: /wartosciowanie-stanowisk/
+    label: Wartościowanie
+    description: Jak wspólne kryteria porównywania pracy wspierają zgodność z nowymi przepisami.
+  - title: Raportowanie luki płacowej i różnic wynagrodzeń
+    url: /raportowanie-luki-placowej/
+    label: Raportowanie
+    description: Jak przygotować dane i logikę analizy różnic wynagrodzeń w praktyce.
+  - title: Widełki wynagrodzeń w firmie
+    url: /widelki-wynagrodzen/
+    label: Struktura płac
+    description: Jak uporządkować przedziały płacowe i zasady różnicowania wynagrodzeń.
 date: 2026-06-02
 publishLabel: 2 czerwca 2026
 ---
