@@ -3714,6 +3714,62 @@
         background: #0f172a;
       }
 
+      .home-module-showcase {
+        min-height: 100svh;
+        padding: clamp(40px, 5vw, 56px) 0 clamp(24px, 3vw, 32px);
+        background: #ffffff;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .home-module-showcase .container {
+        min-height: calc(100svh - clamp(64px, 8vw, 88px));
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 0;
+      }
+
+      .home-module-showcase-header {
+        max-width: 760px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .home-module-showcase-header h2 {
+        margin: 0 0 14px;
+        color: var(--text-strong);
+        font-size: clamp(34px, 4vw, 52px);
+        line-height: 1.08;
+        letter-spacing: -0.04em;
+        font-weight: var(--font-weight-bold);
+        text-wrap: balance;
+      }
+
+      .home-module-showcase-header p {
+        margin: 0;
+        color: var(--text-body);
+        font-size: clamp(17px, 1.5vw, 20px);
+        line-height: 1.6;
+        text-wrap: balance;
+      }
+
+      .home-module-showcase-frame {
+        width: 100%;
+        max-width: 720px;
+        margin: 14px auto 0;
+        overflow: hidden;
+        border-radius: 22px;
+        border: 1px solid rgba(226, 232, 240, 0.95);
+        background: #ffffff;
+      }
+
+      .home-module-showcase-video {
+        display: block;
+        width: 100%;
+        height: auto;
+        background: #0f172a;
+      }
+
       .home-hero-visual {
         display: flex;
         align-items: stretch;
@@ -5199,6 +5255,14 @@
           padding-bottom: calc(var(--space-xl) + var(--space-sm));
         }
 
+        .home-module-showcase {
+          min-height: auto;
+        }
+
+        .home-module-showcase .container {
+          min-height: auto;
+        }
+
         .blog-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
@@ -5228,6 +5292,19 @@
           right: 0;
           width: auto;
           padding: 0;
+        }
+
+        .home-module-showcase {
+          padding: 32px 0 20px;
+        }
+
+        .home-module-showcase-header h2 {
+          margin-bottom: 10px;
+        }
+
+        .home-module-showcase-frame {
+          margin-top: 10px;
+          border-radius: 18px;
         }
 
         .is-lead-plan .leadplan-flow {
@@ -5263,6 +5340,15 @@
       @media (max-width: 560px) {
         .container {
           padding: 0 14px;
+        }
+
+        .home-module-showcase-header p {
+          font-size: 16px;
+          line-height: 1.55;
+        }
+
+        .home-module-showcase-frame {
+          border-radius: 16px;
         }
 
         .home-cta .btn {
@@ -5345,6 +5431,24 @@
           grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
           gap: var(--space-xl);
           align-items: center;
+        }
+
+        .home-module-showcase .container {
+          display: grid;
+          grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1.28fr);
+          align-items: center;
+          gap: clamp(24px, 4vw, 48px);
+        }
+
+        .home-module-showcase-header {
+          max-width: 420px;
+          margin: 0;
+          text-align: left;
+        }
+
+        .home-module-showcase-frame {
+          max-width: 100%;
+          margin: 0;
         }
 
         .home-hero-grid--solo {
@@ -5621,6 +5725,28 @@
                     />
                   </div>
                 </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="home-module-showcase" aria-labelledby="employee-review-showcase-heading">
+            <div class="container">
+              <div class="home-module-showcase-header">
+                <h2 id="employee-review-showcase-heading">Ocena okresowa pracownika</h2>
+                <p>Moduł pokazuje wynik oceny na tle wymagań stanowiska oraz szczegółową punktację dla poszczególnych kryteriów.</p>
+              </div>
+              <div class="home-module-showcase-frame">
+                <video
+                  class="home-module-showcase-video"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  controls
+                  preload="metadata"
+                >
+                  <source src="/images/pracownicy-ocena-okresowa.mp4" type="video/mp4" />
+                </video>
               </div>
             </div>
           </section>
