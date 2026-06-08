@@ -31,6 +31,6 @@ Partner wspiera klienta merytorycznie i wdrożeniowo, a System Jawności Wynagro
 
 Na pierwszym etapie współpracę ustalamy indywidualnie, w zależności od profilu partnera i rodzaju klientów. Możliwe modele obejmują rekomendację systemu, wspólne wdrożenia, projekty pilotażowe oraz długofalową współpracę doradczą.
 
-## Jak dołączyć
+## Jak dołączyć?
 
 Osoby zainteresowane współpracą prosimy o wysłanie wiadomości na adres **[kontakt@systemjawnosciwynagrodzen.pl](mailto:kontakt@systemjawnosciwynagrodzen.pl)** z tematem **Program partnerów wdrożeniowych**.
