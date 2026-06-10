@@ -82,10 +82,36 @@
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof url !== 'undefined') {
+            window.location = url;
+          }
+        };
+
+        gtag('event', 'conversion', {
+          'send_to': 'AW-16941520440/pP9oCMT9wLwcELisrI4_',
+          'event_callback': callback
+        });
+
+        return false;
+      }
       gtag('js', new Date());
 
       gtag('config', 'G-C5DBLJVDBD');
       gtag('config', 'AW-16941520440');
+    </script>
+    <script>
+      document.addEventListener('click', function (event) {
+        var signupLink = event.target.closest('a[data-signup-conversion="true"]');
+
+        if (!signupLink) {
+          return;
+        }
+
+        event.preventDefault();
+        gtag_report_conversion(signupLink.href);
+      });
     </script>
     {% if pageType == 'article' and date %}
       <meta property="article:published_time" content="{{ date.toISOString() }}" />
@@ -5515,7 +5541,7 @@
           </nav>
 
           <div class="header-actions">
-            <a href="{{ signupUrl }}" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">
+            <a href="{{ signupUrl }}" class="btn btn-ghost" target="_blank" rel="noopener noreferrer" data-signup-conversion="true">
               <span>{{ signupLabel }}</span>
             </a>
             <a href="{{ loginUrl }}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
@@ -5541,7 +5567,7 @@
               <a href="/cennik/">
                 <span>{{ pricingLabel }}</span>
               </a>
-              <a class="mobile-nav-cta" href="{{ signupUrl }}" target="_blank" rel="noopener noreferrer">
+              <a class="mobile-nav-cta" href="{{ signupUrl }}" target="_blank" rel="noopener noreferrer" data-signup-conversion="true">
                 <span>{{ signupLabel }}</span>
               </a>
             </div>
@@ -5579,7 +5605,7 @@
                     System do zarządzania stanowiskami, widełkami płac i wartościowaniem pracy, który zamienia trudny proces w szybkie i proste wdrożenie.
                   </p>
                   <div class="home-cta home-cta--hero">
-                    <a href="{{ signupUrl }}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                    <a href="{{ signupUrl }}" class="btn btn-primary" target="_blank" rel="noopener noreferrer" data-signup-conversion="true">
                       <span>{{ heroPrimaryCtaLabel }}</span>
                     </a>
                   </div>
@@ -5889,7 +5915,7 @@
                     <h2>{{ ctaTitle }}</h2>
                     <p>{{ ctaBody }}</p>
                     <div class="home-cta">
-                      <a class="btn btn-primary" href="{{ signupUrl }}" target="_blank" rel="noopener noreferrer"><span>{{ ctaButton }}</span></a>
+                      <a class="btn btn-primary" href="{{ signupUrl }}" target="_blank" rel="noopener noreferrer" data-signup-conversion="true"><span>{{ ctaButton }}</span></a>
                     </div>
                   </section>
                 {% endif %}
@@ -5919,7 +5945,7 @@
             <p class="footer-upper-title">Konto</p>
             <ul class="footer-upper-list">
               <li><a href="{{ loginUrl }}" target="_blank" rel="noopener noreferrer">Logowanie</a></li>
-              <li><a href="{{ signupUrl }}" target="_blank" rel="noopener noreferrer">Rejestracja</a></li>
+              <li><a href="{{ signupUrl }}" target="_blank" rel="noopener noreferrer" data-signup-conversion="true">Rejestracja</a></li>
             </ul>
           </div>
           <div class="footer-upper-column footer-upper-column--gdpr">
