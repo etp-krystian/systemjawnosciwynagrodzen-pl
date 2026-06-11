@@ -3,13 +3,13 @@
   "short_name": "SJW",
   "icons": [
     {
-      "src": "/android-chrome-192x192-20260611.png",
-      "sizes": "192x192",
+      "src": "/images/favicon.png?v=20260611",
+      "sizes": "270x270",
       "type": "image/png"
     },
     {
-      "src": "/android-chrome-512x512-20260611.png",
-      "sizes": "512x512",
+      "src": "/images/favicon.png?v=20260611",
+      "sizes": "270x270",
       "type": "image/png"
     }
   ],
