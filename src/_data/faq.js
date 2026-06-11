@@ -139,6 +139,13 @@ const items = [
     shortAnswer:
       "Najlepiej zacząć od diagnozy: stanowisk, poziomów, kryteriów płacowych i jakości danych. Dopiero na tej podstawie warto układać kolejne etapy pracy nad widełkami, analizą różnic i raportowaniem.",
   },
+  {
+    question: "Czy mogę przetestować system bez podawania karty?",
+    answer:
+      "Tak. Możesz założyć darmowe konto próbne na 7 dni bez podawania danych karty. To dobry sposób, żeby spokojnie zobaczyć, jak działa system i ocenić, czy pasuje do sposobu pracy Twojej organizacji, zanim podejmiesz decyzję o płatnym planie.",
+    shortAnswer:
+      "Tak. Przez 7 dni korzystasz za darmo i bez podawania karty płatniczej.",
+  },
 ];
 
 const slugify = (value) =>

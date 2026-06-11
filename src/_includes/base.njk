@@ -14,7 +14,7 @@
 {% set langSwitchHint = 'Wersja językowa' if isPolish else 'Language' %}
 {% set featuresLabel = 'Funkcje' if isPolish else 'Features' %}
 {% set pricingLabel = 'Cennik' if isPolish else 'Pricing' %}
-{% set heroPrimaryCtaLabel = 'Załóż konto' if isPolish else 'Create account' %}
+{% set heroPrimaryCtaLabel = 'Załóż darmowe konto próbne' if isPolish else 'Create a free trial account' %}
 {% set isHome = page.url == "/" %}
 {% set isServicesIndex = page.url == "/services/" %}
 {% set isServices = page.url and page.url.indexOf("/services/") == 0 %}
@@ -1839,6 +1839,13 @@
       .pricing-section-header .section-lead {
         margin-left: 0;
         margin-right: 0;
+      }
+
+      .pricing-trial-note {
+        margin: 12px 0 0;
+        color: var(--text-body);
+        font-size: 15px;
+        line-height: 1.55;
       }
 
       .pricing-title {
@@ -4100,6 +4107,14 @@
         justify-content: center;
       }
 
+      .home-cta-reassurance {
+        margin: 10px 0 0;
+        color: var(--text-body);
+        font-size: 14px;
+        line-height: 1.5;
+        text-align: center;
+      }
+
       .cta-inline-link {
         display: inline-flex;
         align-items: center;
@@ -5609,6 +5624,7 @@
                       <span>{{ heroPrimaryCtaLabel }}</span>
                     </a>
                   </div>
+                  <p class="home-cta-reassurance">7 dni za darmo. Karta nie jest wymagana.</p>
                 </div>
                 <div class="home-demo-frame">
                   <video
