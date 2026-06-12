@@ -4384,6 +4384,69 @@
         background: rgba(2, 6, 23, 0.32);
       }
 
+      .home-top-ribbon {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(2, 6, 23, 0.96);
+        backdrop-filter: blur(12px);
+        position: relative;
+        z-index: 56;
+      }
+
+      .home-top-ribbon.is-scrolled {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+      }
+
+      .home-top-ribbon-inner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 40px;
+        padding: 8px 0;
+        font-size: 14px;
+        line-height: 1.45;
+        color: rgba(255, 255, 255, 0.82);
+        text-align: center;
+      }
+
+      .home-top-ribbon-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        color: #ffffff;
+        font-weight: 600;
+        text-decoration: underline;
+        text-underline-offset: 0.18em;
+        text-decoration-thickness: 1px;
+        white-space: nowrap;
+      }
+
+      .home-top-ribbon-link:hover {
+        color: #ffffff;
+        text-decoration-thickness: 2px;
+      }
+
+      .home-top-ribbon-link:focus-visible {
+        outline: 3px solid rgba(255, 255, 255, 0.34);
+        outline-offset: 4px;
+        border-radius: 4px;
+      }
+
+      .home-top-ribbon + .site-header--overlay {
+        top: 40px;
+      }
+
+      .home-top-ribbon.is-scrolled + .site-header--overlay.is-scrolled {
+        top: 40px;
+      }
+
+      .home-top-ribbon + .site-header--overlay.is-scrolled {
+        top: 0;
+      }
+
       .feature-switcher {
         position: relative;
         padding: var(--space-section-compact) 0;
@@ -5699,6 +5762,14 @@
   <body class="{% if isServices %}is-services{% endif %}{% if isServicesIndex %}{% if isServices %} {% endif %}is-services-index{% endif %}{% if isBlog %}{% if isServices or isServicesIndex %} {% endif %}is-blog{% endif %}{% if isContact %}{% if isServices or isServicesIndex or isBlog %} {% endif %}is-contact{% endif %}{% if isWhyUs %}{% if isServices or isServicesIndex or isBlog or isContact %} {% endif %}is-why-us{% endif %}{% if isLeadPlan %}{% if isServices or isServicesIndex or isBlog or isContact or isWhyUs %} {% endif %}is-lead-plan{% endif %}{% if isAssessment %}{% if isServices or isServicesIndex or isBlog or isContact or isWhyUs or isLeadPlan %} {% endif %}is-assessment{% endif %}{% if isContent %}{% if isServices or isServicesIndex or isBlog or isContact or isWhyUs or isLeadPlan or isAssessment %} {% endif %}is-content{% endif %}">
     <a class="skip-link" href="#main">{% if isPolish %}Przejdź do treści{% else %}Skip to content{% endif %}</a>
     <div class="site">
+      {% if isHome %}
+        <div class="home-top-ribbon" aria-label="Wsparcie wdrożeniowe">
+          <div class="container home-top-ribbon-inner">
+            <span>Potrzebujesz wsparcia przy wdrożeniu?</span>
+            <a class="home-top-ribbon-link" href="/kontakt-wdrozenia/">Przejdź do formularza kontaktowego</a>
+          </div>
+        </div>
+      {% endif %}
       <header class="site-header{% if isHome %} site-header--overlay{% endif %}" aria-label="Primary navigation">
         <div class="container header-inner">
           <a href="{{ homeUrl }}" class="brand" aria-label="System Jawności Wynagrodzeń">

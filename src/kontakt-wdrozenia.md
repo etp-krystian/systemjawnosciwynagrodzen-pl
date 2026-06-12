@@ -71,6 +71,10 @@ render_with_liquid: false
     margin-top: 24px;
   }
 
+  .is-contact .prose .contact-form-actions button[type="submit"] {
+    cursor: pointer;
+  }
+
 
   .is-contact .prose .contact-form-legal,
   .is-contact .prose .contact-form-note {
