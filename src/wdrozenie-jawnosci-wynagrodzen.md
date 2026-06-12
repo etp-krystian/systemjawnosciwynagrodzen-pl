@@ -79,6 +79,6 @@ W praktyce dobrze przygotowany proces obejmuje:
   <h2>Jedno miejsce do pracy z danymi płacowymi</h2>
   <p>System Jawności Wynagrodzeń pomaga uporządkować stanowiska, poziomy, widełki płac i dane pracowników w jednym miejscu.</p>
   <div class="home-cta">
-    <a class="btn btn-primary" href="/"><span>Zobacz system</span></a>
+    <a class="btn btn-primary" href="/kontakt-wdrozenia/"><span>Poproś o kontakt wdrożeniowy</span></a>
   </div>
 </div>
