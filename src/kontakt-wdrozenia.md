@@ -121,7 +121,7 @@ render_with_liquid: false
 </style>
 
 <div class="contact-form-shell">
-  <form class="contact-form" name="wdrozenie-kontakt" method="POST" action="/kontakt-wdrozenia/dziekujemy/" data-form-purpose="implementation-contact" data-submit-endpoint="https://konto.systemjawnosciwynagrodzen.pl/public/contact/implementation">
+  <form class="contact-form" name="wdrozenie-kontakt" method="POST" action="/kontakt-wdrozenia/dziekujemy/" data-form-purpose="implementation-contact" data-submit-endpoint="https://konto.systemjawnosciwynagrodzen.pl/backend-api/public/contact/implementation">
     <input type="hidden" name="form_name" value="wdrozenie-kontakt" />
 
     <div class="contact-form-row contact-form-row--two">
