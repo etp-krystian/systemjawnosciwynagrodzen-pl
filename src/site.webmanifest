@@ -1,0 +1,21 @@
+{
+  "name": "System Jawności Wynagrodzeń",
+  "short_name": "SJW",
+  "id": "/",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#118C4F",
+  "theme_color": "#118C4F",
+  "icons": [
+    {
+      "src": "/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
