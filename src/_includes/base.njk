@@ -18,8 +18,9 @@
 {% set isHome = page.url == "/" %}
 {% set isServicesIndex = page.url == "/services/" %}
 {% set isServices = page.url and page.url.indexOf("/services/") == 0 %}
-{% set isBlog = page.url and page.url.indexOf("/aktualnosci/") == 0 %}
-{% set isBlogIndex = page.url == "/aktualnosci/" %}
+{% set isGuide = page.url and page.url.indexOf("/przewodnik/") == 0 %}
+{% set isBlog = page.url and (page.url.indexOf("/aktualnosci/") == 0 or page.url.indexOf("/przewodnik/") == 0) %}
+{% set isBlogIndex = page.url == "/aktualnosci/" or page.url == "/przewodnik/" %}
 {% set isLegal = page.url == "/polityka-prywatnosci/" or page.url == "/regulamin/" %}
 {% set isStart = false %}
 {% set isContact = contactPage or page.url == "/pl/kontakt/" or page.url == "/kontakt/" or page.url == "/kontakt-wdrozenia/" or page.url == "/kontakt-wdrozenia/dziekujemy/" %}
@@ -2046,6 +2047,30 @@
         gap: var(--space-2xs);
       }
 
+      .page-breadcrumbs {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 6px;
+        margin: 0 0 clamp(18px, 2vw, 24px);
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.45;
+      }
+
+      .page-breadcrumbs a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .page-breadcrumbs a:hover {
+        text-decoration: underline;
+      }
+
+      .crumb-sep {
+        opacity: 0.6;
+      }
+
       
 
       .prose {
@@ -2053,6 +2078,18 @@
         color: var(--text-body);
         font-size: clamp(17px, 1.1vw, 18px);
         line-height: 1.84;
+      }
+
+      .prose a {
+        color: var(--primary);
+        text-decoration: none;
+      }
+
+      .prose a:hover {
+        color: var(--primary-dark);
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.16em;
       }
 
       .is-content:not(.is-blog):not(.is-services) .prose {
@@ -3244,15 +3281,15 @@
       }
 
       .is-services .prose a {
-        color: var(--text);
-        text-decoration-color: rgba(100, 116, 139, 0.62);
-        text-decoration-thickness: 1px;
-        text-underline-offset: 3px;
+        color: var(--primary);
+        text-decoration: none;
       }
 
       .is-services .prose a:hover {
-        color: var(--text);
-        text-decoration-color: rgba(15, 23, 42, 0.88);
+        color: var(--primary-dark);
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.16em;
       }
 
       .is-services .prose .faq-accordion {
@@ -5159,6 +5196,103 @@
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
+      .guide-toc {
+        display: grid;
+        gap: clamp(32px, 3.6vw, 44px) clamp(28px, 3vw, 36px);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        align-items: start;
+      }
+
+      .guide-page-hero {
+        padding-top: clamp(24px, 3vw, 36px);
+        padding-bottom: clamp(22px, 3.2vw, 34px);
+      }
+
+      .guide-page-hero .page-breadcrumbs {
+        margin-bottom: clamp(18px, 2vw, 24px);
+        font-size: 12px;
+        line-height: 1.4;
+      }
+
+      .guide-page-header {
+        gap: clamp(14px, 1.8vw, 18px);
+        margin-bottom: 0;
+        max-width: 920px;
+      }
+
+      .guide-page-header .blog-title {
+        max-width: 16ch;
+        font-size: clamp(34px, 3.2vw, 46px);
+        line-height: 1.06;
+        letter-spacing: -0.036em;
+      }
+
+      .guide-page-header .blog-title span {
+        white-space: nowrap;
+      }
+
+      .guide-page-header .blog-lead {
+        max-width: 64ch;
+        font-size: clamp(16px, 1.2vw, 18px);
+        line-height: 1.64;
+      }
+
+      .guide-overview {
+        padding-top: clamp(40px, 4.8vw, 56px);
+      }
+
+      .guide-toc-section {
+        position: relative;
+        padding-top: 20px;
+        min-width: 0;
+      }
+
+      .guide-toc-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 52px;
+        height: 1px;
+        background: rgba(148, 163, 184, 0.5);
+      }
+
+      .guide-toc-title {
+        margin: 0 0 16px;
+        font-size: clamp(18px, 1.35vw, 20px);
+        line-height: 1.24;
+        letter-spacing: -0.024em;
+        color: var(--text-strong);
+        text-wrap: balance;
+      }
+
+      .guide-toc-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 12px;
+      }
+
+      .guide-toc-list li {
+        margin: 0;
+        color: var(--text-body);
+        font-size: 15px;
+        line-height: 1.62;
+      }
+
+      .guide-toc-list a {
+        color: var(--primary);
+        text-decoration: none;
+      }
+
+      .guide-toc-list a:hover {
+        color: var(--primary-dark);
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.16em;
+      }
+
       .feature-column {
         min-width: 0;
       }
@@ -5538,6 +5672,10 @@
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
+        .guide-toc {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
         .feature-columns {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
@@ -5680,6 +5818,10 @@
           grid-template-columns: minmax(0, 1fr);
         }
 
+        .guide-toc {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
         .feature-columns {
           grid-template-columns: minmax(0, 1fr);
         }
@@ -5766,7 +5908,7 @@
   <body class="{% if isServices %}is-services{% endif %}{% if isServicesIndex %}{% if isServices %} {% endif %}is-services-index{% endif %}{% if isBlog %}{% if isServices or isServicesIndex %} {% endif %}is-blog{% endif %}{% if isContact %}{% if isServices or isServicesIndex or isBlog %} {% endif %}is-contact{% endif %}{% if isWhyUs %}{% if isServices or isServicesIndex or isBlog or isContact %} {% endif %}is-why-us{% endif %}{% if isLeadPlan %}{% if isServices or isServicesIndex or isBlog or isContact or isWhyUs %} {% endif %}is-lead-plan{% endif %}{% if isAssessment %}{% if isServices or isServicesIndex or isBlog or isContact or isWhyUs or isLeadPlan %} {% endif %}is-assessment{% endif %}{% if isContent %}{% if isServices or isServicesIndex or isBlog or isContact or isWhyUs or isLeadPlan or isAssessment %} {% endif %}is-content{% endif %}">
     <a class="skip-link" href="#main">{% if isPolish %}Przejdź do treści{% else %}Skip to content{% endif %}</a>
     <div class="site">
-      {% if isHome %}
+      {% if isHome or isGuide %}
         <div class="home-top-ribbon" aria-label="Wsparcie wdrożeniowe">
           <div class="container home-top-ribbon-inner">
             <span>Potrzebujesz wsparcia przy wdrożeniu?</span>
@@ -6143,18 +6285,27 @@
                       </div>
                       <div class="content-related-list">
                         {% for item in relatedLinks %}
-                          <article class="content-related-item">
-                            <div class="post-card post-card--compact">
-                              <div class="post-card-content">
-                                <h3 class="post-card-title">
-                                  <a href="{{ item.url }}">{{ item.title }}</a>
-                                </h3>
-                                {% if item.description %}
-                                  <p class="post-card-desc">{{ item.description }}</p>
-                                {% endif %}
+                          {% if item.title != currentTopicTitle and item.url != page.url %}
+                            <article class="content-related-item">
+                              <div class="post-card post-card--compact">
+                                <div class="post-card-content">
+                                  {% if item.label %}
+                                    <p class="post-card-meta">{{ item.label }}</p>
+                                  {% endif %}
+                                  <h3 class="post-card-title">
+                                    {% if item.url %}
+                                      <a href="{{ item.url }}">{{ item.title }}</a>
+                                    {% else %}
+                                      <span>{{ item.title }}</span>
+                                    {% endif %}
+                                  </h3>
+                                  {% if item.description %}
+                                    <p class="post-card-desc">{{ item.description }}</p>
+                                  {% endif %}
+                                </div>
                               </div>
-                            </div>
-                          </article>
+                            </article>
+                          {% endif %}
                         {% endfor %}
                       </div>
                     </aside>
