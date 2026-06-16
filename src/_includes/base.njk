@@ -83,16 +83,34 @@
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      function navigateAfterTracking(url) {
+        if (typeof url === 'string') {
+          window.location = url;
+        }
+      }
+
+      function gtagSendEvent(url) {
+        var callback = function () {
+          navigateAfterTracking(url);
+        };
+
+        gtag('event', 'purchase', {
+          'event_callback': callback,
+          'event_timeout': 2000
+        });
+
+        return false;
+      }
+
       function gtag_report_conversion(url) {
         var callback = function () {
-          if (typeof url !== 'undefined') {
-            window.location = url;
-          }
+          navigateAfterTracking(url);
         };
 
         gtag('event', 'conversion', {
           'send_to': 'AW-16941520440/pP9oCMT9wLwcELisrI4_',
-          'event_callback': callback
+          'event_callback': callback,
+          'event_timeout': 2000
         });
 
         return false;
@@ -111,6 +129,7 @@
         }
 
         event.preventDefault();
+        gtagSendEvent(signupLink.href);
         gtag_report_conversion(signupLink.href);
       });
     </script>
