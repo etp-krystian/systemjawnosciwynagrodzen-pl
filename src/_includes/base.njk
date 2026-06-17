@@ -4481,6 +4481,10 @@
         text-align: center;
       }
 
+      .home-top-ribbon-text-mobile {
+        display: none;
+      }
+
       .home-top-ribbon-link {
         display: inline-flex;
         align-items: center;
@@ -4514,6 +4518,28 @@
 
       .home-top-ribbon + .site-header--overlay.is-scrolled {
         top: 0;
+      }
+
+      @media (max-width: 640px) {
+        .home-top-ribbon-inner {
+          gap: 6px;
+          min-height: 36px;
+          padding: 7px 0;
+          font-size: 12px;
+          line-height: 1.35;
+        }
+
+        .home-top-ribbon-text-desktop {
+          display: none;
+        }
+
+        .home-top-ribbon-text-mobile {
+          display: inline;
+        }
+
+        .home-top-ribbon-link {
+          font-size: 12px;
+        }
       }
 
       .feature-switcher {
@@ -5939,7 +5965,8 @@
       {% if isHome or isGuide %}
         <div class="home-top-ribbon" aria-label="Wsparcie wdrożeniowe">
           <div class="container home-top-ribbon-inner">
-            <span>Potrzebujesz wsparcia przy wdrożeniu?</span>
+            <span class="home-top-ribbon-text-desktop">Potrzebujesz wsparcia przy wdrożeniu?</span>
+            <span class="home-top-ribbon-text-mobile">Potrzebujesz wsparcia?</span>
             <a class="home-top-ribbon-link" href="/kontakt-wdrozenia/">Przejdź do formularza kontaktowego</a>
           </div>
         </div>
