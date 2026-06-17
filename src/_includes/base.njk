@@ -5514,6 +5514,12 @@
         white-space: nowrap;
       }
 
+      .section-cta {
+        display: flex;
+        justify-content: center;
+        margin-top: 24px;
+      }
+
       .blog-empty {
         margin-top: var(--space-xs);
         color: var(--text-subtle);
@@ -6283,18 +6289,7 @@
             <section class="section compact" aria-labelledby="homepage-faq-heading">
               <div class="container">
                 <div class="section-header pricing-section-header">
-                  <div class="section-header section-header--split">
-                    <h2 id="homepage-faq-heading" class="section-title">Najczęściej zadawane pytania</h2>
-                    <a class="btn btn-ghost section-header-link" href="/faq/">
-                      <span>Zobacz wszystkie pytania</span>
-                      <span class="btn-icon" aria-hidden="true">
-                        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M3.5 8H12.5" stroke-width="1.8" stroke-linecap="round" />
-                          <path d="M8.8 4.3L12.5 8L8.8 11.7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                      </span>
-                    </a>
-                  </div>
+                  <h2 id="homepage-faq-heading" class="section-title">Najczęściej zadawane pytania</h2>
                 </div>
                 <div class="blog-grid">
                   {% for item in faq.homepageItems %}
@@ -6309,6 +6304,17 @@
                       </div>
                     </article>
                   {% endfor %}
+                </div>
+                <div class="section-cta">
+                  <a class="btn btn-ghost section-header-link" href="/faq/">
+                    <span>Zobacz wszystkie pytania</span>
+                    <span class="btn-icon" aria-hidden="true">
+                      <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3.5 8H12.5" stroke-width="1.8" stroke-linecap="round" />
+                        <path d="M8.8 4.3L12.5 8L8.8 11.7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </span>
+                  </a>
                 </div>
               </div>
             </section>
