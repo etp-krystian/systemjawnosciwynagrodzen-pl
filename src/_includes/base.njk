@@ -5814,6 +5814,18 @@
           padding: 0 14px;
         }
 
+        .footer-upper {
+          grid-template-columns: 56px minmax(0, 1fr) minmax(0, 1fr);
+          gap: 14px 12px;
+          align-items: start;
+        }
+
+        .footer-upper-column--gdpr {
+          grid-column: 1 / -1;
+          justify-content: flex-start;
+          align-items: flex-start;
+        }
+
         .brand {
           gap: 8px;
         }
