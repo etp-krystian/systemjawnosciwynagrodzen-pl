@@ -1611,11 +1611,12 @@
 
       .section-title {
         margin: 0;
-        font-size: clamp(24px, 2vw, 30px);
-        line-height: 1.14;
+        font-size: clamp(28px, 3vw, 38px);
+        line-height: 1.12;
         letter-spacing: -0.03em;
-        font-weight: var(--font-weight-semibold);
+        font-weight: var(--font-weight-bold);
         color: var(--text-strong);
+        text-wrap: balance;
       }
 
       .section-lead {
@@ -4073,14 +4074,8 @@
         text-align: center;
       }
 
-      .home-module-showcase-header h2 {
+      .home-module-showcase-header .section-title {
         margin: 0 0 14px;
-        color: var(--text-strong);
-        font-size: clamp(34px, 4vw, 52px);
-        line-height: 1.08;
-        letter-spacing: -0.04em;
-        font-weight: var(--font-weight-bold);
-        text-wrap: balance;
       }
 
       .home-module-showcase-header p {
@@ -4423,6 +4418,32 @@
         text-align: center;
       }
 
+      .home-cta-values {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px 20px;
+        margin: 24px 0 0;
+        padding: 0;
+        list-style: none;
+        color: var(--text);
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .home-cta-values li {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .home-cta-values svg {
+        width: 18px;
+        height: 18px;
+        flex: 0 0 auto;
+        color: var(--cc-primary);
+      }
+
       .cta-inline-link {
         display: inline-flex;
         align-items: center;
@@ -4528,17 +4549,116 @@
       }
 
       .home-hero .btn-ghost {
-        border-color: rgba(255, 255, 255, 0.28);
-        background: rgba(2, 6, 23, 0.18);
-        color: rgba(255, 255, 255, 0.92);
+        border-color: rgba(255, 255, 255, 0.92);
+        background: #ffffff;
+        color: #111111;
       }
-
       .home-hero .btn-ghost:hover {
-        background: rgba(2, 6, 23, 0.28);
+        background: #f8fafc;
+        border-color: #ffffff;
+        color: #111111;
       }
 
       .home-hero .btn-see-services:hover {
         background: rgba(2, 6, 23, 0.32);
+      }
+
+      .home-prep {
+        position: relative;
+        overflow: hidden;
+        padding: clamp(40px, 6vw, 72px) 0;
+        background:
+          radial-gradient(circle at 18% 22%, rgba(var(--primary-rgb), 0.08), transparent 30%),
+          radial-gradient(circle at 82% 78%, rgba(var(--highlight-rgb), 0.12), transparent 28%),
+          linear-gradient(180deg, #f8fbff 0%, #f4f8fc 52%, #eef4f8 100%);
+      }
+
+      .home-prep::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, rgba(255, 255, 255, 0.34) 0%, rgba(255, 255, 255, 0) 18%, rgba(255, 255, 255, 0) 82%, rgba(255, 255, 255, 0.34) 100%);
+        pointer-events: none;
+      }
+
+      .home-prep .container {
+        position: relative;
+        z-index: 1;
+        min-height: calc(100svh - var(--header-height));
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .home-prep .section-header {
+        margin-bottom: 30px;
+        text-align: center;
+      }
+
+      .home-prep-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+      }
+
+      .home-prep-card {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 22px 18px;
+        border-radius: 18px;
+        border: 1px solid rgba(226, 232, 240, 0.95);
+        background: rgba(255, 255, 255, 0.88);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 18px 38px rgba(15, 23, 42, 0.07);
+        text-align: left;
+      }
+
+      .home-prep-card-title {
+        display: grid;
+        grid-template-columns: 20px minmax(0, 1fr);
+        align-items: center;
+        column-gap: 10px;
+        margin: 0 0 8px;
+        min-height: 2.7em;
+        color: var(--text-strong);
+        font-size: clamp(18px, 1.35vw, 22px);
+        line-height: 1.08;
+        font-weight: var(--font-weight-bold);
+        letter-spacing: -0.04em;
+      }
+
+      .home-prep-card-title::before {
+        content: "\2713";
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        font-weight: 800;
+      }
+
+      .home-prep-card-title-text {
+        display: block;
+      }
+
+      .home-prep-card p {
+        margin: 0;
+        color: var(--text-body);
+        font-size: 14px;
+        line-height: 1.55;
+        text-wrap: pretty;
+      }
+
+      .home-prep-note {
+        max-width: 760px;
+        margin: 30px auto 0;
+        color: var(--text-body);
+        font-size: 18px;
+        line-height: 1.6;
+        text-align: center;
+        text-wrap: balance;
       }
 
       .home-top-ribbon {
@@ -4638,16 +4758,16 @@
         overflow: hidden;
       }
 
-      .feature-switcher .section-title {
-        font-size: clamp(28px, 3vw, 38px);
-        line-height: 1.12;
-        letter-spacing: -0.03em;
-        margin-bottom: clamp(20px, 3vw, 32px);
+      .feature-switcher::before {
+        content: none;
+      }
+
+      .feature-switcher .section-header {
         text-align: center;
       }
 
-      .feature-switcher::before {
-        content: none;
+      .feature-switcher .section-title {
+        margin-bottom: 24px;
       }
 
       .feature-switcher .container {
@@ -5828,6 +5948,14 @@
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
+        .home-prep .container {
+          min-height: 0;
+        }
+
+        .home-prep-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
         .footer-side {
           justify-items: start;
         }
@@ -6043,6 +6171,14 @@
           grid-template-columns: minmax(0, 1fr);
         }
 
+        .home-prep .container {
+          min-height: calc(100svh - var(--header-height));
+        }
+
+        .home-prep-grid {
+          grid-template-columns: repeat(5, minmax(0, 1fr));
+        }
+
         .feature-panel {
           grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
           align-items: center;
@@ -6174,20 +6310,38 @@
               <div class="home-hero-grid home-hero-grid--solo">
                 <div>
                   <h1>
-                    Przygotuj firmę
-                    <span>do jawności wynagrodzeń</span>
+                    Przygotuj firmę do wymogów
+                    <span>jawności wynagrodzeń</span>
                   </h1>
                   <p class="home-lead">
-                    System do zarządzania stanowiskami, widełkami <span class="text-nowrap">płac</span><br />i wartościowaniem pracy, który zamienia trudny proces w szybkie<br><span class="text-nowrap">i proste wdrożenie.</span>
+                    Uporządkuj stanowiska, widełki i zasady wynagradzania w jednym miejscu. Bez Excela i bez zgadywania, od czego zacząć.
                   </p>
                   <div class="home-cta home-cta--hero">
-                    <a href="{{ signupUrl }}" class="btn btn-primary" target="_blank" rel="noopener noreferrer" data-signup-conversion="true">
-                      <span>{{ heroPrimaryCtaLabel }}</span>
+                    <a href="/kontakt-demo/" class="btn btn-primary">
+                      <span>Umów prezentację</span>
+                    </a>
+                    <a href="http://localhost:8080/kontakt-wdrozenia/" class="btn btn-ghost">
+                      <span>Skontaktuj się z ekspertem</span>
                     </a>
                   </div>
-                  <p class="home-cta-reassurance">7 dni za darmo. Karta nie jest wymagana.</p>
+                  <ul class="home-cta-values" aria-label="Najważniejsze korzyści">
+                    <li>
+                      <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                        <rect x="2.25" y="2.25" width="15.5" height="15.5" rx="4" stroke="currentColor" stroke-width="1.5"></rect>
+                        <path d="M6 10.25l2.5 2.5L14 7.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                      <span>Szybkie wdrożenie</span>
+                    </li>
+                    <li>
+                      <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                        <rect x="2.25" y="2.25" width="15.5" height="15.5" rx="4" stroke="currentColor" stroke-width="1.5"></rect>
+                        <path d="M6 10.25l2.5 2.5L14 7.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                      <span>Proces prowadzony krok po kroku</span>
+                    </li>
+                  </ul>
                 </div>
-                <div class="home-demo-frame">
+                <div class="home-demo-frame" id="home-demo-frame">
                   <video
                     class="home-demo-video"
                     autoplay
@@ -6204,10 +6358,41 @@
             </div>
           </section>
 
+          <section class="home-prep" aria-labelledby="home-prep-heading">
+            <div class="container">
+              <div class="section-header">
+                <h2 id="home-prep-heading" class="section-title">Co trzeba przygotować?</h2>
+              </div>
+              <div class="home-prep-grid">
+                <article class="home-prep-card">
+                  <span class="home-prep-card-title"><span class="home-prep-card-title-text">Strukturę<br />stanowisk</span></span>
+                  <p>Uporządkuj role, nazwy stanowisk i miejsce każdej funkcji w organizacji.</p>
+                </article>
+                <article class="home-prep-card">
+                  <span class="home-prep-card-title"><span class="home-prep-card-title-text">Poziomy<br />wynagrodzeń</span></span>
+                  <p>Zdefiniuj poziomy, które porządkują odpowiedzialność i rozwój stanowisk.</p>
+                </article>
+                <article class="home-prep-card">
+                  <span class="home-prep-card-title"><span class="home-prep-card-title-text">Widełki<br />płacowe</span></span>
+                  <p>Ustal spójne przedziały wynagrodzeń dla ról i poziomów.</p>
+                </article>
+                <article class="home-prep-card">
+                  <span class="home-prep-card-title"><span class="home-prep-card-title-text">Kryteria<br />wynagradzania</span></span>
+                  <p>Opisz jasne zasady, według których firma różnicuje wynagrodzenia.</p>
+                </article>
+                <article class="home-prep-card">
+                  <span class="home-prep-card-title"><span class="home-prep-card-title-text">Raportowanie<br />płac</span></span>
+                  <p>Przygotuj dane i raporty potrzebne do oceny różnic płacowych.</p>
+                </article>
+              </div>
+              <p class="home-prep-note">System Jawności Wynagrodzeń pomaga uporządkować wszystkie te obszary w jednym miejscu.</p>
+            </div>
+          </section>
+
           <section class="feature-switcher" aria-labelledby="feature-switcher-heading">
             <div class="container">
                 <div class="section-header">
-                  <h2 id="feature-switcher-heading" class="section-title">Najważniejsze obszary systemu</h2>
+                  <h2 id="feature-switcher-heading" class="section-title">Jeden system do wszystkich obszarów</h2>
                 </div>
                 <div class="feature-switcher-grid" id="feature-switcher">
                   <div class="feature-switcher-list" role="tablist" aria-labelledby="feature-switcher-heading">
@@ -6336,7 +6521,7 @@
           <section class="home-module-showcase" aria-labelledby="employee-review-showcase-heading">
             <div class="container">
               <div class="home-module-showcase-header">
-                <h2 id="employee-review-showcase-heading">Ocena okresowa pracownika</h2>
+                <h2 id="employee-review-showcase-heading" class="section-title">Ocena okresowa pracownika</h2>
                 <p>Moduł pokazuje wynik oceny na tle wymagań stanowiska oraz szczegółową punktację dla poszczególnych kryteriów.</p>
               </div>
               <div class="home-module-showcase-frame">
