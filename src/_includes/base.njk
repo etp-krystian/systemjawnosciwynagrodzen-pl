@@ -52,16 +52,16 @@
     {% set pageHeading = heading or metaTitle %}
     {% set metaDescription = description or "System Jawności Wynagrodzeń pomaga firmom uporządkować płace i przygotować się na transparentność wynagrodzeń." %}
     {% set pageLead = lead or description %}
-    {% set defaultFeaturedImage = "/images/logo.svg" %}
+    {% set defaultFeaturedImage = "/images/home-featured.jpg" %}
     {% set effectiveImage = image %}
     {% set effectiveImageAlt = imageAlt %}
     {% set effectiveImageWidth = imageWidth %}
     {% set effectiveImageHeight = imageHeight %}
-    {% if not effectiveImage and pageType != "article" %}
+    {% if not effectiveImage %}
       {% set effectiveImage = defaultFeaturedImage %}
-      {% set effectiveImageAlt = "System Jawności Wynagrodzeń" %}
-      {% set effectiveImageWidth = 512 %}
-      {% set effectiveImageHeight = 512 %}
+      {% set effectiveImageAlt = "Zespół podczas spotkania w biurze" %}
+      {% set effectiveImageWidth = 1200 %}
+      {% set effectiveImageHeight = 628 %}
     {% endif %}
     <title>{{ metaTitle | escape }}</title>
     <meta name="description" content="{{ metaDescription | escape }}" />
