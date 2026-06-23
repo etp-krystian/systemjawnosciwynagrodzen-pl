@@ -3974,6 +3974,174 @@
         border-bottom: 1px solid var(--border);
       }
 
+      .home-pattern {
+        padding: clamp(40px, 5vw, 64px) 0;
+        background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .home-pattern-header {
+        max-width: 980px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .home-pattern-header .section-title {
+        margin-bottom: 16px;
+        max-width: 18ch;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .home-pattern-lead {
+        max-width: 58ch;
+        margin: 0 auto;
+        color: var(--text-body);
+        font-size: clamp(16px, 1.5vw, 19px);
+        line-height: 1.7;
+        text-wrap: balance;
+      }
+
+      .home-pattern-tabs {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 28px;
+      }
+
+      .home-pattern-tab {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        width: 100%;
+        min-height: 68px;
+        padding: 14px 18px;
+        border-radius: 16px;
+        border: 1px solid rgba(226, 232, 240, 0.95);
+        background: rgba(255, 255, 255, 0.8);
+        color: var(--text-strong);
+        font-size: clamp(16px, 1.2vw, 18px);
+        line-height: 1.25;
+        font-weight: 600;
+        letter-spacing: -0.03em;
+        text-align: center;
+        cursor: pointer;
+        transition:
+          border-color 180ms ease,
+          box-shadow 180ms ease,
+          background-color 180ms ease;
+      }
+
+      .home-pattern-tab.is-active {
+        border-color: #ddd8d2;
+        box-shadow: inset 0 0 0 1px rgba(190, 146, 54, 0.14);
+        background: #ffffff;
+      }
+
+      .home-pattern-tab:hover {
+        border-color: rgba(190, 146, 54, 0.48);
+      }
+
+      .home-pattern-tab:focus-visible {
+        outline: 3px solid rgba(190, 146, 54, 0.18);
+        outline-offset: 2px;
+      }
+
+      .home-pattern-tab svg {
+        width: 22px;
+        height: 22px;
+        flex: 0 0 auto;
+        color: var(--primary);
+      }
+
+      .home-pattern-feature {
+        display: grid;
+        grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
+        gap: clamp(22px, 3.5vw, 40px);
+        align-items: center;
+        margin-top: 36px;
+      }
+
+      .home-pattern-panel[hidden] {
+        display: none;
+      }
+
+      .home-pattern-visual {
+        position: relative;
+      }
+
+      .home-pattern-image {
+        min-height: clamp(280px, 34vw, 460px);
+        border-radius: 22px;
+        aspect-ratio: 1 / 1;
+      }
+
+      .home-pattern-image--photo {
+        min-height: 0;
+        aspect-ratio: auto;
+        overflow: hidden;
+      }
+
+      .home-pattern-image--photo img {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        border-radius: inherit;
+      }
+
+      .home-pattern-copy h3 {
+        margin: 0 0 14px;
+        font-size: clamp(26px, 2.6vw, 34px);
+        line-height: 1.08;
+        letter-spacing: -0.04em;
+        color: var(--text-strong);
+      }
+
+      .home-pattern-copy p {
+        margin: 0;
+        color: var(--text-body);
+        font-size: 15px;
+        line-height: 1.65;
+        max-width: 54ch;
+      }
+
+      .home-pattern-list {
+        display: grid;
+        gap: 14px;
+        margin: 24px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .home-pattern-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        color: var(--text-body);
+        font-size: 15px;
+        line-height: 1.55;
+      }
+
+      .home-pattern-check {
+        width: 28px;
+        height: 28px;
+        border-radius: 999px;
+        background: #f7c948;
+        color: #111827;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+        box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.04);
+      }
+
+      .home-pattern-check svg {
+        width: 15px;
+        height: 15px;
+      }
+
       .home-readiness-banner {
         position: relative;
         overflow: hidden;
@@ -5952,6 +6120,14 @@
           min-height: 0;
         }
 
+        .home-pattern-tabs {
+          grid-template-columns: 1fr;
+        }
+
+        .home-pattern-feature {
+          grid-template-columns: 1fr;
+        }
+
         .home-prep-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
@@ -5981,6 +6157,19 @@
 
         .home-module-showcase {
           padding: 32px 0 20px;
+        }
+
+        .home-pattern {
+          padding: 36px 0;
+        }
+
+        .home-pattern-tab {
+          min-height: 62px;
+          font-size: 16px;
+        }
+
+        .home-pattern-image {
+          min-height: 300px;
         }
 
         .home-module-showcase-header h2 {
@@ -6057,6 +6246,17 @@
         .home-module-showcase-header p {
           font-size: 16px;
           line-height: 1.55;
+        }
+
+        .home-pattern-lead,
+        .home-pattern-copy p,
+        .home-pattern-list li {
+          font-size: 15px;
+          line-height: 1.6;
+        }
+
+        .home-pattern-copy h3 {
+          font-size: clamp(24px, 7vw, 30px);
         }
 
         .home-module-showcase-frame {
@@ -6353,6 +6553,233 @@
                   >
                     <source src="/images/sjw-demo.mp4" type="video/mp4" />
                   </video>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="home-pattern" aria-labelledby="home-pattern-heading">
+            <div class="container">
+              <div class="home-pattern-header">
+                <h2 id="home-pattern-heading" class="section-title">
+                  Przygotujemy Twoją firmę do jawności wynagrodzeń bez zbędnej zwłoki
+                </h2>
+                <p class="home-pattern-lead">
+                  Odkryj jedno miejsce do uporządkowania struktury płac, analizy różnic wynagrodzeń i wdrożenia procesu zgodnego z wymaganiami transparentności.
+                </p>
+              </div>
+
+              <div
+                class="home-pattern-tabs"
+                id="home-pattern-tabs"
+                role="tablist"
+                aria-label="Najważniejsze filary rozwiązania"
+              >
+                <button
+                  class="home-pattern-tab is-active"
+                  id="home-pattern-tab-0"
+                  type="button"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="home-pattern-panel-0"
+                  tabindex="0"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path fill="currentColor" d="M19 9a7 7 0 1 0-10.974 5.76L5 20l2.256.093L8.464 22l3.466-6.004L12 16c.035.002.046-.003.07-.004L15.536 22l1.232-1.866L19 20l-3.026-5.24A6.99 6.99 0 0 0 19 9M7 9a5 5 0 1 1 5 5a5 5 0 0 1-5-5"/>
+                    <circle cx="12" cy="9" r="3" fill="currentColor"/>
+                  </svg>
+                  <span>Sprawdzony system</span>
+                </button>
+                <button
+                  class="home-pattern-tab"
+                  id="home-pattern-tab-1"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="home-pattern-panel-1"
+                  tabindex="-1"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path fill="currentColor" d="M16.5 0a7.65 7.65 0 0 0-6.16 3a1 1 0 1 0 1.6 1.19A5.67 5.67 0 0 1 16.5 2A5.27 5.27 0 0 1 22 7a5 5 0 0 1-3.36 4.61a1 1 0 0 0-.32.19c-.2.19-2.07 1.78-2.32 2v-.85a1 1 0 0 0-.86-1a5 5 0 0 1-.79-.17a1 1 0 1 0-.55 1.93l.2.05V16a1 1 0 0 0 .62.92a1 1 0 0 0 1.09-.21c.26-.27 3.54-3.06 3.82-3.31A7 7 0 0 0 24 7a7.27 7.27 0 0 0-7.5-7"/>
+                    <path fill="currentColor" d="M12.12 6.5a1 1 0 1 0 2 0a1 1 0 1 0-2 0m3.25 0a1 1 0 1 0 2 0a1 1 0 1 0-2 0m3.25 0a1 1 0 1 0 2 0a1 1 0 1 0-2 0M7.5 16A7.5 7.5 0 0 0 0 23.5a.5.5 0 0 0 .5.5h14a.5.5 0 0 0 .5-.5A7.5 7.5 0 0 0 7.5 16m-4.75-5.25a4.75 4.75 0 1 0 9.5 0a4.75 4.75 0 1 0-9.5 0"/>
+                  </svg>
+                  <span>Eksperci branżowi</span>
+                </button>
+                <button
+                  class="home-pattern-tab"
+                  id="home-pattern-tab-2"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="home-pattern-panel-2"
+                  tabindex="-1"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path fill="currentColor" d="M5.7 6.71a.996.996 0 0 0 0 1.41L9.58 12L5.7 15.88a.996.996 0 1 0 1.41 1.41l4.59-4.59a.996.996 0 0 0 0-1.41L7.12 6.71c-.39-.39-1.03-.39-1.42 0"/>
+                    <path fill="currentColor" d="M12.29 6.71a.996.996 0 0 0 0 1.41L16.17 12l-3.88 3.88a.996.996 0 1 0 1.41 1.41l4.59-4.59a.996.996 0 0 0 0-1.41L13.7 6.7c-.38-.38-1.02-.38-1.41.01"/>
+                  </svg>
+                  <span>Sprawdzony proces</span>
+                </button>
+              </div>
+
+              <div
+                class="home-pattern-panel"
+                id="home-pattern-panel-0"
+                role="tabpanel"
+                aria-labelledby="home-pattern-tab-0"
+              >
+                <div class="home-pattern-feature">
+                  <div class="home-pattern-visual" aria-hidden="true">
+                    <div class="home-pattern-image home-pattern-image--photo">
+                      <img
+                        src="/images/sprawdzony-system.png"
+                        alt="Widok analizy wynagrodzeń z kartami podsumowującymi"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="home-pattern-copy">
+                    <h3>Sprawdzony system</h3>
+                    <p>
+                      Jedno miejsce do uporządkowania struktury stanowisk, widełek płacowych i danych potrzebnych do przygotowania organizacji na jawność wynagrodzeń.
+                    </p>
+                    <ul class="home-pattern-list">
+                      <li>
+                        <span class="home-pattern-check">
+                          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                            <path d="M5 10.5 8.2 13.7 15 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </span>
+                        <span>Porządkuj dane płacowe i strukturę ról w jednym miejscu</span>
+                      </li>
+                      <li>
+                        <span class="home-pattern-check">
+                          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                            <path d="M5 10.5 8.2 13.7 15 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </span>
+                        <span>Pracuj na jednym, aktualnym widoku zamiast na wielu arkuszach</span>
+                      </li>
+                      <li>
+                        <span class="home-pattern-check">
+                          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                            <path d="M5 10.5 8.2 13.7 15 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </span>
+                        <span>Buduj proces gotowy do dalszego skalowania w organizacji</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="home-pattern-panel"
+                id="home-pattern-panel-1"
+                role="tabpanel"
+                aria-labelledby="home-pattern-tab-1"
+                hidden
+              >
+                <div class="home-pattern-feature">
+                  <div class="home-pattern-visual" aria-hidden="true">
+                    <div class="home-pattern-image home-pattern-image--photo">
+                      <img
+                        src="/images/eksperci-branzowi.png"
+                        alt="Ekspertka HR na tle biura z kartą kontaktową"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="home-pattern-copy">
+                    <h3>Eksperci branżowi</h3>
+                    <p>
+                      Wdrożenie nie kończy się na narzędziu. Możesz oprzeć się na wsparciu ekspertów, którzy pomagają przełożyć wymagania na praktyczne działania w firmie.
+                    </p>
+                    <ul class="home-pattern-list">
+                      <li>
+                        <span class="home-pattern-check">
+                          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                            <path d="M5 10.5 8.2 13.7 15 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </span>
+                        <span>Korzystaj ze wsparcia specjalistów od wynagrodzeń i HR</span>
+                      </li>
+                      <li>
+                        <span class="home-pattern-check">
+                          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                            <path d="M5 10.5 8.2 13.7 15 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </span>
+                        <span>Łącz technologię z praktyką wdrożeniową dostosowaną do firmy</span>
+                      </li>
+                      <li>
+                        <span class="home-pattern-check">
+                          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                            <path d="M5 10.5 8.2 13.7 15 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </span>
+                        <span>Otrzymuj wsparcie przy dłuższych i bardziej złożonych projektach</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="home-pattern-panel"
+                id="home-pattern-panel-2"
+                role="tabpanel"
+                aria-labelledby="home-pattern-tab-2"
+                hidden
+              >
+                <div class="home-pattern-feature">
+                  <div class="home-pattern-visual" aria-hidden="true">
+                    <div class="home-pattern-image home-pattern-image--photo">
+                      <img
+                        src="/images/sprawdzony-process.png"
+                        alt="Schemat procesu przygotowania organizacji do transparentności wynagrodzeń"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="home-pattern-copy">
+                    <h3>Sprawdzony proces</h3>
+                    <p>
+                      Przechodzisz przez kolejne etapy przygotowania organizacji w uporządkowany sposób, z jasnym planem działań i zakresem odpowiedzialności.
+                    </p>
+                    <ul class="home-pattern-list">
+                      <li>
+                        <span class="home-pattern-check">
+                          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                            <path d="M5 10.5 8.2 13.7 15 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </span>
+                        <span>Idź krok po kroku od porządkowania danych do gotowości operacyjnej</span>
+                      </li>
+                      <li>
+                        <span class="home-pattern-check">
+                          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                            <path d="M5 10.5 8.2 13.7 15 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </span>
+                        <span>Wyznaczaj priorytety i działania dla HR, managerów i zarządu</span>
+                      </li>
+                      <li>
+                        <span class="home-pattern-check">
+                          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                            <path d="M5 10.5 8.2 13.7 15 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </span>
+                        <span>Buduj spójny proces komunikacji i wdrożenia zmian w organizacji</span>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
@@ -6844,6 +7271,7 @@
     <script src="/js/header-scroll.js" defer></script>
     <script src="/js/ai-loop.js" defer></script>
     <script src="/js/feature-switcher.js" defer></script>
+    <script src="/js/home-pattern-tabs.js" defer></script>
   {% endif %}
   {% if isServices and not isServicesIndex %}
     <script src="/js/faq-accordion.js" defer></script>
