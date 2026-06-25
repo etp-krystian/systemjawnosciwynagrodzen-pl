@@ -4142,6 +4142,264 @@
         height: 15px;
       }
 
+      .home-collab {
+        padding: clamp(30px, 3.8vw, 52px) 0;
+        background: #ffffff;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .home-collab-header {
+        max-width: 860px;
+        margin: 0 auto 24px;
+        text-align: center;
+      }
+
+      .home-collab-header .section-title {
+        max-width: 16ch;
+        margin: 0 auto;
+        font-size: clamp(34px, 4.6vw, 62px);
+        line-height: 1.06;
+        letter-spacing: -0.05em;
+      }
+
+      .home-collab-header .home-collab-accent {
+        color: var(--primary);
+      }
+
+      .home-collab-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+        gap: clamp(18px, 3vw, 30px);
+        align-items: center;
+      }
+
+      .home-collab-nav {
+        display: grid;
+        gap: 10px;
+      }
+
+      .home-collab-item {
+        padding: 0;
+        border: 0;
+        background: transparent;
+        text-align: left;
+        cursor: pointer;
+      }
+
+      .home-collab-item-inner {
+        display: grid;
+        gap: 10px;
+      }
+
+      .home-collab-item-top {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .home-collab-step {
+        width: 58px;
+        height: 58px;
+        border-radius: 16px;
+        background: #f7f4ef;
+        color: var(--primary);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+        font-size: 22px;
+        line-height: 1;
+        font-weight: 700;
+        letter-spacing: -0.04em;
+      }
+
+      .home-collab-item-title {
+        color: #9ca3af;
+        font-size: clamp(20px, 1.7vw, 28px);
+        line-height: 1.15;
+        letter-spacing: -0.04em;
+        font-weight: 600;
+        transition: color 180ms ease;
+      }
+
+      .home-collab-item-copy {
+        max-width: 30ch;
+        margin: 0 0 0 72px;
+        color: var(--text-body);
+        font-size: 14px;
+        line-height: 1.55;
+      }
+
+      .home-collab-item:not(.is-active) .home-collab-item-copy {
+        display: none;
+      }
+
+      .home-collab-item.is-active .home-collab-item-title {
+        color: var(--text-strong);
+      }
+
+      .home-collab-item:focus-visible {
+        outline: 3px solid rgba(190, 146, 54, 0.18);
+        outline-offset: 4px;
+        border-radius: 20px;
+      }
+
+      .home-collab-panel[hidden] {
+        display: none;
+      }
+
+      .home-collab-visual {
+        position: relative;
+        min-height: clamp(250px, 31vw, 450px);
+        border-radius: 24px;
+        background: #f5f5f4;
+        overflow: hidden;
+      }
+
+      .home-collab-visual::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.36), rgba(255, 255, 255, 0)),
+          radial-gradient(circle at 86% 20%, rgba(255, 255, 255, 0.34), transparent 22%);
+        pointer-events: none;
+      }
+
+      .home-collab-visual--photo {
+        min-height: 0;
+        background: transparent;
+      }
+
+      .home-collab-visual--photo::before {
+        display: none;
+      }
+
+      .home-collab-visual--photo img {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        border-radius: inherit;
+      }
+
+      .home-collab-window {
+        position: absolute;
+        inset: clamp(24px, 3vw, 36px) clamp(24px, 3vw, 36px) 0 clamp(16px, 2vw, 20px);
+        border-radius: 18px 18px 0 0;
+        border: 1px solid rgba(203, 213, 225, 0.8);
+        background: #ffffff;
+      }
+
+      .home-collab-window-title {
+        position: absolute;
+        top: 20px;
+        left: 22px;
+        color: var(--text-strong);
+        font-size: clamp(18px, 1.5vw, 24px);
+        line-height: 1.15;
+        font-weight: 700;
+        letter-spacing: -0.04em;
+      }
+
+      .home-collab-window-tabs {
+        position: absolute;
+        top: 78px;
+        left: 0;
+        right: 0;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        border-bottom: 1px solid rgba(203, 213, 225, 0.9);
+      }
+
+      .home-collab-window-tab {
+        padding: 10px 16px;
+        text-align: center;
+        color: #6b7280;
+        font-size: 12px;
+        line-height: 1.3;
+        font-weight: 600;
+      }
+
+      .home-collab-window-tab.is-active {
+        color: #2563eb;
+        box-shadow: inset 0 -3px 0 #2563eb;
+      }
+
+      .home-collab-window-lines {
+        position: absolute;
+        top: 124px;
+        left: 22px;
+        right: 22px;
+        display: grid;
+        gap: 16px;
+      }
+
+      .home-collab-window-line {
+        height: 1px;
+        background: rgba(203, 213, 225, 0.95);
+      }
+
+      .home-collab-comment {
+        position: absolute;
+        border-radius: 16px;
+        border: 1px solid rgba(203, 213, 225, 0.86);
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+      }
+
+      .home-collab-comment--top {
+        top: 28px;
+        right: 20px;
+        width: min(100%, 260px);
+      }
+
+      .home-collab-comment--bottom {
+        left: 20px;
+        bottom: 20px;
+        width: min(100%, 286px);
+      }
+
+      .home-collab-comment-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 14px 8px;
+      }
+
+      .home-collab-avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #d1d5db, #9ca3af);
+        flex: 0 0 auto;
+      }
+
+      .home-collab-person {
+        display: grid;
+        gap: 2px;
+      }
+
+      .home-collab-person strong {
+        color: var(--text-strong);
+        font-size: 12px;
+        line-height: 1.2;
+      }
+
+      .home-collab-person span {
+        color: #9ca3af;
+        font-size: 10px;
+        line-height: 1.2;
+      }
+
+      .home-collab-comment p {
+        margin: 0;
+        padding: 0 14px 14px;
+        color: var(--text-body);
+        font-size: 12px;
+        line-height: 1.45;
+      }
+
       .home-readiness-banner {
         position: relative;
         overflow: hidden;
@@ -6128,6 +6386,10 @@
           grid-template-columns: 1fr;
         }
 
+        .home-collab-grid {
+          grid-template-columns: 1fr;
+        }
+
         .home-prep-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
@@ -6163,6 +6425,10 @@
           padding: 36px 0;
         }
 
+        .home-collab {
+          padding: 28px 0;
+        }
+
         .home-pattern-tab {
           min-height: 62px;
           font-size: 16px;
@@ -6170,6 +6436,75 @@
 
         .home-pattern-image {
           min-height: 300px;
+        }
+
+        .home-collab-header {
+          margin-bottom: 26px;
+        }
+
+        .home-collab-header .section-title {
+          font-size: clamp(30px, 10vw, 42px);
+        }
+
+        .home-collab-step {
+          width: 48px;
+          height: 48px;
+          border-radius: 14px;
+          font-size: 18px;
+        }
+
+        .home-collab-item-top {
+          gap: 14px;
+        }
+
+        .home-collab-item-title {
+          font-size: 16px;
+        }
+
+        .home-collab-item-copy {
+          margin-left: 62px;
+          font-size: 13px;
+        }
+
+        .home-collab-visual {
+          min-height: 300px;
+          border-radius: 20px;
+        }
+
+        .home-collab-window {
+          inset: 18px 14px 0 12px;
+        }
+
+        .home-collab-window-title {
+          top: 16px;
+          left: 16px;
+          font-size: 20px;
+        }
+
+        .home-collab-window-tabs {
+          top: 66px;
+        }
+
+        .home-collab-window-lines {
+          top: 108px;
+          left: 16px;
+          right: 16px;
+          gap: 14px;
+        }
+
+        .home-collab-comment--top,
+        .home-collab-comment--bottom {
+          width: min(100%, 220px);
+        }
+
+        .home-collab-comment--top {
+          top: 14px;
+          right: 10px;
+        }
+
+        .home-collab-comment--bottom {
+          left: 10px;
+          bottom: 10px;
         }
 
         .home-module-showcase-header h2 {
@@ -6565,7 +6900,7 @@
                   Przygotujemy Twoją firmę do jawności wynagrodzeń bez zbędnej zwłoki
                 </h2>
                 <p class="home-pattern-lead">
-                  Odkryj jedno miejsce do uporządkowania struktury płac, analizy różnic wynagrodzeń i wdrożenia procesu zgodnego z wymaganiami transparentności.
+                  Odkryj jedno miejsce do uporządkowania struktury płac, analizy różnic wynagrodzeń i&nbsp;wdrożenia procesu zgodnego z wymaganiami transparentności.
                 </p>
               </div>
 
@@ -6643,7 +6978,7 @@
                   <div class="home-pattern-copy">
                     <h3>Sprawdzony system</h3>
                     <p>
-                      Jedno miejsce do uporządkowania struktury stanowisk, widełek płacowych i danych potrzebnych do przygotowania organizacji na jawność wynagrodzeń.
+                      Jedno miejsce do uporządkowania struktury stanowisk, widełek płacowych i&nbsp;danych potrzebnych do przygotowania organizacji na jawność wynagrodzeń.
                     </p>
                     <ul class="home-pattern-list">
                       <li>
@@ -6652,7 +6987,7 @@
                             <path d="M5 10.5 8.2 13.7 15 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                           </svg>
                         </span>
-                        <span>Porządkuj dane płacowe i strukturę ról w jednym miejscu</span>
+                        <span>Porządkuj dane płacowe i&nbsp;strukturę ról w jednym miejscu</span>
                       </li>
                       <li>
                         <span class="home-pattern-check">
@@ -6697,7 +7032,7 @@
                   <div class="home-pattern-copy">
                     <h3>Eksperci branżowi</h3>
                     <p>
-                      Wdrożenie nie kończy się na narzędziu. Możesz oprzeć się na wsparciu ekspertów, którzy pomagają przełożyć wymagania na praktyczne działania w firmie.
+                      Wdrożenie nie kończy się na narzędziu. Możesz oprzeć się na wsparciu ekspertów, którzy pomagają przełożyć wymagania na praktyczne działania w&nbsp;firmie.
                     </p>
                     <ul class="home-pattern-list">
                       <li>
@@ -6706,7 +7041,7 @@
                             <path d="M5 10.5 8.2 13.7 15 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                           </svg>
                         </span>
-                        <span>Korzystaj ze wsparcia specjalistów od wynagrodzeń i HR</span>
+                        <span>Korzystaj ze wsparcia specjalistów od wynagrodzeń i&nbsp;HR</span>
                       </li>
                       <li>
                         <span class="home-pattern-check">
@@ -6722,7 +7057,7 @@
                             <path d="M5 10.5 8.2 13.7 15 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                           </svg>
                         </span>
-                        <span>Otrzymuj wsparcie przy dłuższych i bardziej złożonych projektach</span>
+                        <span>Otrzymuj wsparcie przy dłuższych i&nbsp;bardziej złożonych projektach</span>
                       </li>
                     </ul>
                   </div>
@@ -6751,7 +7086,7 @@
                   <div class="home-pattern-copy">
                     <h3>Sprawdzony proces</h3>
                     <p>
-                      Przechodzisz przez kolejne etapy przygotowania organizacji w uporządkowany sposób, z jasnym planem działań i zakresem odpowiedzialności.
+                      Przechodzisz przez kolejne etapy przygotowania organizacji w uporządkowany sposób, z jasnym planem działań i&nbsp;zakresem odpowiedzialności.
                     </p>
                     <ul class="home-pattern-list">
                       <li>
@@ -6768,7 +7103,7 @@
                             <path d="M5 10.5 8.2 13.7 15 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                           </svg>
                         </span>
-                        <span>Wyznaczaj priorytety i działania dla HR, managerów i zarządu</span>
+                        <span>Wyznaczaj priorytety i&nbsp;działania dla HR, managerów i&nbsp;zarządu</span>
                       </li>
                       <li>
                         <span class="home-pattern-check">
@@ -6776,9 +7111,170 @@
                             <path d="M5 10.5 8.2 13.7 15 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                           </svg>
                         </span>
-                        <span>Buduj spójny proces komunikacji i wdrożenia zmian w organizacji</span>
+                        <span>Buduj spójny proces komunikacji i&nbsp;wdrożenia zmian w organizacji</span>
                       </li>
                     </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="home-collab" aria-labelledby="home-collab-heading">
+            <div class="container">
+              <div class="home-collab-header">
+                <h2 id="home-collab-heading" class="section-title">
+                  Dlaczego <span class="home-collab-accent">zespoły HR</span> wybierają ten system
+                </h2>
+              </div>
+
+              <div class="home-collab-grid">
+                <div class="home-collab-nav" id="home-collab-nav" role="tablist" aria-label="Powody wyboru systemu">
+                  <button
+                    class="home-collab-item is-active"
+                    id="home-collab-tab-0"
+                    type="button"
+                    role="tab"
+                    aria-selected="true"
+                    aria-controls="home-collab-panel-0"
+                    tabindex="0"
+                  >
+                    <span class="home-collab-item-inner">
+                      <span class="home-collab-item-top">
+                        <span class="home-collab-step">1</span>
+                        <span class="home-collab-item-title">Lepsza współpraca zespołów</span>
+                      </span>
+                      <span class="home-collab-item-copy">
+                        Współpracuj między HR, managerami i&nbsp;pracownikami w jednym bezpiecznym środowisku, z jasnym obiegiem informacji i&nbsp;komentarzy.
+                      </span>
+                    </span>
+                  </button>
+
+                  <button
+                    class="home-collab-item"
+                    id="home-collab-tab-1"
+                    type="button"
+                    role="tab"
+                    aria-selected="false"
+                    aria-controls="home-collab-panel-1"
+                    tabindex="-1"
+                  >
+                    <span class="home-collab-item-inner">
+                      <span class="home-collab-item-top">
+                        <span class="home-collab-step">2</span>
+                        <span class="home-collab-item-title">Gotowość na wymogi prawne</span>
+                      </span>
+                      <span class="home-collab-item-copy">
+                        Porządkuj dokumentację, procesy i&nbsp;dane potrzebne do spełnienia wymogów związanych z transparentnością wynagrodzeń.
+                      </span>
+                    </span>
+                  </button>
+
+                  <button
+                    class="home-collab-item"
+                    id="home-collab-tab-2"
+                    type="button"
+                    role="tab"
+                    aria-selected="false"
+                    aria-controls="home-collab-panel-2"
+                    tabindex="-1"
+                  >
+                    <span class="home-collab-item-inner">
+                      <span class="home-collab-item-top">
+                        <span class="home-collab-step">3</span>
+                        <span class="home-collab-item-title">Lepsze decyzje dzięki analizom</span>
+                      </span>
+                      <span class="home-collab-item-copy">
+                        Korzystaj z analiz i&nbsp;uporządkowanych danych, żeby szybciej oceniać ryzyka, priorytety i&nbsp;kolejne działania.
+                      </span>
+                    </span>
+                  </button>
+
+                  <button
+                    class="home-collab-item"
+                    id="home-collab-tab-3"
+                    type="button"
+                    role="tab"
+                    aria-selected="false"
+                    aria-controls="home-collab-panel-3"
+                    tabindex="-1"
+                  >
+                    <span class="home-collab-item-inner">
+                      <span class="home-collab-item-top">
+                        <span class="home-collab-step">4</span>
+                        <span class="home-collab-item-title">Bezpieczeństwo i zgodność</span>
+                      </span>
+                      <span class="home-collab-item-copy">
+                        Pracuj na rozwiązaniu zaprojektowanym z myślą o kontrolowanym dostępie do danych i&nbsp;uporządkowanej pracy na wrażliwych informacjach.
+                      </span>
+                    </span>
+                  </button>
+                </div>
+
+                <div
+                  class="home-collab-panel"
+                  id="home-collab-panel-0"
+                  role="tabpanel"
+                  aria-labelledby="home-collab-tab-0"
+                >
+                  <div class="home-collab-visual home-collab-visual--photo" aria-hidden="true">
+                    <img
+                      src="/images/wspolpraca-zespolow.png"
+                      alt="Widok współpracy zespołów nad informacjami o wynagrodzeniach"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                </div>
+
+                <div
+                  class="home-collab-panel"
+                  id="home-collab-panel-1"
+                  role="tabpanel"
+                  aria-labelledby="home-collab-tab-1"
+                  hidden
+                >
+                  <div class="home-collab-visual home-collab-visual--photo" aria-hidden="true">
+                    <img
+                      src="/images/wymogi-prawne.png"
+                      alt="Widok raportów i wskaźników związanych z wymogami prawnymi"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                </div>
+
+                <div
+                  class="home-collab-panel"
+                  id="home-collab-panel-2"
+                  role="tabpanel"
+                  aria-labelledby="home-collab-tab-2"
+                  hidden
+                >
+                  <div class="home-collab-visual home-collab-visual--photo" aria-hidden="true">
+                    <img
+                      src="/images/lepsze-decyzje-dzieki-analizom.png"
+                      alt="Widok analizy wynagrodzeń realnych względem modelowych"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                </div>
+
+                <div
+                  class="home-collab-panel"
+                  id="home-collab-panel-3"
+                  role="tabpanel"
+                  aria-labelledby="home-collab-tab-3"
+                  hidden
+                >
+                  <div class="home-collab-visual home-collab-visual--photo" aria-hidden="true">
+                    <img
+                      src="/images/bezpieczenstwo-i-zgodnosc.png"
+                      alt="Widok ustawień dostępu i zgodności z wymaganiami GDPR"
+                      loading="lazy"
+                      decoding="async"
+                    />
                   </div>
                 </div>
               </div>
@@ -6793,15 +7289,15 @@
               <div class="home-prep-grid">
                 <article class="home-prep-card">
                   <span class="home-prep-card-title"><span class="home-prep-card-title-text">Strukturę<br />stanowisk</span></span>
-                  <p>Uporządkuj role, nazwy stanowisk i miejsce każdej funkcji w organizacji.</p>
+                  <p>Uporządkuj role, nazwy stanowisk i&nbsp;miejsce każdej funkcji w&nbsp;organizacji.</p>
                 </article>
                 <article class="home-prep-card">
                   <span class="home-prep-card-title"><span class="home-prep-card-title-text">Poziomy<br />wynagrodzeń</span></span>
-                  <p>Zdefiniuj poziomy, które porządkują odpowiedzialność i rozwój stanowisk.</p>
+                  <p>Zdefiniuj poziomy, które porządkują odpowiedzialność i&nbsp;rozwój stanowisk.</p>
                 </article>
                 <article class="home-prep-card">
                   <span class="home-prep-card-title"><span class="home-prep-card-title-text">Widełki<br />płacowe</span></span>
-                  <p>Ustal spójne przedziały wynagrodzeń dla ról i poziomów.</p>
+                  <p>Ustal spójne przedziały wynagrodzeń dla ról i&nbsp;poziomów.</p>
                 </article>
                 <article class="home-prep-card">
                   <span class="home-prep-card-title"><span class="home-prep-card-title-text">Kryteria<br />wynagradzania</span></span>
@@ -6809,7 +7305,7 @@
                 </article>
                 <article class="home-prep-card">
                   <span class="home-prep-card-title"><span class="home-prep-card-title-text">Raportowanie<br />płac</span></span>
-                  <p>Przygotuj dane i raporty potrzebne do oceny różnic płacowych.</p>
+                  <p>Przygotuj dane i&nbsp;raporty potrzebne do oceny różnic płacowych.</p>
                 </article>
               </div>
               <p class="home-prep-note">System Jawności Wynagrodzeń pomaga uporządkować wszystkie te obszary w jednym miejscu.</p>
@@ -7272,6 +7768,7 @@
     <script src="/js/ai-loop.js" defer></script>
     <script src="/js/feature-switcher.js" defer></script>
     <script src="/js/home-pattern-tabs.js" defer></script>
+    <script src="/js/home-collab-tabs.js" defer></script>
   {% endif %}
   {% if isServices and not isServicesIndex %}
     <script src="/js/faq-accordion.js" defer></script>
