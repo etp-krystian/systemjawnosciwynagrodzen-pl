@@ -19,23 +19,18 @@ faqSchema:
 relatedLinks:
   - title: Jak wybrać system
     url: /jak-wybrac-system/
-    label: Hub
     description: Zobacz wszystkie poradniki dla firm porównujących systemy i dostawców.
   - title: Jak wybrać oprogramowanie do jawności wynagrodzeń?
     url: /jak-wybrac-system/oprogramowanie-do-jawnosci-wynagrodzen/
-    label: Jak wybrać system
     description: Szerszy przewodnik po wyborze narzędzia do całego procesu pracy z wynagrodzeniami.
   - title: System do raportowania luki płacowej
     url: /jak-wybrac-system/system-do-raportowania-luki-placowej/
-    label: Jak wybrać system
     description: Zobacz, jak podejść do części analitycznej i raportowej.
   - title: Jak zmniejszać nierówności płacowe?
     url: /przewodnik/jak-zmniejszac-nierownosci-placowe/
-    label: Przewodnik
     description: Sprawdź, jak przejść od wyników analizy do działań w organizacji.
   - title: Jak interpretować wyniki luki płacowej?
     url: /przewodnik/jak-interpretowac-wyniki-luki-placowej/
-    label: Przewodnik
     description: Krótkie wprowadzenie do czytania wyników i ich ograniczeń.
 date: 2026-06-30
 publishLabel: Jak wybrać system

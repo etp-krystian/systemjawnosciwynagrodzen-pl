@@ -19,23 +19,18 @@ faqSchema:
 relatedLinks:
   - title: Jak wybrać system
     url: /jak-wybrac-system/
-    label: Hub
     description: Zobacz wszystkie poradniki dla firm porównujących systemy i dostawców.
   - title: Jak wybrać oprogramowanie do jawności wynagrodzeń?
     url: /jak-wybrac-system/oprogramowanie-do-jawnosci-wynagrodzen/
-    label: Jak wybrać system
     description: Zobacz szerszy przewodnik po wyborze rozwiązania do całego procesu.
   - title: Wartościowanie stanowisk a jawność wynagrodzeń
     url: /wartosciowanie-stanowisk/
-    label: Wartościowanie
     description: Sprawdź, jak architektura stanowisk łączy się z porównywaniem pracy i polityką płacową.
   - title: Jak stworzyć strukturę stanowisk?
     url: /przewodnik/jak-stworzyc-strukture-stanowisk/
-    label: Przewodnik
     description: Krótkie wprowadzenie do projektowania spójnej struktury stanowisk.
   - title: Jak definiować poziomy stanowisk?
     url: /przewodnik/jak-definiowac-poziomy-stanowisk/
-    label: Przewodnik
     description: Zobacz, jak podejść do poziomów, aby były użyteczne operacyjnie.
 date: 2026-06-30
 publishLabel: Jak wybrać system

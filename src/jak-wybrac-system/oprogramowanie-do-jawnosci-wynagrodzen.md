@@ -19,23 +19,18 @@ faqSchema:
 relatedLinks:
   - title: Jak wybrać system
     url: /jak-wybrac-system/
-    label: Hub
     description: Zobacz wszystkie poradniki dla firm porównujących narzędzia i podejścia do wdrożenia.
   - title: Wdrożenie jawności wynagrodzeń w firmie
     url: /wdrozenie-jawnosci-wynagrodzen/
-    label: Wdrożenie
     description: Sprawdź, jak wygląda rzeczywisty zakres prac po wyborze narzędzia.
   - title: Dyrektywa o jawności wynagrodzeń – co oznacza dla firm?
     url: /dyrektywa-jawnosci-wynagrodzen/
-    label: Przepisy
     description: Zobacz, jakie obowiązki organizacja powinna uwzględnić przy wyborze systemu.
   - title: Główne funkcje
     url: /funkcje/
-    label: Produkt
     description: Poznaj moduły systemu wspierające strukturę stanowisk, dane pracowników i raportowanie.
   - title: Cennik
     url: /cennik/
-    label: Produkt
     description: Sprawdź, jak podejść do rozmowy o zakresie i dopasowaniu rozwiązania do firmy.
 date: 2026-06-30
 publishLabel: Jak wybrać system
