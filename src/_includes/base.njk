@@ -19,8 +19,9 @@
 {% set isServicesIndex = page.url == "/services/" %}
 {% set isServices = page.url and page.url.indexOf("/services/") == 0 %}
 {% set isGuide = page.url and page.url.indexOf("/przewodnik/") == 0 %}
-{% set isBlog = page.url and (page.url.indexOf("/aktualnosci/") == 0 or page.url.indexOf("/przewodnik/") == 0) %}
-{% set isBlogIndex = page.url == "/aktualnosci/" or page.url == "/przewodnik/" %}
+{% set isSystemSelection = page.url and page.url.indexOf("/jak-wybrac-system/") == 0 %}
+{% set isBlog = page.url and (page.url.indexOf("/aktualnosci/") == 0 or page.url.indexOf("/przewodnik/") == 0 or page.url.indexOf("/jak-wybrac-system/") == 0) %}
+{% set isBlogIndex = page.url == "/aktualnosci/" or page.url == "/przewodnik/" or page.url == "/jak-wybrac-system/" %}
 {% set isLegal = page.url == "/polityka-prywatnosci/" or page.url == "/regulamin/" %}
 {% set isStart = false %}
 {% set isContact = contactPage or page.url == "/pl/kontakt/" or page.url == "/kontakt/" or page.url == "/kontakt-wdrozenia/" or page.url == "/kontakt-wdrozenia/dziekujemy/" %}
@@ -2123,6 +2124,16 @@
         text-underline-offset: 0.16em;
       }
 
+      .prose a.btn,
+      .prose a.btn:hover {
+        text-decoration: none;
+      }
+
+      .prose a.btn-primary,
+      .prose a.btn-primary:hover {
+        color: oklch(0.982 0.018 155.826);
+      }
+
       .is-content:not(.is-blog):not(.is-services) .prose {
         max-width: 68ch;
       }
@@ -3656,8 +3667,9 @@
 
       .footer-upper {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 18px;
+        grid-template-columns: 72px repeat(3, minmax(150px, 210px));
+        justify-content: space-between;
+        gap: 32px 40px;
         min-height: 112px;
         margin-bottom: var(--space-lg);
         padding-bottom: var(--space-lg);
@@ -3673,30 +3685,11 @@
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
-        gap: 12px;
-      }
-
-      .footer-upper-logo {
-        display: inline-flex;
-        align-items: center;
-      }
-
-      .footer-upper-logo img {
-        display: block;
-        width: 34px;
-        height: auto;
       }
 
       .footer-gdpr-link {
         display: inline-flex;
         align-items: center;
-        margin-left: auto;
-      }
-
-      .footer-upper-column--gdpr {
-        display: flex;
-        align-items: flex-end;
-        justify-content: flex-end;
       }
 
       .footer-gdpr-link img {
@@ -3709,6 +3702,7 @@
         display: grid;
         gap: 10px;
         align-content: start;
+        max-width: 210px;
       }
 
       .footer-upper-title {
@@ -6326,6 +6320,7 @@
         .footer-upper {
           grid-template-columns: minmax(0, 1fr);
           min-height: 0;
+          gap: 24px;
         }
 
         .footer-links {
@@ -6553,15 +6548,10 @@
         }
 
         .footer-upper {
-          grid-template-columns: 56px minmax(0, 1fr) minmax(0, 1fr);
+          grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
           gap: 14px 12px;
           align-items: start;
-        }
-
-        .footer-upper-column--gdpr {
-          grid-column: 1 / -1;
-          justify-content: flex-start;
-          align-items: flex-start;
+          justify-content: initial;
         }
 
         .brand {
@@ -7641,9 +7631,18 @@
       <footer class="site-footer">
         <div class="container footer-upper">
           <div class="footer-upper-column footer-upper-column--brand">
-            <span class="footer-upper-logo">
-              <img src="/images/logo.svg" alt="" width="34" height="34" />
-            </span>
+            <a class="footer-gdpr-link" href="https://commission.europa.eu/law/law-topic/data-protection_en" target="_blank" rel="noopener noreferrer" aria-label="General Data Protection Regulation">
+              <img src="/images/gdpr.svg" alt="GDPR" width="56" height="56" />
+            </a>
+          </div>
+          <div class="footer-upper-column footer-upper-menu">
+            <p class="footer-upper-title">Jak wybrać system</p>
+            <ul class="footer-upper-list">
+              <li><a href="/jak-wybrac-system/oprogramowanie-do-jawnosci-wynagrodzen/">Oprogramowanie do jawności wynagrodzeń</a></li>
+              <li><a href="/jak-wybrac-system/system-do-raportowania-luki-placowej/">System do raportowania luki płacowej</a></li>
+              <li><a href="/jak-wybrac-system/oprogramowanie-do-architektury-stanowisk/">Oprogramowanie do architektury stanowisk</a></li>
+              <li><a href="/jak-wybrac-system/oprogramowanie-do-pay-equity/">Oprogramowanie do pay equity</a></li>
+            </ul>
           </div>
           <div class="footer-upper-column footer-upper-menu">
             <p class="footer-upper-title">Produkt</p>
@@ -7661,11 +7660,6 @@
               <li><a href="{{ loginUrl }}" target="_blank" rel="noopener noreferrer">Logowanie</a></li>
               <li><a href="{{ signupUrl }}" target="_blank" rel="noopener noreferrer" data-signup-conversion="true">Rejestracja</a></li>
             </ul>
-          </div>
-          <div class="footer-upper-column footer-upper-column--gdpr">
-            <a class="footer-gdpr-link" href="https://commission.europa.eu/law/law-topic/data-protection_en" target="_blank" rel="noopener noreferrer" aria-label="General Data Protection Regulation">
-              <img src="/images/gdpr.svg" alt="GDPR" width="56" height="56" />
-            </a>
           </div>
         </div>
         <div class="container footer-grid">

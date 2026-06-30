@@ -24,6 +24,10 @@ relatedLinks:
     url: /raportowanie-luki-placowej/
     label: Analiza danych
     description: Jak przygotować dane pracowników do raportowania i identyfikacji odchyleń.
+  - title: Jak wybrać oprogramowanie do jawności wynagrodzeń?
+    url: /jak-wybrac-system/oprogramowanie-do-jawnosci-wynagrodzen/
+    label: Jak wybrać system
+    description: Sprawdź, jakie kryteria warto porównać przed wyborem narzędzia do wdrożenia.
 render_with_liquid: false
 ---
 
